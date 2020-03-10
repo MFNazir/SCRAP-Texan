@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice type:</strong>
+  <%= @invoice_type.invoice_type %>
+</p>
+
+<p>
+  <strong>Invoice type desc:</strong>
+  <%= @invoice_type.invoice_type_desc %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_type_path(@invoice_type) %> |
+<%= link_to 'Back', invoice_types_path %>

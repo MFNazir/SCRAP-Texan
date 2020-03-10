@@ -1,0 +1,2 @@
+module InvoiceTypesHelper
+end

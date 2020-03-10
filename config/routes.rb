@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :invoice_statuses
+  resources :invoice_types
   resources :customer_vehicles
   resources :vehicle_statuses
   resources :customers
