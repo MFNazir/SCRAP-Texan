@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employee Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee status</th>
+      <th>Employee status desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employee_statuses.each do |employee_status| %>
+      <tr>
+        <td><%= employee_status.employee_status %></td>
+        <td><%= employee_status.employee_status_desc %></td>
+        <td><%= link_to 'Show', employee_status %></td>
+        <td><%= link_to 'Edit', edit_employee_status_path(employee_status) %></td>
+        <td><%= link_to 'Destroy', employee_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee Status', new_employee_status_path %>

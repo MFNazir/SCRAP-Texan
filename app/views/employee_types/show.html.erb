@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee type:</strong>
+  <%= @employee_type.employee_type %>
+</p>
+
+<p>
+  <strong>Employee type desc:</strong>
+  <%= @employee_type.employee_type_desc %>
+</p>
+
+<%= link_to 'Edit', edit_employee_type_path(@employee_type) %> |
+<%= link_to 'Back', employee_types_path %>

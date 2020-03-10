@@ -1,0 +1,22 @@
+<%= form_with(model: state_province, local: true) do |form| %>
+  <% if state_province.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(state_province.errors.count, "error") %> prohibited this state_province from being saved:</h2>
+
+      <ul>
+        <% state_province.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state_province_name %>
+    <%= form.text_field :state_province_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
