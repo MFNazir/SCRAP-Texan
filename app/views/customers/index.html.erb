@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dl number</th>
+      <th>Dl state</th>
+      <th>Cust f name</th>
+      <th>Cust m initial</th>
+      <th>Cust l name</th>
+      <th>Company</th>
+      <th>Cust address</th>
+      <th>Cust city</th>
+      <th>Zip code</th>
+      <th>Cust phone</th>
+      <th>Cust email</th>
+      <th>Dob</th>
+      <th>Dl picture</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Customer status</th>
+      <th>Customer type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.dl_number %></td>
+        <td><%= customer.dl_state %></td>
+        <td><%= customer.cust_f_name %></td>
+        <td><%= customer.cust_m_initial %></td>
+        <td><%= customer.cust_l_name %></td>
+        <td><%= customer.company %></td>
+        <td><%= customer.cust_address %></td>
+        <td><%= customer.cust_city %></td>
+        <td><%= customer.zip_code %></td>
+        <td><%= customer.cust_phone %></td>
+        <td><%= customer.cust_email %></td>
+        <td><%= customer.dob %></td>
+        <td><%= customer.dl_picture %></td>
+        <td><%= customer.state_province_id %></td>
+        <td><%= customer.country_id %></td>
+        <td><%= customer.customer_status_id %></td>
+        <td><%= customer.customer_type_id %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path %>

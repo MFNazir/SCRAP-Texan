@@ -1,0 +1,102 @@
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dl_number %>
+    <%= form.text_field :dl_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dl_state %>
+    <%= form.text_field :dl_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_f_name %>
+    <%= form.text_field :cust_f_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_m_initial %>
+    <%= form.text_field :cust_m_initial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_l_name %>
+    <%= form.text_field :cust_l_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_address %>
+    <%= form.text_field :cust_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_city %>
+    <%= form.text_field :cust_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_phone %>
+    <%= form.text_field :cust_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_email %>
+    <%= form.text_field :cust_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.date_select :dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dl_picture %>
+    <%= form.text_area :dl_picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_province_id %>
+    <%= form.text_field :state_province_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.text_field :country_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_status_id %>
+    <%= form.text_field :customer_status_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_type_id %>
+    <%= form.text_field :customer_type_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

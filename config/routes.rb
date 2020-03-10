@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :customer_vehicles
+  resources :vehicle_statuses
+  resources :customers
+  resources :customer_statuses
+  resources :customer_types
   resources :employees
   resources :employee_types
   resources :employee_statuses
