@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Metal Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metal type</th>
+      <th>Metal type desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @metal_types.each do |metal_type| %>
+      <tr>
+        <td><%= metal_type.metal_type %></td>
+        <td><%= metal_type.metal_type_desc %></td>
+        <td><%= link_to 'Show', metal_type %></td>
+        <td><%= link_to 'Edit', edit_metal_type_path(metal_type) %></td>
+        <td><%= link_to 'Destroy', metal_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Metal Type', new_metal_type_path %>

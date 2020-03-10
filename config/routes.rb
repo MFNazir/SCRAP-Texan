@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :metal_types
   resources :invoice_statuses
   resources :invoice_types
   resources :customer_vehicles

@@ -1,0 +1,2 @@
+class MetalType < ApplicationRecord
+end
