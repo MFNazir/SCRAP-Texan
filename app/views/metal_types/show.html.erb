@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Metal type:</strong>
+  <%= @metal_type.metal_type %>
+</p>
+
+<p>
+  <strong>Metal type desc:</strong>
+  <%= @metal_type.metal_type_desc %>
+</p>
+
+<%= link_to 'Edit', edit_metal_type_path(@metal_type) %> |
+<%= link_to 'Back', metal_types_path %>

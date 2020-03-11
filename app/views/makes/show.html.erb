@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make name:</strong>
+  <%= @make.make_name %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @make.manufacturer_id %>
+</p>
+
+<%= link_to 'Edit', edit_make_path(@make) %> |
+<%= link_to 'Back', makes_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: vehicle_status, local: true) do |form| %>
+  <% if vehicle_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vehicle_status.errors.count, "error") %> prohibited this vehicle_status from being saved:</h2>
+
+      <ul>
+        <% vehicle_status.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :vehicle_status %>
+    <%= form.text_field :vehicle_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vehicle_status_desc %>
+    <%= form.text_field :vehicle_status_desc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

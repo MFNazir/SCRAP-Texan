@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee status:</strong>
+  <%= @employee_status.employee_status %>
+</p>
+
+<p>
+  <strong>Employee status desc:</strong>
+  <%= @employee_status.employee_status_desc %>
+</p>
+
+<%= link_to 'Edit', edit_employee_status_path(@employee_status) %> |
+<%= link_to 'Back', employee_statuses_path %>

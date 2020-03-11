@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Invoice Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice type</th>
+      <th>Invoice type desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoice_types.each do |invoice_type| %>
+      <tr>
+        <td><%= invoice_type.invoice_type %></td>
+        <td><%= invoice_type.invoice_type_desc %></td>
+        <td><%= link_to 'Show', invoice_type %></td>
+        <td><%= link_to 'Edit', edit_invoice_type_path(invoice_type) %></td>
+        <td><%= link_to 'Destroy', invoice_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invoice Type', new_invoice_type_path %>

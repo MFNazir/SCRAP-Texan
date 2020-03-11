@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @customer_vehicle.year %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @customer_vehicle.color %>
+</p>
+
+<p>
+  <strong>License plate number:</strong>
+  <%= @customer_vehicle.license_plate_number %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @customer_vehicle.make_id %>
+</p>
+
+<p>
+  <strong>Vehicle status:</strong>
+  <%= @customer_vehicle.vehicle_status_id %>
+</p>
+
+<p>
+  <strong>State province:</strong>
+  <%= @customer_vehicle.state_province_id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_vehicle.customer_id %>
+</p>
+
+<%= link_to 'Edit', edit_customer_vehicle_path(@customer_vehicle) %> |
+<%= link_to 'Back', customer_vehicles_path %>

@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @invoice.invoice_number %>
+</p>
+
+<p>
+  <strong>Invoice date time:</strong>
+  <%= @invoice.invoice_date_time %>
+</p>
+
+<p>
+  <strong>Material image:</strong>
+  <%= @invoice.material_image %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metal Item Description:</th>
+      <th>Metal Item Quantity:</th>
+      <th>Metal Item Unit Price:</th>
+      <th>Metal Type:</th>
+      <th>Unit Total:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% running_total = 0 %>
+    <% @invoice.metal_items.each do |metalitem| %>
+      <tr>
+        <td><%= metalitem.metal_item_desc %></td>
+        <td><%= metalitem.net_weight %></td>
+        <td><%= metalitem.unit_price %></td>
+        <td><%= metalitem.metal_type_id %></td>
+        <td><%= metalitem.net_weight * metalitem.unit_price %></td>
+        <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @invoice.customer_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @invoice.employee_id %>
+</p>
+
+<p>
+  <strong>Invoice type:</strong>
+  <%= @invoice.invoice_type_id %>
+</p>
+
+<p>
+  <strong>Invoice status:</strong>
+  <%= @invoice.invoice_status_id %>
+</p>
+
+<p>
+  <strong>Invoice Total:</strong>
+  <%= running_total %>
+</p>
+
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

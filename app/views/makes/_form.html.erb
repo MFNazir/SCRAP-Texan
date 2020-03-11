@@ -1,0 +1,27 @@
+<%= form_with(model: make, local: true) do |form| %>
+  <% if make.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(make.errors.count, "error") %> prohibited this make from being saved:</h2>
+
+      <ul>
+        <% make.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :make_name %>
+    <%= form.text_field :make_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manufacturer_id %>
+    <%= form.collection_select :manufacturer_id, Manufacturer.all, :id, :manufacturer_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save Make', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee first name:</strong>
+  <%= @employee.employee_first_name %>
+</p>
+
+<p>
+  <strong>Employee middle initial:</strong>
+  <%= @employee.employee_middle_initial %>
+</p>
+
+<p>
+  <strong>Employee last name:</strong>
+  <%= @employee.employee_last_name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @employee.phone_number %>
+</p>
+
+<p>
+  <strong>Home phone:</strong>
+  <%= @employee.home_phone %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @employee.dob %>
+</p>
+
+<p>
+  <strong>Email emp:</strong>
+  <%= @employee.email_emp %>
+</p>
+
+<p>
+  <strong>Emp address:</strong>
+  <%= @employee.emp_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @employee.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @employee.zip %>
+</p>
+
+<p>
+  <strong>State province:</strong>
+  <%= @employee.state_province_id %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @employee.country_id %>
+</p>
+
+<p>
+  <strong>Employee type:</strong>
+  <%= @employee.employee_type_id %>
+</p>
+
+<p>
+  <strong>Employee status:</strong>
+  <%= @employee.employee_status_id %>
+</p>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: customer_status, local: true) do |form| %>
+  <% if customer_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_status.errors.count, "error") %> prohibited this customer_status from being saved:</h2>
+
+      <ul>
+        <% customer_status.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :customer_status %>
+    <%= form.text_field :customer_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_status_desc %>
+    <%= form.text_field :customer_status_desc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

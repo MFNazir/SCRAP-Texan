@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee first name</th>
+      <th>Employee middle initial</th>
+      <th>Employee last name</th>
+      <th>Phone number</th>
+      <th>Home phone</th>
+      <th>Dob</th>
+      <th>Email emp</th>
+      <th>Emp address</th>
+      <th>City</th>
+      <th>Zip</th>
+      <th>State province</th>
+      <th>Country</th>
+      <th>Employee type</th>
+      <th>Employee status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.employee_first_name %></td>
+        <td><%= employee.employee_middle_initial %></td>
+        <td><%= employee.employee_last_name %></td>
+        <td><%= employee.phone_number %></td>
+        <td><%= employee.home_phone %></td>
+        <td><%= employee.dob %></td>
+        <td><%= employee.email_emp %></td>
+        <td><%= employee.emp_address %></td>
+        <td><%= employee.city %></td>
+        <td><%= employee.zip %></td>
+        <td><%= employee.state_province_id %></td>
+        <td><%= employee.country_id %></td>
+        <td><%= employee.employee_type_id %></td>
+        <td><%= employee.employee_status_id %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Employee', new_employee_path %>

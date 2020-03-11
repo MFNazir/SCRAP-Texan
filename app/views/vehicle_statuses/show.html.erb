@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle status:</strong>
+  <%= @vehicle_status.vehicle_status %>
+</p>
+
+<p>
+  <strong>Vehicle status desc:</strong>
+  <%= @vehicle_status.vehicle_status_desc %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_status_path(@vehicle_status) %> |
+<%= link_to 'Back', vehicle_statuses_path %>

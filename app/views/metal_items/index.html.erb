@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Metal Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metal item desc</th>
+      <th>Net weight</th>
+      <th>Unit price</th>
+      <th>Metal type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @metal_items.each do |metal_item| %>
+      <tr>
+        <td><%= metal_item.metal_item_desc %></td>
+        <td><%= metal_item.net_weight %></td>
+        <td><%= metal_item.unit_price %></td>
+        <td><%= metal_item.metal_type_id %></td>
+        <td><%= link_to 'Show', metal_item %></td>
+        <td><%= link_to 'Edit', edit_metal_item_path(metal_item) %></td>
+        <td><%= link_to 'Destroy', metal_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Metal Item', new_metal_item_path %>

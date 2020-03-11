@@ -61,6 +61,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
+    cocoon (1.2.14)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
     dotenv (2.7.5)
@@ -173,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  cocoon
   dotenv-rails (~> 2.1, >= 2.1.1)
   jbuilder (~> 2.7)
   pg (>= 0.18, < 2.0)
@@ -185,7 +187,7 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.3p62
 
 BUNDLED WITH
    2.0.2
