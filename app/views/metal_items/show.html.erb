@@ -4,6 +4,10 @@
   <strong>Metal item desc:</strong>
   <%= @metal_item.metal_item_desc %>
 </p>
+<p>
+  <strong>Metal type:</strong>
+  <%= @metal_item.metal_type_id %>
+</p>
 
 <p>
   <strong>Net weight:</strong>
@@ -16,9 +20,10 @@
 </p>
 
 <p>
-  <strong>Metal type:</strong>
-  <%= @metal_item.metal_type_id %>
+  <strong>Unit Total:</strong>
+   <%= @metal_item.net_weight * @metal_item.unit_price %>
 </p>
+
 
 <%= link_to 'Edit', edit_metal_item_path(@metal_item) %> |
 <%= link_to 'Back', metal_items_path %>

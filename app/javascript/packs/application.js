@@ -10,6 +10,8 @@ require("channels")
 require('jquery')
 import "bootstrap";
 import "../stylesheets/application"
+import "cocoon";
+
 
 
 document.addEventListener("turbolinks:load", () => {

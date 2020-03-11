@@ -1,0 +1,27 @@
+<div class="nested-fields">
+
+    <div class="field">
+    <%= f.label :metal_item_desc %>
+    <%= f.text_field :metal_item_desc %>
+  </div>
+
+  <div class="field">
+    <%= f.label :net_weight %>
+    <%= f.number_field :net_weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit_price %>
+    <%= f.number_field :unit_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :metal_type_id %>
+    <%= f.text_field :metal_type_id %>
+  </div>
+  
+  <div class="field">
+    <%= link_to_remove_association 'Remove A Metal Item', f%>
+  </div>
+
+</div>

@@ -21,6 +21,8 @@
     <%= form.datetime_select :invoice_date_time %>
   </div>
 
+  
+
   <div class="field">
     <%= form.label :material_image %>
     <%= form.text_area :material_image %>
@@ -44,6 +46,14 @@
   <div class="field">
     <%= form.label :invoice_status_id %>
     <%= form.text_field :invoice_status_id %>
+  </div>
+  <div id="metal_items">
+      <%= form.fields_for :metal_items do |metalitem| %>
+         <%= render 'metal_item_fields', :f => metalitem %>
+      <% end %>
+      <div class="links">
+          <%= link_to_add_association 'Add A Metal Item', form, :metal_items %>
+      </div>
   </div>
 
   <div class="actions">
