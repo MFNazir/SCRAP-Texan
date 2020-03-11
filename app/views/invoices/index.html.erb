@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  });
+</script>
 
 <h1>Invoices</h1>
+<div class="container">
 
-<table>
+<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
   <thead>
     <tr>
       <th>Invoice number</th>
+      <th>Invoice desc</th>
       <th>Invoice date time</th>
       <th>Material image</th>
       <th>Customer</th>
       <th>Employee</th>
       <th>Invoice type</th>
       <th>Invoice status</th>
-      <th colspan="3"></th>
+      <th>View Invoice</th>
+      <th>Edit Invoice</th>
+      <th>Delete Invoice </th>
     </tr>
   </thead>
 
@@ -20,6 +29,7 @@
     <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.invoice_number %></td>
+        <td><%= invoice.invoice_desc %></td>
         <td><%= invoice.invoice_date_time %></td>
         <td><%= invoice.material_image %></td>
         <td><%= invoice.customer_id %></td>
@@ -33,7 +43,12 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 
 <%= link_to 'New Invoice', new_invoice_path %>
+
+
+
+
