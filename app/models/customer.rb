@@ -3,4 +3,6 @@ class Customer < ApplicationRecord
   belongs_to :country
   belongs_to :customer_status
   belongs_to :customer_type
+  has_many :invoices
+
 end

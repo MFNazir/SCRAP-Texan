@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Metal item desc:</strong>
+  <%= @metal_item.metal_item_desc %>
+</p>
+
+<p>
+  <strong>Net weight:</strong>
+  <%= @metal_item.net_weight %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @metal_item.unit_price %>
+</p>
+
+<p>
+  <strong>Metal type:</strong>
+  <%= @metal_item.metal_type_id %>
+</p>
+
+<%= link_to 'Edit', edit_metal_item_path(@metal_item) %> |
+<%= link_to 'Back', metal_items_path %>
