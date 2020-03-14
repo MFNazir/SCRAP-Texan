@@ -6,17 +6,15 @@
 </script>
 
 <h1>Invoices</h1>
-<div class="container">
+<div class="container"  style="max-width: 1000px">
 
-<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+<table id="example" class="table table-striped table-bordered" style="max-width: 1000px;">
   <thead>
     <tr>
       <th>Invoice number</th>
       <th>Invoice desc</th>
       <th>Invoice date time</th>
-      <th>Material image</th>
       <th>Customer</th>
-      <th>Employee</th>
       <th>Invoice type</th>
       <th>Invoice status</th>
       <th>View Invoice</th>
@@ -31,9 +29,7 @@
         <td><%= invoice.invoice_number %></td>
         <td><%= invoice.invoice_desc %></td>
         <td><%= invoice.invoice_date_time %></td>
-        <td><%= invoice.material_image %></td>
         <td><%= invoice.customer_id %></td>
-        <td><%= invoice.employee_id %></td>
         <td><%= invoice.invoice_type_id %></td>
         <td><%= invoice.invoice_status_id %></td>
         <td><%= link_to 'Show', invoice %></td>
@@ -43,6 +39,7 @@
     <% end %>
   </tbody>
 </table>
+
 </div>
 
 <br>
