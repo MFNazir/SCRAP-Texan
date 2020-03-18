@@ -11,8 +11,10 @@
     </div>
   <% end %>
 
+
 <div class="album text-white">
 <div class="row">
+
     <div class="col-md-6 text-white">
 
         <div class="form-group">
@@ -72,19 +74,22 @@
   <hr class="new1">
 
 
-    <div class="col-sm-12">
+    <div class="col-sm-6">
+        <h2>Add Metal Item:</h2>
       <div id="metal_items">
           <%= form.fields_for :metal_items do |metalitem| %>
             <%= render 'metal_item_fields', :f => metalitem %>
           <% end %>
           <div class="links">
-              <%= link_to_add_association 'Add A Metal Item', form, :metal_items %>
+              <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-secondary text-white' %>
           </div>
       </div>
-
-      <div class="actions">
-        <%= form.submit %>
-      </div>
+      <br>
     </div>
+    <div class="col-sm-12">
+      <div class="form-group text-white">
+        <%= form.submit'Create Invoice', class: 'btn btn-secondary btn-block' %>
+      </div>
+     </div> 
  </div>    
 <% end %>
