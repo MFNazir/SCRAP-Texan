@@ -1,29 +1,104 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container portfolio-container text-white">
+<hr class="new1">
+<div class="album text-white">
+<div class="row">
+
+    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100) %></h2></div>
+    <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+    </div>
+    <div class="col-md-3 text-white">
+          <p> <strong>Invoice Number:</strong> <%= @invoice.invoice_number %> </p>
+          <p> <strong>Invoice Date/Time: </strong> 
+          <br>
+          <%= @invoice.invoice_date_time.to_formatted_s(:long_ordinal) %> 
+          <p> <strong>Invoice Type: </strong>
+           <%= @invoice.invoice_type.invoice_type %>
+          </p>
+    
+    </div>
+</div>
+
+<hr class="new1">
+
+<h2>Customer Information: </h2>
 <p>
-  <strong>Invoice number:</strong>
-  <%= @invoice.invoice_number %>
+  <strong>Customer Name:</strong>
+  <%= @invoice.customer.cust_f_name %>
+  <%= @invoice.customer.cust_m_initial %>
+  <%= @invoice.customer.cust_l_name %>
 </p>
 
 <p>
-  <strong>Invoice date time:</strong>
-  <%= @invoice.invoice_date_time %>
+  <strong>Drivers License Number:</strong>
+  <%= @invoice.customer.dl_number %>
 </p>
 
 <p>
-  <strong>Material image:</strong>
-  <%= @invoice.material_image %>
+  <strong>Date of Birth:</strong>
+  <%= @invoice.customer.dob %>
 </p>
+
+<p>
+  <strong>Customer Address:</strong>
+  <%= @invoice.customer.cust_address %>,
+  <%= @invoice.customer.cust_city %>,
+  <%= @invoice.customer.state_province.state_province_name %> 
+  <%= @invoice.customer.zip_code %>
+
+</p>
+
+<hr class="new1">
+<h2>Customer Vehicle Information: </h2>
+<table class="table table-dark table-hover text-center table-sm text-nowrap" >
+
+  <thead>
+    <tr>
+      <th>Vehicle Year</th>
+      <th>Vehicle Color</th>
+      <th>License Plate Number</th>
+      <th>Registration State</th>
+      <th>Vehicle Make</th>
+      <th>Vehicle Manufacturer</th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @invoice.customer.customer_vehicles.each do |cv| %>
+      <tr>
+        <td><%= cv.year %></td>
+        <td><%= cv.color %></td>
+        <td><%= cv.license_plate_number %></td>
+        <td><%= cv.state_province.state_province_name %></td>
+        <td><%= cv.make.make_name %></td>
+        <td><%= cv.make.manufacturer.manufacturer_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr class="new1">
+<h2>Metal Item Information: </h2>
 
 <table>
   <thead>
     <tr>
-      <th>Metal Item Description:</th>
-      <th>Metal Item Quantity:</th>
-      <th>Metal Item Unit Price:</th>
-      <th>Metal Type:</th>
-      <th>Unit Total:</th>
-      <th colspan="3"></th>
+      <th>Metal Item Description</th>
+      <th>Metal Item Quantity</th>
+      <th>Metal Item Unit Price</th>
+      <th>Metal Type</th>
+      <th>Unit Total</th>
     </tr>
   </thead>
 
@@ -33,9 +108,9 @@
       <tr>
         <td><%= metalitem.metal_item_desc %></td>
         <td><%= metalitem.net_weight %></td>
-        <td><%= metalitem.unit_price %></td>
+        <td><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
         <td><%= metalitem.metal_type_id %></td>
-        <td><%= metalitem.net_weight * metalitem.unit_price %></td>
+        <td><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
         <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
       </tr>
     <% end %>
@@ -43,30 +118,21 @@
 </table>
 
 <p>
-  <strong>Customer:</strong>
-  <%= @invoice.customer_id %>
-</p>
-
-<p>
   <strong>Employee:</strong>
   <%= @invoice.employee_id %>
 </p>
 
-<p>
-  <strong>Invoice type:</strong>
-  <%= @invoice.invoice_type_id %>
-</p>
-
-<p>
-  <strong>Invoice status:</strong>
-  <%= @invoice.invoice_status_id %>
-</p>
 
 <p>
   <strong>Invoice Total:</strong>
-  <%= running_total %>
+  <%= number_to_currency(running_total, precision: 2) %>
 </p>
 
+</div>
+<p>
+  <strong>Material image:</strong>
+  <%= @invoice.material_image %>
+</p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

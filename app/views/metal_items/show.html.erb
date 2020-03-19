@@ -16,12 +16,12 @@
 
 <p>
   <strong>Unit price:</strong>
-  <%= @metal_item.unit_price %>
+  <%= number_to_currency(@metal_item.unit_price, precision: 2) %>
 </p>
 
 <p>
   <strong>Unit Total:</strong>
-   <%= @metal_item.net_weight * @metal_item.unit_price %>
+   <%= number_to_currency(@metal_item.net_weight * @metal_item.unit_price, precision: 2) %>
 </p>
 
 
