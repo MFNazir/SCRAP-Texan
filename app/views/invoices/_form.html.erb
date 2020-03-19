@@ -11,52 +11,85 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :invoice_number %>
-    <%= form.number_field :invoice_number %>
-  </div>
 
-  <div class="field">
-    <%= form.label :invoice_date_time %>
-    <%= form.datetime_select :invoice_date_time %>
-  </div>
+<div class="album text-white">
+<div class="row">
 
+    <div class="col-md-6 text-white">
+
+        <div class="form-group">
+          <%= form.label :invoice_number, "Invoice Number" %>
+          <%= form.number_field :invoice_number, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :invoice_desc, "Invoice Description:" %>
+          <%= form.text_area :invoice_desc, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :invoice_date_time, "Invoice Date/Time:" %>
+          <br>
+          <%= form.datetime_select :invoice_date_time, class: 'form-control' %>
+        </div>
+
+        
+        <div class="form-group">
+          <%= form.label :material_image %>
+          <%= form.text_area :material_image, class: 'form-control' %>
+        </div>
+
+    </div>
+
+    <div class="col-md-6 text-white">
+
+        <div class="form-group">
+          <%= form.label :customer_id, "Select Customer" %>
+          <br>
+          <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :employee_id, "Select Employee" %>
+          <br>
+          <%= form.collection_select :employee_id, Employee.all, :id, :employee_first_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :invoice_type_id, "Invoice Type" %>
+          <br>
+          <%= form.collection_select :invoice_type_id, InvoiceType.all, :id, :invoice_type, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :invoice_status_id, "Invoice Status" %>
+          <br>
+          <%= form.collection_select :invoice_status_id, InvoiceStatus.all, :id, :invoice_status, class: 'form-control' %>
+        </div>
+      
+    </div>
+  
+  </div> 
+
+  <hr class="new1">
   
 
-  <div class="field">
-    <%= form.label :material_image %>
-    <%= form.text_area :material_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employee_id %>
-    <%= form.text_field :employee_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :invoice_type_id %>
-    <%= form.text_field :invoice_type_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :invoice_status_id %>
-    <%= form.text_field :invoice_status_id %>
-  </div>
-  <div id="metal_items">
-      <%= form.fields_for :metal_items do |metalitem| %>
-         <%= render 'metal_item_fields', :f => metalitem %>
-      <% end %>
-      <div class="links">
-          <%= link_to_add_association 'Add A Metal Item', form, :metal_items %>
+    <div class="col-sm-6">
+        <h2>Add Metal Item:</h2>
+      <div id="metal_items">
+          <%= form.fields_for :metal_items do |metalitem| %>
+            <%= render 'metal_item_fields', :f => metalitem %>
+          <% end %>
+          <div class="links">
+              <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-secondary text-white' %>
+          </div>
       </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <br>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group text-white">
+        <%= form.submit'Create Invoice', class: 'btn btn-secondary btn-block' %>
+      </div>
+     </div> 
+ </div>    
 <% end %>

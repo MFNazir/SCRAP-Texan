@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :line_items
   resources :metal_items
   resources :invoices
+  root to:  'invoices#index'
   resources :metal_types
   resources :invoice_statuses
   resources :invoice_types
