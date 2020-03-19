@@ -23,9 +23,16 @@ h6, .h6 {
 .table td {
   font-size: 11px;
 }
+.table th {
+  color: black;
+}
 
 hr.new1 {
   border-top: 1px solid grey;
+}
+
+p.new1 {
+  float: right;
 }
 
 #background {

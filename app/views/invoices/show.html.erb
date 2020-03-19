@@ -5,7 +5,7 @@
 <div class="album text-white">
 <div class="row">
 
-    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100) %></h2></div>
+    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
     <div class="col-md-6 text-white text-center">
           <a>
           <strong>Texas Scrap Metal</strong>
@@ -26,7 +26,11 @@
           <p> <strong>Invoice Type: </strong>
            <%= @invoice.invoice_type.invoice_type %>
           </p>
-    
+          <p> <strong>Created By: </strong>
+          <br>
+            <%= @invoice.employee.employee_first_name %>
+            <%= @invoice.employee.employee_last_name %>
+          </p>
     </div>
 </div>
 
@@ -47,7 +51,7 @@
 
 <p>
   <strong>Date of Birth:</strong>
-  <%= @invoice.customer.dob %>
+  <%= @invoice.customer.dob.to_formatted_s(:long_ordinal) %>
 </p>
 
 <p>
@@ -64,7 +68,7 @@
 <table class="table table-dark table-hover text-center table-sm text-nowrap" >
 
   <thead>
-    <tr>
+    <tr class="table-dark">
       <th>Vehicle Year</th>
       <th>Vehicle Color</th>
       <th>License Plate Number</th>
@@ -91,11 +95,11 @@
 <hr class="new1">
 <h2>Metal Item Information: </h2>
 
-<table>
+<table class="table table-dark table-hover text-center table-sm text-nowrap">
   <thead>
-    <tr>
+    <tr class="table-dark">
       <th>Metal Item Description</th>
-      <th>Metal Item Quantity</th>
+      <th>Metal Item Net Weight</th>
       <th>Metal Item Unit Price</th>
       <th>Metal Type</th>
       <th>Unit Total</th>
@@ -107,32 +111,33 @@
     <% @invoice.metal_items.each do |metalitem| %>
       <tr>
         <td><%= metalitem.metal_item_desc %></td>
-        <td><%= metalitem.net_weight %></td>
+        <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
         <td><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
-        <td><%= metalitem.metal_type_id %></td>
+        <td><%= metalitem.metal_type.metal_type %></td>
         <td><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
         <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<div class="row">
 
-<p>
-  <strong>Employee:</strong>
-  <%= @invoice.employee_id %>
-</p>
-
-
-<p>
-  <strong>Invoice Total:</strong>
-  <%= number_to_currency(running_total, precision: 2) %>
-</p>
-
+    <div class="col-md-4 text-white"></div>
+    <div class="col-md-5 text-white text-center"></div>
+    <div class="col-md-3 text-white">
+          <p class="new1">
+            <strong>Invoice Total: <%= number_to_currency(running_total, precision: 2) %></h6>
+                
+          </p>
+    </div>
 </div>
+
+<hr class="new1">
+<h2>Metal Image: </h2>
 <p>
   <strong>Material image:</strong>
   <%= @invoice.material_image %>
 </p>
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+<%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' %>

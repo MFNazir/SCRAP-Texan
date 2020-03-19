@@ -27,7 +27,7 @@
 <table id="example" class="table table-dark table-hover table-lg text-nowrap" data-turbolinks="false" >
 
   <thead>
-    <tr>
+    <tr class="table-dark text-center">
       <th>Invoice #</th>
       <th>Invoice Desc.</th>
       <th>Invoice Date</th>
@@ -42,7 +42,7 @@
 
   <tbody >
     <% @invoices.each do |invoice| %>
-      <tr>
+      <tr class="text-center">
         <td><%= invoice.invoice_number %></td>
         <td><%= invoice.invoice_desc %></td>
         <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
