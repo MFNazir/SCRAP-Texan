@@ -29,17 +29,17 @@
 
     <div class="col-md-4 text-white">
             <p>
-              <strong>Cust f name:</strong>
+              <strong>Customer First Name:</strong>
               <%= @customer.cust_f_name %>
             </p>
 
             <p>
-              <strong>Cust m initial:</strong>
+              <strong>Customer Middle Initial:</strong>
               <%= @customer.cust_m_initial %>
             </p>
 
             <p>
-              <strong>Cust l name:</strong>
+              <strong>Customer Last Name:</strong>
               <%= @customer.cust_l_name %>
             </p>
 
@@ -49,66 +49,67 @@
             </p>
 
             <p>
-              <strong>Dl number:</strong>
+              <strong>Drivers License Number:</strong>
               <%= @customer.dl_number %>
             </p>
 
             <p>
-              <strong>Dl state:</strong>
+              <strong>Drivers License State:</strong>
               <%= @customer.dl_state %>
             </p>
     </div>
     <div class="col-md-4 text-white">
           <p>
-            <strong>Cust address:</strong>
+            <strong>Customer Address:</strong>
+            <br>
             <%= @customer.cust_address %>
           </p>
 
           <p>
-            <strong>Cust city:</strong>
+            <strong>City:</strong>
             <%= @customer.cust_city %>
           </p>
 
           <p>
-            <strong>State province:</strong>
-            <%= @customer.state_province_id %>
+            <strong>State:</strong>
+            <%= @customer.state_province.state_province_name %>
           </p>
 
           <p>
             <strong>Country:</strong>
-            <%= @customer.country_id %>
+            <%= @customer.country.country_name %>
           </p>
 
           <p>
-            <strong>Zip code:</strong>
+            <strong>Zip Code:</strong>
             <%= @customer.zip_code %>
           </p>
     </div>
     <div class="col-md-4 text-white">
         <p>
-          <strong>Dob:</strong>
-          <%= @customer.dob %>
+          <strong>Date of Birth:</strong>
+          <%= @customer.dob.to_formatted_s(:long_ordinal) %>
         </p>
 
 
         <p>
-          <strong>Cust phone:</strong>
+          <strong>Customer Phone:</strong>
           <%= @customer.cust_phone %>
         </p>
 
         <p>
-          <strong>Cust email:</strong>
+          <strong>Customer E-Mail:</strong>
           <%= @customer.cust_email %>
         </p>
 
         <p>
-          <strong>Customer status:</strong>
-          <%= @customer.customer_status_id %>
+          <strong>Customer Status:</strong>
+          <%= @customer.customer_status.customer_status %>
         </p>
 
         <p>
-          <strong>Customer type:</strong>
-          <%= @customer.customer_type_id %>
+          <strong>Customer Type:</strong>
+          <%= @customer.customer_type.customer_type %>
         </p>
       </div>
   </div>
