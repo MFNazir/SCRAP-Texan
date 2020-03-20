@@ -1,5 +1,14 @@
-<h1>New Customer Vehicle</h1>
+<div class="container portfolio-container text-white">
+
+<h1>Add Customer Vehicle</h1>
+
+<br>
+
+<%= link_to 'Back', customer_vehicles_path, class: 'btn btn-outline-secondary text-white' %>
+
+
+<hr class="new1">
 
 <%= render 'form', customer_vehicle: @customer_vehicle %>
 
-<%= link_to 'Back', customer_vehicles_path %>
+</div>
