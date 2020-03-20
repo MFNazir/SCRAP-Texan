@@ -1,65 +1,63 @@
 <p id="notice"><%= notice %></p>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#example').DataTable();
-    
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
   });
 </script>
 
-<h1>Customers</h1>
+<div class="container text-white">
+<div class="album text-white">
 
-<table>
+<h1>Manage Customers</h1>
+
+<%= link_to 'New Customer', new_customer_path, class: 'btn btn-outline-secondary text-white' %>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Dl number</th>
-      <th>Dl state</th>
-      <th>Cust f name</th>
-      <th>Cust m initial</th>
-      <th>Cust l name</th>
-      <th>Company</th>
-      <th>Cust address</th>
-      <th>Cust city</th>
-      <th>Zip code</th>
-      <th>Cust phone</th>
-      <th>Cust email</th>
-      <th>Dob</th>
-      <th>Dl picture</th>
-      <th>State province</th>
-      <th>Country</th>
-      <th>Customer status</th>
-      <th>Customer type</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>DL Number</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Customer Status</th>
+      <th>Customer Type</th>
+      <th>View Customer</th>
+      <th>Edit Customer</th>
+      <th>Delete Customer</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.dl_number %></td>
-        <td><%= customer.dl_state %></td>
         <td><%= customer.cust_f_name %></td>
-        <td><%= customer.cust_m_initial %></td>
         <td><%= customer.cust_l_name %></td>
-        <td><%= customer.company %></td>
+        <td><%= customer.dl_number %></td>
         <td><%= customer.cust_address %></td>
         <td><%= customer.cust_city %></td>
-        <td><%= customer.zip_code %></td>
         <td><%= customer.cust_phone %></td>
-        <td><%= customer.cust_email %></td>
-        <td><%= customer.dob %></td>
-        <td><%= customer.dl_picture %></td>
-        <td><%= customer.state_province_id %></td>
-        <td><%= customer.country_id %></td>
         <td><%= customer.customer_status_id %></td>
         <td><%= customer.customer_type_id %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', customer, class: 'btn btn-info btn-sm text-white' %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-sm'  %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
+</div>
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>

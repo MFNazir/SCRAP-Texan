@@ -1,0 +1,41 @@
+<div class=" form-group nested-fields ">
+
+
+<div class="field">
+    <%= f.label :year, "Vehicle Year" %>
+    <%= f.text_field :year, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color, "Vehicle Color" %>
+    <%= f.text_field :color, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :license_plate_number, "Vehicle License Plate Number" %>
+    <%= f.text_field :license_plate_number, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_province_id, "Vehicle LP State" %>
+    <br>
+    <%= f.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :make_id, "Vehicle Make" %>
+    <br>
+    <%= f.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vehicle_status_id, "Vehicle Status" %>
+    <br>
+    <%= f.collection_select :vehicle_status_id, VehicleStatus.all, :id, :vehicle_status, class: 'form-control' %>
+  </div>
+
+   <div class="field">
+    <%= link_to_remove_association 'Remove Customer Vehicle', f, class: 'btn btn-outline-danger text-white'%>
+  </div>
+
+</div>

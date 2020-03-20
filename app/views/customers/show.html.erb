@@ -1,89 +1,183 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Dl number:</strong>
-  <%= @customer.dl_number %>
-</p>
+
+<div class="container portfolio-container text-white">
+<hr class="new1">
+<div class="album text-white">
+<div class="row">
+
+    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+    <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+    </div>
+    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+</div>
+
+<hr class="new1">
+
+<h2>Customer Information: </h2>
+<div class="row">
+
+    <div class="col-md-4 text-white">
+            <p>
+              <strong>Customer First Name:</strong>
+              <%= @customer.cust_f_name %>
+            </p>
+
+            <p>
+              <strong>Customer Middle Initial:</strong>
+              <%= @customer.cust_m_initial %>
+            </p>
+
+            <p>
+              <strong>Customer Last Name:</strong>
+              <%= @customer.cust_l_name %>
+            </p>
+
+            <p>
+              <strong>Company:</strong>
+              <%= @customer.company %>
+            </p>
+
+            <p>
+              <strong>Drivers License Number:</strong>
+              <%= @customer.dl_number %>
+            </p>
+
+            <p>
+              <strong>Drivers License State:</strong>
+              <%= @customer.dl_state %>
+            </p>
+    </div>
+    <div class="col-md-4 text-white">
+          <p>
+            <strong>Customer Address:</strong>
+            <br>
+            <%= @customer.cust_address %>
+          </p>
+
+          <p>
+            <strong>City:</strong>
+            <%= @customer.cust_city %>
+          </p>
+
+          <p>
+            <strong>State:</strong>
+            <%= @customer.state_province.state_province_name %>
+          </p>
+
+          <p>
+            <strong>Country:</strong>
+            <%= @customer.country.country_name %>
+          </p>
+
+          <p>
+            <strong>Zip Code:</strong>
+            <%= @customer.zip_code %>
+          </p>
+    </div>
+    <div class="col-md-4 text-white">
+        <p>
+          <strong>Date of Birth:</strong>
+          <%= @customer.dob.to_formatted_s(:long_ordinal) %>
+        </p>
+
+
+        <p>
+          <strong>Customer Phone:</strong>
+          <%= @customer.cust_phone %>
+        </p>
+
+        <p>
+          <strong>Customer E-Mail:</strong>
+          <%= @customer.cust_email %>
+        </p>
+
+        <p>
+          <strong>Customer Status:</strong>
+          <%= @customer.customer_status.customer_status %>
+        </p>
+
+        <p>
+          <strong>Customer Type:</strong>
+          <%= @customer.customer_type.customer_type %>
+        </p>
+      </div>
+  </div>
+
+<hr class="new1">
+<h2>Customer Vehicle Information: </h2>
+    <table class="table table-dark table-hover text-center table-sm text-nowrap" >
+
+      <thead>
+        <tr class="table-dark">
+          <th>Vehicle Year</th>
+          <th>Vehicle Color</th>
+          <th>License Plate Number</th>
+          <th>Registration State</th>
+          <th>Vehicle Make</th>
+          <th>Vehicle Manufacturer</th>
+        </tr>
+      </thead>
+
+      <tbody >
+        <% @customer.customer_vehicles.each do |cv| %>
+          <tr>
+            <td><%= cv.year %></td>
+            <td><%= cv.color %></td>
+            <td><%= cv.license_plate_number %></td>
+            <td><%= cv.state_province.state_province_name %></td>
+            <td><%= cv.make.make_name %></td>
+            <td><%= cv.make.manufacturer.manufacturer_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+<hr class="new1">
+<h2>Customer Invoice Information: </h2>
+      <table class="table table-dark table-hover text-center table-sm text-nowrap" >
+
+            <thead>
+              <tr class="table-dark">
+                <th>Invoice Number</th>
+                <th>Invoice Description</th>
+                <th>Invoice Date</th>
+                <th>Invoice Type</th>
+                <th>Invoice Status</th>
+              </tr>
+            </thead>
+
+            <tbody >
+              <% @customer.invoices.each do |iv| %>
+                <tr>
+                  <td><%= link_to iv.invoice_number, iv, :style=> 'color:darkturquoise;' %></td>
+                  <td><%= iv.invoice_desc %></td>
+                  <td><%= iv.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
+                  <td><%= iv.invoice_type.invoice_type %></td>
+                  <td><%= iv.invoice_status.invoice_status %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+<hr class="new1">
+<h2>Miscellaneous Information: </h2>
 
 <p>
-  <strong>Dl state:</strong>
-  <%= @customer.dl_state %>
-</p>
-
-<p>
-  <strong>Cust f name:</strong>
-  <%= @customer.cust_f_name %>
-</p>
-
-<p>
-  <strong>Cust m initial:</strong>
-  <%= @customer.cust_m_initial %>
-</p>
-
-<p>
-  <strong>Cust l name:</strong>
-  <%= @customer.cust_l_name %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @customer.company %>
-</p>
-
-<p>
-  <strong>Cust address:</strong>
-  <%= @customer.cust_address %>
-</p>
-
-<p>
-  <strong>Cust city:</strong>
-  <%= @customer.cust_city %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @customer.zip_code %>
-</p>
-
-<p>
-  <strong>Cust phone:</strong>
-  <%= @customer.cust_phone %>
-</p>
-
-<p>
-  <strong>Cust email:</strong>
-  <%= @customer.cust_email %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @customer.dob %>
-</p>
-
-<p>
-  <strong>Dl picture:</strong>
+  <strong>Customer's Drivers License Image:</strong>
   <%= @customer.dl_picture %>
 </p>
 
-<p>
-  <strong>State province:</strong>
-  <%= @customer.state_province_id %>
-</p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @customer.country_id %>
-</p>
-
-<p>
-  <strong>Customer status:</strong>
-  <%= @customer.customer_status_id %>
-</p>
-
-<p>
-  <strong>Customer type:</strong>
-  <%= @customer.customer_type_id %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Edit', edit_customer_path(@customer), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', customers_path, class: 'btn btn-outline-secondary text-white' %>
