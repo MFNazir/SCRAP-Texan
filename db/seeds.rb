@@ -7,15 +7,29 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-employeeTypes = []
-employeeStatuses = ["Active", "Terminated"]
-metalTypes = []
+employeeTypes = [
+    ["Manager", "Owner and/or administrator of the business"], 
+    ["Supervisor", "Runs the scrapyard and supervises yard workers"], 
+    ["Yard Worker", "Works in the Scrapyard and performs metalworking"]
+]
+
+employeeStatuses = [
+    ["Active", "Employee is currently actively working for the business"], 
+    ["Terminated", "Employee is no longer working for the business"]
+    ["Ghosted", "Employee has become unreachable, and no longer works for the business"]
+]
+metalTypes = ["Aluminum", "Brass", "Lead", "Copper", "Insulated Copper", "Iron or Steel", "Nonferrous Metal"]
 invoiceStatuses = ["Paid", "Unpaid"]
-invoiceTypes = []
+invoiceTypes = ["Buyer", "Seller"]
 customerTypes = []
 customerStatuses = []
 vehicleStatuses = []
-manufacturers = []
+
+manufacturers = ["Acura","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge",
+    "Fiat","Ford","Gennesis","GMC","Honda","Hyundai","Infiniti","Jaugar","Jeep","Kia","Land Rover","Lexus","Lincoln",
+    "Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Porsche","Ram","Subaru","Tesla","Toyota","Volkswagen","Volvo"
+]
+
 countries = ["Afghanistan", "Albania", "Algeria", "America", "Andorra", "Angola", "Antigua", "Argentina", "Armenia", "Australia", "Austria", 
     "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bissau", "Bolivia", "Bosnia", 
     "Botswana", "Brazil", "British", "Brunei", "Bulgaria", "Burkina", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", 
@@ -40,4 +54,19 @@ states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,
     "Rhode Island" ,"South Carolina" ,"South Dakota" ,"Tennessee" ,"Texas" ,"Utah" ,"Vermont" ,"Virginia" ,"Washington" ,"West Virginia" ,"Wisconsin" ,"Wyoming"
 ]
 
+EmployeeType.delete_all
+EmployeeType.create
+
+
+Country.delete_all
+
+countries.each do |country|
+    ct = Country.create(country_name: country)
+end
+
+StateProvince.delete_all
+
+states.each do |state|
+    st = StateProvince.create(state_province_name: state)
+end
 
