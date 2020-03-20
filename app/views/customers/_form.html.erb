@@ -10,93 +10,134 @@
       </ul>
     </div>
   <% end %>
+<div class="album text-white">
+  
+  <div class="row">
 
-  <div class="field">
-    <%= form.label :dl_number %>
-    <%= form.text_field :dl_number %>
-  </div>
+    <div class="col-md-4 text-white">
+  
+      <div class="form-group">
+        <%= form.label :cust_f_name, "Customer First Name" %>
+        <%= form.text_field :cust_f_name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :dl_state %>
-    <%= form.text_field :dl_state %>
-  </div>
+      <div class="form-group">
+        <%= form.label :cust_m_initial, "Middle Initial" %>
+        <%= form.text_field :cust_m_initial, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_f_name %>
-    <%= form.text_field :cust_f_name %>
-  </div>
+      <div class="form-group">
+        <%= form.label :cust_l_name, "Customer Last Name" %>
+        <%= form.text_field :cust_l_name, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= form.label :company, "Company" %>
+        <%= form.text_field :company, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_m_initial %>
-    <%= form.text_field :cust_m_initial %>
-  </div>
+      <div class="form-group">
+        <%= form.label :dl_number, "Drivers License Number" %>
+        <%= form.text_field :dl_number, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_l_name %>
-    <%= form.text_field :cust_l_name %>
-  </div>
+      <div class="form-group">
+        <%= form.label :dl_state, "Drivers License State" %>
+        <%= form.select :dl_state, options_for_select(us_states),{}, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company %>
-  </div>
+      <div class="form-group">
+        <%= form.label :dl_picture, "Driver License Image" %>
+        <%= form.text_area :dl_picture, class: 'form-control' %>
+      </div>
+      
+    </div>
 
-  <div class="field">
-    <%= form.label :cust_address %>
-    <%= form.text_field :cust_address %>
-  </div>
+    <div class="col-md-4 text-white">
+  
+      <div class="field">
+        <%= form.label :cust_address, "Customer Address" %>
+        <%= form.text_field :cust_address, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_city %>
-    <%= form.text_field :cust_city %>
-  </div>
+      <div class="field">
+        <%= form.label :cust_city, "City" %>
+        <br>
+        <%= form.text_field :cust_city, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
-  </div>
+      <div class="field">
+        <%= form.label :state_province_id, "State" %>
+        <br>
+        <%= form.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_phone %>
-    <%= form.text_field :cust_phone %>
-  </div>
+      <div class="field">
+        <%= form.label :country_id, "Country" %>
+        <br>
+       <%= form.collection_select :country_id, Country.all, :id, :country_name, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :cust_email %>
-    <%= form.text_field :cust_email %>
-  </div>
+      <div class="field">
+        <%= form.label :zip_code, "Zip-Code" %>
+        <br>
+        <%= form.text_field :zip_code, class: 'form-control' %>
+      </div>
+    </div>  
 
-  <div class="field">
-    <%= form.label :dob %>
-    <%= form.date_select :dob %>
-  </div>
+    <div class="col-md-4 text-white">
 
-  <div class="field">
-    <%= form.label :dl_picture %>
-    <%= form.text_area :dl_picture %>
-  </div>
+      <div class="form-group">
+        <%= form.label :dob, "Customer Date of Birth" %>
+        <br>
+        <%= form.date_select :dob, :start_year=>1900, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :state_province_id %>
-    <%= form.text_field :state_province_id %>
-  </div>
+      <div class="field">
+        <%= form.label :cust_phone, "Customer Phone Number" %>
+        <%= form.text_field :cust_phone, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :country_id %>
-    <%= form.text_field :country_id %>
-  </div>
+      <div class="field">
+        <%= form.label :cust_email, "Customer E-Mail" %>
+        <%= form.text_field :cust_email, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :customer_status_id %>
-    <%= form.text_field :customer_status_id %>
-  </div>
+      <div class="field">
+        <%= form.label :customer_status_id, "Customer Status" %>
+        <br>
+        <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :customer_status, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :customer_type_id %>
-    <%= form.text_field :customer_type_id %>
-  </div>
+      <div class="field">
+        <%= form.label :customer_type_id, "Customer Type" %>
+        <br>
+        <%= form.collection_select :customer_type_id, CustomerType.all, :id, :customer_type, class: 'form-control' %>
+      </div>
+    </div>
+  </div>    
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <hr class="new1">
+  <div class="col-sm-6">
+    <h2>Add Customer Vehicle:</h2>
+      <div id="customer_vehicles">
+          <%= form.fields_for :customer_vehicles do |customervehicle| %>
+            <%= render 'customer_vehicle_fields', :f => customervehicle %>
+          <% end %>
+          <div class="links">
+              <%= link_to_add_association 'Add A Customer Vehicle', form, :customer_vehicles, class: 'btn btn-outline-secondary text-white' %>
+          </div>
+      </div>
+     <br> 
+  </div>  
+
+    <div class="col-sm-12">
+      <div class="form-group text-white">
+        <div class="actions">
+          <%= form.submit 'Create Customer', class: 'btn btn-secondary btn-block' %>
+        </div>
+       </div>
+    </div>  
+
+</div>  
 <% end %>
