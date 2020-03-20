@@ -10,78 +10,111 @@
       </ul>
     </div>
   <% end %>
+      
+      <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :employee_first_name %>
-    <%= form.text_field :employee_first_name %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="field">
-    <%= form.label :employee_middle_initial %>
-    <%= form.text_field :employee_middle_initial %>
-  </div>
 
-  <div class="field">
-    <%= form.label :employee_last_name %>
-    <%= form.text_field :employee_last_name %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :employee_first_name, "Employee First Name" %>
+                  <%= form.text_field :employee_first_name, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :employee_middle_initial, "Employee Middle Initial" %>
+                  <%= form.text_field :employee_middle_initial, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :home_phone %>
-    <%= form.text_field :home_phone %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :employee_last_name, "Employee Last Name" %>
+                  <%= form.text_field :employee_last_name, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :dob %>
-    <%= form.date_select :dob %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :dob, "Employee Date of Birth" %>
+                  <br>
+                  <%= form.date_select :dob, :start_year=>1900, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :email_emp %>
-    <%= form.text_field :email_emp %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :phone_number, "Employee Phone Number" %>
+                  <%= form.text_field :phone_number, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :emp_address %>
-    <%= form.text_field :emp_address %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :home_phone, "Employee Home Phone Number" %>
+                  <%= form.text_field :home_phone, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
 
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :email_emp, "Employee E-Mail" %>
+                  <%= form.text_field :email_emp, class: 'form-control' %>
+                </div>
+              
+              </div>
 
-  <div class="field">
-    <%= form.label :state_province_id %>
-    <%= form.text_field :state_province_id %>
-  </div>
+              <div class="col-md-4 text-white">
+  
 
-  <div class="field">
-    <%= form.label :country_id %>
-    <%= form.text_field :country_id %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :emp_address, "Employee Address" %>
+                  <%= form.text_field :emp_address, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :employee_type_id %>
-    <%= form.text_field :employee_type_id %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :city, "City" %>
+                  <%= form.text_field :city, class: 'form-control' %>
+                </div>
 
-  <div class="field">
-    <%= form.label :employee_status_id %>
-    <%= form.text_field :employee_status_id %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :zip, "Zip-Code" %>
+                  <%= form.text_field :zip, class: 'form-control' %>
+                </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :state_province_id, "State" %>
+                  <br>
+                  <%= form.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :country_id, "Country" %>
+                  <br>
+                  <%= form.collection_select :country_id, Country.all, :id, :country_name, class: 'form-control' %>
+                </div>
+
+              </div>
+
+              <div class="col-md-4 text-white">
+                     <div class="form-group">
+                         <%= form.label :employee_type_id, "Employee Type" %>
+                         <br>
+                         <%= form.collection_select :employee_type_id, EmployeeType.all, :id, :employee_type, class: 'form-control' %>
+                       </div>
+
+                      <div class="form-group">
+                         <%= form.label :employee_status_id, "Employee Status" %>
+                         <br>
+                         <%= form.collection_select :employee_status_id, EmployeeStatus.all, :id, :employee_status, class: 'form-control' %>
+                      </div>
+              </div>
+
+            </div>
+            
+            <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">
+                  <div class="actions">
+                    <%= form.submit "Create Employee", class: 'btn btn-secondary btn-block' %>
+                  </div>
+                </div>
+              </div>    
+
+      </div>  
+          
 <% end %>
