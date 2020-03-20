@@ -10,6 +10,21 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @invoice = Invoice.all.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No. #{@invoice.id}",
+          page_size: 'A4',
+          template: "invoices/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+  end
   end
 
   # GET /invoices/new
