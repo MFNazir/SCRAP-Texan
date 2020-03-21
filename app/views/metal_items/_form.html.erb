@@ -11,27 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :metal_item_desc %>
-    <%= form.text_field :metal_item_desc %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :net_weight %>
-    <%= form.number_field :net_weight, step: :any %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="field">
-    <%= form.label :unit_price %>
-    <%= form.number_field :unit_price, step: :any %>
-  </div>
+                  <div class="form-group">
+                    <%= form.label :metal_item_desc, "Metal Item Description" %>
+                    <%= form.text_field :metal_item_desc, class: 'form-control' %>
+                  </div>
 
-  <div class="field">
-    <%= form.label :metal_type_id %>
-    <%= form.text_field :metal_type_id %>
-  </div>
+                  <div class="form-group">
+                    <%= form.label :net_weight, "Net Weight" %>
+                    <%= form.number_field :net_weight, step: :any, class: 'form-control' %>
+                  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                  <div class="form-group">
+                    <%= form.label :unit_price, "Unit Price" %>
+                    <%= form.number_field :unit_price, step: :any, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :metal_type_id, "Metal Type" %>
+                    <br>
+                    <%= form.collection_select :metal_type_id, MetalType.all, :id, :metal_type, class: 'form-control' %>
+                  </div>
+              
+              </div>
+
+          </div>
+
+           <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">        
+
+                  <div class="actions">
+                    <%= form.submit "Add Metal Item", class: 'btn btn-secondary btn-block' %>
+                  </div>
+                
+                </div>
+              </div>    
+
+
+
 <% end %>
