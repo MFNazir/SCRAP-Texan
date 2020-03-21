@@ -1,6 +1,12 @@
 <h1>Editing Manufacturer</h1>
 
+<div class="text-white">
+
+<%= link_to 'Show', @manufacturer, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', manufacturers_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+
 <%= render 'form', manufacturer: @manufacturer %>
 
-<%= link_to 'Show', @manufacturer %> |
-<%= link_to 'Back', manufacturers_path %>
+

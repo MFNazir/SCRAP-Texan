@@ -1,6 +1,12 @@
 <h1>Editing Make</h1>
 
+<div class="text-white">
+
+<%= link_to 'Show', @make, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', makes_path, class: 'btn btn-outline-secondary text-white' %>
+</div>
+
 <%= render 'form', make: @make %>
 
-<%= link_to 'Show', @make %> |
-<%= link_to 'Back', makes_path %>
+
+

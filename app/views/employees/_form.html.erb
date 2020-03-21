@@ -17,43 +17,42 @@
 
               <div class="col-md-4 text-white">
 
+                        <div class="form-group">
+                          <%= form.label :employee_first_name, "Employee First Name" %>
+                          <%= form.text_field :employee_first_name, class: 'form-control' %>
+                        </div>
 
-                <div class="form-group">
-                  <%= form.label :employee_first_name, "Employee First Name" %>
-                  <%= form.text_field :employee_first_name, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :employee_middle_initial, "Employee Middle Initial" %>
+                          <%= form.text_field :employee_middle_initial, class: 'form-control' %>
+                        </div>
 
-                <div class="form-group">
-                  <%= form.label :employee_middle_initial, "Employee Middle Initial" %>
-                  <%= form.text_field :employee_middle_initial, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :employee_last_name, "Employee Last Name" %>
+                          <%= form.text_field :employee_last_name, class: 'form-control' %>
+                        </div>
 
-                <div class="form-group">
-                  <%= form.label :employee_last_name, "Employee Last Name" %>
-                  <%= form.text_field :employee_last_name, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :dob, "Employee Date of Birth" %>
+                          <br>
+                          <%= form.date_select :dob, :start_year=>1900, class: 'form-control' %>
+                        </div>
 
-                <div class="form-group">
-                  <%= form.label :dob, "Employee Date of Birth" %>
-                  <br>
-                  <%= form.date_select :dob, :start_year=>1900, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :phone_number, "Employee Phone Number" %>
+                          <%= form.text_field :phone_number, class: 'form-control' %>
+                        </div>
 
-                <div class="form-group">
-                  <%= form.label :phone_number, "Employee Phone Number" %>
-                  <%= form.text_field :phone_number, class: 'form-control' %>
-                </div>
-
-                <div class="form-group">
-                  <%= form.label :home_phone, "Employee Home Phone Number" %>
-                  <%= form.text_field :home_phone, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :home_phone, "Employee Home Phone Number" %>
+                          <%= form.text_field :home_phone, class: 'form-control' %>
+                        </div>
 
 
-                <div class="form-group">
-                  <%= form.label :email_emp, "Employee E-Mail" %>
-                  <%= form.text_field :email_emp, class: 'form-control' %>
-                </div>
+                        <div class="form-group">
+                          <%= form.label :email_emp, "Employee E-Mail" %>
+                          <%= form.text_field :email_emp, class: 'form-control' %>
+                        </div>
               
               </div>
 
@@ -103,7 +102,8 @@
                       </div>
               </div>
 
-            </div>
+          </div>
+            
             
             <hr class="new1">
 

@@ -1,6 +1,10 @@
 <h1>Editing Customer Vehicle</h1>
 
+<div class="text-white">
+    <%= link_to 'Show', @customer_vehicle, class: 'btn btn-outline-info text-white' %> |
+    <%= link_to 'Back', customer_vehicles_path, class: 'btn btn-outline-secondary text-white' %>
+</div>
+
 <%= render 'form', customer_vehicle: @customer_vehicle %>
 
-<%= link_to 'Show', @customer_vehicle %> |
-<%= link_to 'Back', customer_vehicles_path %>
+
