@@ -11,17 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :make_name %>
-    <%= form.text_field :make_name %>
-  </div>
+      <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :manufacturer_id %>
-    <%= form.collection_select :manufacturer_id, Manufacturer.all, :id, :manufacturer_name %>
-  </div>
+              <div class="col-md-6 text-white">
 
-  <div class="actions">
-    <%= form.submit 'Save Make', class: 'btn btn-primary' %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :make_name, "Car Make Name" %>
+                  <%= form.text_field :make_name, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :manufacturer_id, "Select Manufacturer" %>
+                  <br>
+                  <%= form.collection_select :manufacturer_id, Manufacturer.all, :id, :manufacturer_name, class: 'form-control' %>
+                  <br>
+                  Manufacturer Does Not Exist?  <%= link_to 'Add a New Manufacturer', manufacturers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
+                </div>
+              
+              </div>
+
+          </div>
+
+            <hr class="new1">
+
+              <div class="col-sm-12">
+                
+                <div class="form-group text-white">
+
+                    <div class="actions">
+                      <%= form.submit 'Add Car Make', class: 'btn btn-secondary btn-block' %>
+                    </div>
+                
+                </div>
+
+              </div>
+      </div>              
 <% end %>
