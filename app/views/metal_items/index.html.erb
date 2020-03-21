@@ -1,33 +1,56 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<h1>Metal Items</h1>
+<div class="container text-white">
+<div class="album text-white">
 
-<table>
+<h1>Manage Metal Items</h1>
+<%= link_to 'New Metal Item', new_metal_item_path, class: 'btn btn-outline-secondary text-white' %>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
+    <tr class="table-dark text-center">
       <th>Metal item desc</th>
       <th>Net weight</th>
       <th>Unit price</th>
+      <th>Unit Total</th>
       <th>Metal type</th>
-      <th colspan="3"></th>
+      <th>View Metal Item</th>
+      <th>Edit Metal Item</th>
+      <th>Delete Metal Item</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @metal_items.each do |metal_item| %>
       <tr>
         <td><%= metal_item.metal_item_desc %></td>
-        <td><%= metal_item.net_weight %></td>
-        <td><%= metal_item.unit_price %></td>
+        <td><%= number_with_precision(metal_item.net_weight, precision: 0) %>g</td>
+        <td><%= number_to_currency(metal_item.unit_price, precision: 2) %></td>
+        <td><%= number_to_currency(metal_item.net_weight * metal_item.unit_price, precision: 2) %></td>
         <td><%= metal_item.metal_type_id %></td>
-        <td><%= link_to 'Show', metal_item %></td>
-        <td><%= link_to 'Edit', edit_metal_item_path(metal_item) %></td>
-        <td><%= link_to 'Destroy', metal_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', metal_item, class: 'btn btn-info btn-sm text-white' %></td>
+        <td><%= link_to 'Edit', edit_metal_item_path(metal_item), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Destroy', metal_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'New Metal Item', new_metal_item_path %>

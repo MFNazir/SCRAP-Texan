@@ -47,7 +47,7 @@
             <td><%= customer_vehicle.make.manufacturer.manufacturer_name %></td>
             <td><%= customer_vehicle.make.make_name %></td>
             <td><%= customer_vehicle.vehicle_status_id %></td>
-            <td><%= customer_vehicle.customer_id %></td>
+            <td><%= link_to customer_vehicle.customer.cust_f_name, customer_vehicle.customer %></td>
             <td><%= link_to 'Show', customer_vehicle, class: 'btn btn-info btn-sm text-white' %></td>
             <td><%= link_to 'Edit', edit_customer_vehicle_path(customer_vehicle), class: 'btn btn-warning btn-sm' %></td>
             <td><%= link_to 'Destroy', customer_vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>

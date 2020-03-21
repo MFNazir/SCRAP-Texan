@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="text-white">
 <p>
   <strong>Metal item desc:</strong>
   <%= @metal_item.metal_item_desc %>
@@ -11,7 +12,7 @@
 
 <p>
   <strong>Net weight:</strong>
-  <%= @metal_item.net_weight %>
+  <%= number_with_precision(@metal_item.net_weight, precision: 0) %>g
 </p>
 
 <p>
@@ -24,6 +25,31 @@
    <%= number_to_currency(@metal_item.net_weight * @metal_item.unit_price, precision: 2) %>
 </p>
 
+</div>
+
+<table class="table table-dark table-hover text-center table-sm text-nowrap">
+  <thead>
+    <tr class="table-dark">
+      <th>Invoice Number</th>
+      <th>Invoice Desc.</th>
+      <th>Invoice Date</th>
+      <th>Invoice Type</th>
+      <th>Invoice Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @metal_item.invoices.each do |invoice| %>
+      <tr>
+        <td><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
+        <td><%= invoice.invoice_desc %></td>
+        <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
+        <td><%= invoice.invoice_type_id %></td>
+        <td><%= invoice.invoice_status_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_metal_item_path(@metal_item) %> |
 <%= link_to 'Back', metal_items_path %>
