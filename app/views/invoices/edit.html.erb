@@ -1,6 +1,8 @@
 <h1>Editing Invoice</h1>
 
+<div class="text-white">
+<%= link_to 'Show', @invoice, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' %>
+</div>
 <%= render 'form', invoice: @invoice %>
 
-<%= link_to 'Show', @invoice %> |
-<%= link_to 'Back', invoices_path %>

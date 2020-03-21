@@ -1,27 +1,48 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
+
+<div class="container text-white">
+<div class="album text-white">
 
 <h1>Manufacturers</h1>
+<%= link_to 'Add Car Manufacturer', new_manufacturer_path, class: 'btn btn-outline-secondary text-white' %>
 
-<table>
+
+<br>
+<hr class="new1">
+
+<table class="table table-dark table-hover table-sm text-nowrap">
   <thead>
-    <tr>
-      <th>Manufacturer Name</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>Car Manufacturer Name</th>
+      <th>View Car Manufacturer</th>
+      <th>Edit Car Manufacturer</th>
+      <th>Delete Car Manufacturer</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @manufacturers.each do |manufacturer| %>
       <tr>
         <td><%= manufacturer.manufacturer_name %></td>
-        <td><%= link_to 'Show', manufacturer %></td>
-        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
-        <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', manufacturer, class: 'btn btn-info btn-xs text-white' %></td>
+        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Manufacturer', new_manufacturer_path, class: 'btn btn-primary' %>
+</div>
+</div>
