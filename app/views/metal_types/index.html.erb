@@ -1,29 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Metal Types</h1>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<table>
+<div class="container text-white">
+<div class="album text-white">
+
+<h1>Metal Types</h1>
+<%= link_to 'Add Metal Type', new_metal_type_path, class: 'btn btn-outline-secondary text-white' %>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Metal type</th>
-      <th>Metal type desc</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>Metal Type</th>
+      <th>Metal Type Description</th>
+      <th>View Metal Type</th>
+      <th>Edit Metal Type</th>
+      <th>Delete Metal Type</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody  class="text-center">
     <% @metal_types.each do |metal_type| %>
       <tr>
         <td><%= metal_type.metal_type %></td>
         <td><%= metal_type.metal_type_desc %></td>
-        <td><%= link_to 'Show', metal_type %></td>
-        <td><%= link_to 'Edit', edit_metal_type_path(metal_type) %></td>
-        <td><%= link_to 'Destroy', metal_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', metal_type, class: 'btn btn-info btn-xs text-white' %></td>
+        <td><%= link_to 'Edit', edit_metal_type_path(metal_type), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', metal_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Metal Type', new_metal_type_path %>
+</div>
+</div>

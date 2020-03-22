@@ -11,17 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :metal_type %>
-    <%= form.text_field :metal_type %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :metal_type_desc %>
-    <%= form.text_field :metal_type_desc %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                  <div class="form-group">
+                    <%= form.label :metal_type, "Metal Type" %>
+                    <%= form.text_field :metal_type, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :metal_type_desc, "Metal Type Description" %>
+                    <%= form.text_field :metal_type_desc, class: 'form-control' %>
+                  </div>
+              </div>
+
+          </div>        
+
+          <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">        
+                  
+                  <div class="actions">
+                    <%= form.submit  "Add Metal Type", class: 'btn btn-secondary btn-block' %>
+                  </div>
+
+                </div>
+
+              </div>    
+
 <% end %>
