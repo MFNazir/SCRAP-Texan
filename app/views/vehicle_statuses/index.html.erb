@@ -1,29 +1,49 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<h1>Vehicle Statuses</h1>
+<div class="container text-white">
+<div class="album text-white">
+<h1>Manage Vehicle Statuses</h1>
+<%= link_to 'New Vehicle Status', new_vehicle_status_path, class: 'btn btn-outline-secondary text-white' %>
 
-<table>
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Vehicle status</th>
-      <th>Vehicle status desc</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>Vehicle Status</th>
+      <th>Vehicle Status Description</th>
+      <th>Show Vehicle Status</th>
+      <th>Edit Vehicle Status</th>
+      <th>Delete Vehicle Status</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @vehicle_statuses.each do |vehicle_status| %>
       <tr>
         <td><%= vehicle_status.vehicle_status %></td>
         <td><%= vehicle_status.vehicle_status_desc %></td>
-        <td><%= link_to 'Show', vehicle_status %></td>
-        <td><%= link_to 'Edit', edit_vehicle_status_path(vehicle_status) %></td>
-        <td><%= link_to 'Destroy', vehicle_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', vehicle_status, class: 'btn btn-info btn-xs text-white' %></td>
+        <td><%= link_to 'Edit', edit_vehicle_status_path(vehicle_status), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', vehicle_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'New Vehicle Status', new_vehicle_status_path %>

@@ -1,5 +1,12 @@
+<div class="container portfolio-container text-white">
+
 <h1>New Vehicle Status</h1>
+<br>
+
+<%= link_to 'Go Back', vehicle_statuses_path, class: 'btn btn-outline-secondary text-white' %>
+
+<hr class="new1">
 
 <%= render 'form', vehicle_status: @vehicle_status %>
 
-<%= link_to 'Back', vehicle_statuses_path %>
+</div>
