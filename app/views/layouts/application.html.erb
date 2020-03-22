@@ -26,7 +26,14 @@
           <%= link_to "Invoices", root_path, class: 'nav-link' %>
           <%= link_to "Customers", customers_path, class: 'nav-link' %>
           <%= link_to "Employees", employees_path, class: 'nav-link' %>
-    
+          <p>" "</p>
+          <li class="nav-item dropdown">
+          <%= link_to "Miscellaneous", employees_path,  id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } %>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item"> <%= link_to "Customer Status", customer_statuses_path, class: 'nav-link text-dark text-center' %></a>
+              <a class="dropdown-item"> <%= link_to "Customer Type", customer_types_path, class: 'nav-link text-dark text-center' %></a>
+            </div>
+      </li>
          </nav>
       </div>
     </div>
