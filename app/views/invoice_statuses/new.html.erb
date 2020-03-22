@@ -1,5 +1,12 @@
+<div class="container portfolio-container text-white">
+
 <h1>New Invoice Status</h1>
+<br>
+
+<%= link_to 'Go Back', invoice_statuses_path, class: 'btn btn-outline-secondary text-white' %>
+
+<hr class="new1">
 
 <%= render 'form', invoice_status: @invoice_status %>
 
-<%= link_to 'Back', invoice_statuses_path %>
+</div>
