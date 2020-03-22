@@ -4,14 +4,14 @@
 <div class="container portfolio-container text-white">
 <hr class="new1">
 <div class="album text-white">
-<div class="row">
+<div class="row" id="invoice-show">
 
     <div class="col-md-3 text-white" id="logo">
       <h2>
         <%= request.format == :pdf ? (wicked_pdf_image_tag 'tex.png') : (image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150))%>
       </h2>
   </div>
-    <div class="col-md-6 text-white text-center">
+    <div class="col-md-6 text-white text-center" id="scrap-info">
           <a>
           <strong>Texas Scrap Metal</strong>
           <br>

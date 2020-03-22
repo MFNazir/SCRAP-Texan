@@ -248,13 +248,13 @@ p.new1 {
   width: 25%;
 }
 
-.col-md-6{
+#scrap-info{
   float: left;
   width: 50%;
   text-align: center;
 }
 
-.row:after{
+#invoice-show:after{
   content: "";
   display: table;
   clear: both;
