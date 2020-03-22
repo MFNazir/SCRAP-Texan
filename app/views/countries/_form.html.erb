@@ -11,12 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :country_name %>
-    <%= form.text_field :country_name %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
+            <div class="col-md-4 text-white">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :country_name, "Country Name" %>
+                  <%= form.text_field :country_name, class: 'form-control' %>
+                </div>
+            </div>
+
+          </div>
+
+          <hr class="new1">
+             <div class="col-sm-12">
+                <div class="form-group text-white">
+
+                    <div class="actions">
+                      <%= form.submit "Add Country", class: 'btn btn-secondary btn-block' %>
+                    </div>
+                    </div>
+             </div> 
 <% end %>

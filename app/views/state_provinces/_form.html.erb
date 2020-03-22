@@ -10,13 +10,29 @@
       </ul>
     </div>
   <% end %>
+   <div class="album text-white">
+  
+          <div class="row">
+            <div class="col-md-4 text-white">
 
-  <div class="field">
-    <%= form.label :state_province_name %>
-    <%= form.text_field :state_province_name %>
-  </div>
+              <div class="form-group">
+                <%= form.label :state_province_name, "State Province Name" %>
+                <%= form.text_field :state_province_name, class: 'form-control' %>
+              </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+              </div>
+
+          </div>
+
+          <hr class="new1">
+             <div class="col-sm-12">
+                <div class="form-group text-white">
+
+                    <div class="actions">
+                      <%= form.submit "Add State Province", class: 'btn btn-secondary btn-block' %>
+                    </div>
+
+                    </div>
+             </div> 
+
 <% end %>

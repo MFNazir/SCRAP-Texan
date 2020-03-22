@@ -1,14 +1,50 @@
 <p id="notice"><%= notice %></p>
+<div class="container portfolio-container text-white">
+  
+  <hr class="new1">
+    
+    <div class="album text-white">
+      
+      <div class="row">
 
-<p>
-  <strong>Vehicle status:</strong>
-  <%= @vehicle_status.vehicle_status %>
-</p>
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+        
+        <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+        </div>
+        
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+      
+      </div>
+      <hr class="new1">
 
-<p>
-  <strong>Vehicle status desc:</strong>
-  <%= @vehicle_status.vehicle_status_desc %>
-</p>
+      <h2>Vehicle Status Information: </h2>
+      <div class="row">
+          <div class="col-md-10 text-white">
+              
+              <p>
+                <strong>Vehicle Status:</strong>
+                <%= @vehicle_status.vehicle_status %>
+              </p>
 
-<%= link_to 'Edit', edit_vehicle_status_path(@vehicle_status) %> |
-<%= link_to 'Back', vehicle_statuses_path %>
+              <p>
+                <strong>Vehicle Status Description:</strong>
+                <%= @vehicle_status.vehicle_status_desc %>
+              </p>
+
+              </div>
+          </div> 
+
+          <hr class="new1">
+
+<%= link_to 'Edit', edit_vehicle_status_path(@vehicle_status), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', vehicle_statuses_path, class: 'btn btn-outline-secondary text-white' %>

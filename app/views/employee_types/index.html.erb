@@ -1,29 +1,51 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<h1>Employee Types</h1>
+<div class="container text-white">
+<div class="album text-white">
+<h1>Manage Employee Types</h1>
+<%= link_to 'Add Employee Type', new_employee_type_path, class: 'btn btn-outline-secondary text-white' %>
 
-<table>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Employee type</th>
-      <th>Employee type desc</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>Employee Type</th>
+      <th>Employee Type Description</th>
+      <th>View Emp Type</th>
+      <th>Edit Emp Type</th>
+      <th>Delete Emp Type</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @employee_types.each do |employee_type| %>
       <tr>
         <td><%= employee_type.employee_type %></td>
         <td><%= employee_type.employee_type_desc %></td>
-        <td><%= link_to 'Show', employee_type %></td>
-        <td><%= link_to 'Edit', edit_employee_type_path(employee_type) %></td>
-        <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', employee_type, class: 'btn btn-info btn-xs text-white'  %></td>
+        <td><%= link_to 'Edit', edit_employee_type_path(employee_type), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'New Employee Type', new_employee_type_path %>
+
