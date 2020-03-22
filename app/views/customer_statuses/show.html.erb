@@ -1,14 +1,50 @@
 <p id="notice"><%= notice %></p>
+<div class="container portfolio-container text-white">
+  
+  <hr class="new1">
+    
+    <div class="album text-white">
+      
+      <div class="row">
 
-<p>
-  <strong>Customer status:</strong>
-  <%= @customer_status.customer_status %>
-</p>
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+        
+        <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+        </div>
+        
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+      
+      </div>
+      <hr class="new1">
 
-<p>
-  <strong>Customer status desc:</strong>
-  <%= @customer_status.customer_status_desc %>
-</p>
+      <h2>Customer Status Information: </h2>
+        
+        <div class="row">
+          <div class="col-md-8 text-white">
+            <p>
+              <strong>Customer Status:</strong>
+              <%= @customer_status.customer_status %>
+            </p>
 
-<%= link_to 'Edit', edit_customer_status_path(@customer_status) %> |
-<%= link_to 'Back', customer_statuses_path %>
+            <p>
+              <strong>Customer Status Description:</strong>
+              <%= @customer_status.customer_status_desc %>
+            </p>
+
+            </div>
+          </div> 
+
+          <hr class="new1">
+
+<%= link_to 'Edit', edit_customer_status_path(@customer_status), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', customer_statuses_path, class: 'btn btn-outline-secondary text-white' %>
