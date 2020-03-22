@@ -1,6 +1,11 @@
 <h1>Editing Line Item</h1>
+<div class="text-white">
 
+<%= link_to 'Show', @line_item, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', line_items_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+<hr class="new1">
 <%= render 'form', line_item: @line_item %>
 
-<%= link_to 'Show', @line_item %> |
-<%= link_to 'Back', line_items_path %>
+
