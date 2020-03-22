@@ -1,14 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Employee type:</strong>
-  <%= @employee_type.employee_type %>
-</p>
+<div class="container portfolio-container text-white">
+  
+  <hr class="new1">
+    
+    <div class="album text-white">
+      
+      <div class="row">
 
-<p>
-  <strong>Employee type desc:</strong>
-  <%= @employee_type.employee_type_desc %>
-</p>
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+        
+        <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+        </div>
+        
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+      
+      </div>
+      <hr class="new1">
 
-<%= link_to 'Edit', edit_employee_type_path(@employee_type) %> |
-<%= link_to 'Back', employee_types_path %>
+      <h2>Employee Type Information: </h2>
+      
+          <div class="row">
+          <div class="col-md-5 text-white">
+              <p>
+                <strong>Employee Type:</strong>
+                <%= @employee_type.employee_type %>
+              </p>
+
+              <p>
+                <strong>Employee Type Description:</strong>
+                <%= @employee_type.employee_type_desc %>
+              </p>
+          </div>
+          </div>  
+
+      <hr class="new1">
+  
+
+<%= link_to 'Edit', edit_employee_type_path(@employee_type), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', employee_types_path, class: 'btn btn-outline-secondary text-white' %>

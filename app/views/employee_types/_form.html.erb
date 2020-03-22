@@ -11,17 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :employee_type %>
-    <%= form.text_field :employee_type %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :employee_type_desc %>
-    <%= form.text_field :employee_type_desc %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+              <div class="form-group">
+                <%= form.label :employee_type, "Employee Type" %>
+                <%= form.text_field :employee_type, class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= form.label :employee_type_desc, "Employee Type Description" %>
+                <%= form.text_field :employee_type_desc, class: 'form-control' %>
+              </div>
+
+              </div>
+
+          </div>
+
+          <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">  
+
+                    <div class="actions">
+                      <%= form.submit "Add Employee Type", class: 'btn btn-secondary btn-block' %>
+                    </div>
+                  </div>
+                </div>    
 <% end %>
