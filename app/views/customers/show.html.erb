@@ -134,7 +134,7 @@
           <tr>
             <td><%= cv.year %></td>
             <td><%= cv.color %></td>
-            <td><%= cv.license_plate_number %></td>
+            <td><%= link_to cv.license_plate_number, cv, :style=> 'color:darkturquoise;' %></td>
             <td><%= cv.state_province.state_province_name %></td>
             <td><%= cv.make.make_name %></td>
             <td><%= cv.make.manufacturer.manufacturer_name %></td>

@@ -1,9 +1,45 @@
 <p id="notice"><%= notice %></p>
+<div class="container portfolio-container text-white">
+  
+  <hr class="new1">
+    
+    <div class="album text-white">
+      
+      <div class="row">
 
-<p>
-  <strong>State province name:</strong>
-  <%= @state_province.state_province_name %>
-</p>
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+        
+        <div class="col-md-6 text-white text-center">
+          <a>
+          <strong>Texas Scrap Metal</strong>
+          <br>
+          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+          <br>
+          <strong>texscrap@gmail.com</strong>
+          <br>
+          <strong>123-456-7890</strong>
+          </a>
+          
+        </div>
+        
+        <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
+      
+      </div>
+      <hr class="new1">
 
-<%= link_to 'Edit', edit_state_province_path(@state_province) %> |
-<%= link_to 'Back', state_provinces_path %>
+      <h2>State Province Information: </h2>
+      <div class="row">
+          <div class="col-md-10 text-white">
+
+              <p>
+                <strong>State Province Name:</strong>
+                <%= @state_province.state_province_name %>
+              </p>
+
+              </div>
+          </div> 
+
+          <hr class="new1">
+
+<%= link_to 'Edit', edit_state_province_path(@state_province), class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', state_provinces_path, class: 'btn btn-outline-secondary text-white'  %>

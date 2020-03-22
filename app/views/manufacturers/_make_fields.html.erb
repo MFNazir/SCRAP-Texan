@@ -1,0 +1,13 @@
+<div class=" form-group nested-fields ">
+
+
+         <div class="form-group">
+                  <%= f.label :make_name, "Car Make Name" %>
+                  <%= f.text_field :make_name, class: 'form-control' %>
+        </div>
+
+         <div class="field">
+                <%= link_to_remove_association 'Remove Car Make', f, class: 'btn btn-outline-danger text-white'%>
+        </div>
+
+</div>

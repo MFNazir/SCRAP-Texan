@@ -1,6 +1,14 @@
 <h1>Editing Vehicle Status</h1>
+<div class="text-white">
+
+<%= link_to 'Show', @vehicle_status, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', vehicle_statuses_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+
+<hr class="new1">
+
 
 <%= render 'form', vehicle_status: @vehicle_status %>
 
-<%= link_to 'Show', @vehicle_status %> |
-<%= link_to 'Back', vehicle_statuses_path %>
+

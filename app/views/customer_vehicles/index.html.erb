@@ -1,39 +1,61 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
+
+<div class="container text-white">
+<div class="album text-white">
+
 
 <h1>Customer Vehicles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Color</th>
-      <th>License plate number</th>
-      <th>Make</th>
-      <th>Vehicle status</th>
-      <th>State province</th>
-      <th>Customer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customer_vehicles.each do |customer_vehicle| %>
-      <tr>
-        <td><%= customer_vehicle.year %></td>
-        <td><%= customer_vehicle.color %></td>
-        <td><%= customer_vehicle.license_plate_number %></td>
-        <td><%= customer_vehicle.make_id %></td>
-        <td><%= customer_vehicle.vehicle_status_id %></td>
-        <td><%= customer_vehicle.state_province_id %></td>
-        <td><%= customer_vehicle.customer_id %></td>
-        <td><%= link_to 'Show', customer_vehicle %></td>
-        <td><%= link_to 'Edit', edit_customer_vehicle_path(customer_vehicle) %></td>
-        <td><%= link_to 'Destroy', customer_vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'Add Customer Vehicle', new_customer_vehicle_path, class: 'btn btn-outline-secondary text-white' %>
 
 <br>
+<hr class="new1">
 
-<%= link_to 'New Customer Vehicle', new_customer_vehicle_path %>
+    <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
+      <thead>
+        <tr class="table-dark text-center">
+          <th>Vehicle Year</th>
+          <th>Vehicle Color</th>
+          <th>License Plate Number</th>
+          <th>Vehicle Manufacturer</th>
+          <th>Vehicle Make</th>
+          <th>Vehicle Status</th>
+          <th>Customer Name</th>
+          <th>View Vehicle</th>
+          <th>Edit Vehicle</th>
+          <th>Delete Vehicle</th>
+        </tr>
+      </thead>
+
+      <tbody class="text-center">
+        <% @customer_vehicles.each do |customer_vehicle| %>
+          <tr>
+            <td><%= customer_vehicle.year %></td>
+            <td><%= customer_vehicle.color %></td>
+            <td><%= customer_vehicle.license_plate_number %></td>
+            <td><%= customer_vehicle.make.manufacturer.manufacturer_name %></td>
+            <td><%= customer_vehicle.make.make_name %></td>
+            <td><%= customer_vehicle.vehicle_status_id %></td>
+            <td><%= link_to customer_vehicle.customer.cust_f_name, customer_vehicle.customer %></td>
+            <td><%= link_to 'Show', customer_vehicle, class: 'btn btn-info btn-sm text-white' %></td>
+            <td><%= link_to 'Edit', edit_customer_vehicle_path(customer_vehicle), class: 'btn btn-warning btn-sm' %></td>
+            <td><%= link_to 'Destroy', customer_vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+</div>
+</div>
+

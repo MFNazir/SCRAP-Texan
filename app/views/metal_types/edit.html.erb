@@ -1,6 +1,13 @@
 <h1>Editing Metal Type</h1>
+<div class="text-white">
+
+<%= link_to 'Show', @metal_type, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', metal_types_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+<hr class="new1">
+
 
 <%= render 'form', metal_type: @metal_type %>
 
-<%= link_to 'Show', @metal_type %> |
-<%= link_to 'Back', metal_types_path %>
+

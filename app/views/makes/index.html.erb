@@ -1,29 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Makes</h1>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<table>
+<div class="container text-white">
+<div class="album text-white">
+
+<h1>Manage Car Makes</h1>
+<%= link_to 'Add New Car Make', new_make_path, class: 'btn btn-outline-secondary text-white' %>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Make name</th>
-      <th>Manufacturer Name</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>Car Make</th>
+      <th>Car Manufacturer</th>
+      <th>View Car Make</th>
+      <th>Edit Car Make</th>
+      <th>Delete Car Make</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @makes.each do |make| %>
       <tr>
         <td><%= make.make_name %></td>
         <td><%= make.manufacturer.manufacturer_name %></td>
-        <td><%= link_to 'Show', make %></td>
-        <td><%= link_to 'Edit', edit_make_path(make) %></td>
-        <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', make, class: 'btn btn-info btn-sm text-white' %></td>
+        <td><%= link_to 'Edit', edit_make_path(make), class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'New Make', new_make_path, class: 'btn btn-primary' %>
+

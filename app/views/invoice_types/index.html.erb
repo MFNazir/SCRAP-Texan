@@ -1,39 +1,52 @@
 <p id="notice"><%= notice %></p>
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#example').DataTable();
-    
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
   });
 </script>
-<h1>Invoice Types</h1>
-<div class="container" >
 
-<table id="example" class="table table-striped table-bordered" style="width: 1000px;" data-turbolinks="false">
+
+<div class="container text-white">
+<div class="album text-white">
+<h1>Manage Invoice Types</h1>
+
+<%= link_to 'New Invoice Type', new_invoice_type_path, class: 'btn btn-outline-secondary text-white' %>
+
+<br>
+<hr class="new1">
+
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>Invoice type</th>
-      <th>Invoice type desc</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Delete</th>
+    <tr class="table-dark text-center">
+      <th>Invoice Type</th>
+      <th>Invoice Type Description</th>
+      <th>Show Invoice Type</th>
+      <th>Edit Invoice Type</th>
+      <th>Delete Invoice Type</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @invoice_types.each do |invoice_type| %>
       <tr>
         <td><%= invoice_type.invoice_type %></td>
         <td><%= invoice_type.invoice_type_desc %></td>
-        <td><%= link_to 'Show', invoice_type %></td>
-        <td><%= link_to 'Edit', edit_invoice_type_path(invoice_type) %></td>
-        <td><%= link_to 'Destroy', invoice_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', invoice_type, class: 'btn btn-info btn-xs text-white' %></td>
+        <td><%= link_to 'Edit', edit_invoice_type_path(invoice_type), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', invoice_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+</div>
 </div>
 
-<br>
-
-<%= link_to 'New Invoice Type', new_invoice_type_path %>
 

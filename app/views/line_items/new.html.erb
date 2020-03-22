@@ -1,5 +1,13 @@
-<h1>New Line Item</h1>
+<div class="container portfolio-container text-white">
+
+<h1>Add Line Item</h1>
+
+<br>
+
+<%= link_to 'Go Back', line_items_path, class: 'btn btn-outline-secondary text-white' %>
+
+<hr class="new1">
 
 <%= render 'form', line_item: @line_item %>
 
-<%= link_to 'Back', line_items_path %>
+</div>

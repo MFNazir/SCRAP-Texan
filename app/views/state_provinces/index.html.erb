@@ -1,27 +1,46 @@
 <p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      
+      "language": {
+        "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
+        "sSearch": "Search:"
+        }
+        
+        });
+  });
+</script>
 
-<h1>State Provinces</h1>
+<div class="container text-white">
+<div class="album text-white">
+<h1>Manage State-Provinces</h1>
+<%= link_to 'Add State Province', new_state_province_path, class: 'btn btn-outline-secondary text-white' %>
+<br>
+<hr class="new1">
 
-<table>
+<table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
-    <tr>
-      <th>State province name</th>
-      <th colspan="3"></th>
+    <tr class="table-dark text-center">
+      <th>State Province Name</th>
+      <th>Show State Province</th>
+      <th>Edit State Province</th>
+      <th>Delete State Province</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @state_provinces.each do |state_province| %>
       <tr>
         <td><%= state_province.state_province_name %></td>
-        <td><%= link_to 'Show', state_province %></td>
-        <td><%= link_to 'Edit', edit_state_province_path(state_province) %></td>
-        <td><%= link_to 'Destroy', state_province, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', state_province, class: 'btn btn-info btn-xs text-white' %></td>
+        <td><%= link_to 'Edit', edit_state_province_path(state_province), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Destroy', state_province, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
+</div>
 
-<%= link_to 'New State Province', new_state_province_path %>

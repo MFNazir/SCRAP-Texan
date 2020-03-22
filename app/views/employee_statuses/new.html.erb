@@ -1,5 +1,12 @@
-<h1>New Employee Status</h1>
+<div class="container portfolio-container text-white">
+
+<h1>Add Employee Status</h1>
+<br>
+
+<%= link_to 'Go Back', employee_statuses_path, class: 'btn btn-outline-secondary text-white' %>
+
+<hr class="new1">
 
 <%= render 'form', employee_status: @employee_status %>
 
-<%= link_to 'Back', employee_statuses_path %>
+</div>
