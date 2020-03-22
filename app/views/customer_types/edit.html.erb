@@ -1,6 +1,13 @@
 <h1>Editing Customer Type</h1>
 
+<div class="text-white">
+
+<%= link_to 'Show', @customer_type, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', customer_types_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+<hr class="new1">
+
 <%= render 'form', customer_type: @customer_type %>
 
-<%= link_to 'Show', @customer_type %> |
-<%= link_to 'Back', customer_types_path %>
+
