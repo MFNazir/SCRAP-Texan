@@ -15,15 +15,39 @@ employeeTypes = [
 
 employeeStatuses = [
     ["Active", "Employee is currently actively working for the business"], 
-    ["Terminated", "Employee is no longer working for the business"]
+    ["Terminated", "Employee is no longer working for the business"],
     ["Ghosted", "Employee has become unreachable, and no longer works for the business"]
 ]
-metalTypes = ["Aluminum", "Brass", "Lead", "Copper", "Insulated Copper", "Iron or Steel", "Nonferrous Metal"]
-invoiceStatuses = ["Paid", "Unpaid"]
-invoiceTypes = ["Buyer", "Seller"]
-customerTypes = []
-customerStatuses = []
-vehicleStatuses = []
+metalTypes = [
+    ["Aluminum", ""], 
+    ["Brass", ""], 
+    ["Lead", ""], 
+    ["Copper", ""], 
+    ["Insulated Copper", ""], 
+    ["Iron or Steel", ""], 
+    ["Nonferrous Metal", ""]
+]
+invoiceStatuses = [
+    ["Paid", "The invoice has been paid"], 
+    ["Unpaid", "The invoice has not been paid"]
+]
+invoiceTypes = [
+    ["Buyer", "The invoice pertains to metal being purchased from Texan Scrap Metal"], 
+    ["Seller", "The invoice pertains to metal being sold to Texan Scrap Metal"]
+]
+customerTypes = [
+    ["Regular", ""],
+    ["One-time", ""]
+]
+customerStatuses = [
+    ["Active", "Customer is active"],
+    ["Flagged", "Customer has been marked by a government entity"],
+    ["Inactive", "Customer is inactive"]
+]
+vehicleStatuses = [
+    ["Active", "Customer Vehicle is active"],
+    ["Inactive", "Customer Vehicle is not active"]
+]
 
 manufacturers = ["Acura","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge",
     "Fiat","Ford","Gennesis","GMC","Honda","Hyundai","Infiniti","Jaugar","Jeep","Kia","Land Rover","Lexus","Lincoln",
@@ -55,17 +79,27 @@ states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,
 ]
 
 EmployeeType.delete_all
-EmployeeType.create
+employeeTypes.each do |emptype, typedesc|
+    et = EmployeeType.create(employee_type: emptype, employee_type_desc: typedesc)
+end
+
+EmployeeStatus.delete_all
+employeeStatuses.each do |empstat, statdesc|
+    et = EmployeeType.create(employee_status: emptype, employee_status_desc: statdesc)
+end
+
+MetalType.delete_all
+metalTypes.each do |mettype, typedesc|
+    et = EmployeeType.create(metal_type: emptype, metal_type_desc: typedesc)
+end
 
 
 Country.delete_all
-
 countries.each do |country|
     ct = Country.create(country_name: country)
 end
 
 StateProvince.delete_all
-
 states.each do |state|
     st = StateProvince.create(state_province_name: state)
 end
