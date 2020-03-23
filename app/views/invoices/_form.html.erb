@@ -46,7 +46,9 @@
         <div class="form-group">
           <%= form.label :customer_id, "Select Customer" %>
           <br>
-          <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %>
+          <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %> 
+          
+          Customer Does Not Exist?  <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
         </div>
 
         <div class="form-group">
@@ -75,7 +77,7 @@
   
 
     <div class="col-sm-6">
-        <h2>Add Metal Item:</h2>
+      <h2>Add Metal Item:</h2>
       <div id="metal_items">
           <%= form.fields_for :metal_items do |metalitem| %>
             <%= render 'metal_item_fields', :f => metalitem %>
@@ -86,9 +88,11 @@
       </div>
       <br>
     </div>
-    <div class="col-sm-12">
+    <hr class="new1">
+
+    <div class="col-sm-12 text-white">
       <div class="form-group text-white">
-        <%= form.submit'Create Invoice', class: 'btn btn-secondary btn-block' %>
+        <%= form.submit 'Create Invoice', class: 'btn btn-secondary btn-block' %>
       </div>
      </div> 
  </div>    

@@ -10,18 +10,34 @@
       </ul>
     </div>
   <% end %>
+<div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :invoice_id %>
-    <%= form.text_field :invoice_id %>
-  </div>
+              <div class="col-md-4 text-white">
+  
+                    <div class="form-group">
+                      <%= form.label :invoice_id, "Invoice ID" %>
+                      <%= form.text_field :invoice_id, class: 'form-control' %>
+                    </div>
 
-  <div class="field">
-    <%= form.label :metal_item_id %>
-    <%= form.text_field :metal_item_id %>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :metal_item_id, "Metal Item ID" %>
+                      <%= form.text_field :metal_item_id, class: 'form-control' %>
+                    </div>
+              </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+          </div>   
+
+              <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">
+
+                    <div class="actions">
+                      <%= form.submit "Add Line Item", class: 'btn btn-secondary btn-block' %>
+                    </div>
+                </div>
+              </div> 
+
 <% end %>

@@ -11,42 +11,68 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
-  </div>
+<div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
+              <div class="col-md-6 text-white">
 
-  <div class="field">
-    <%= form.label :license_plate_number %>
-    <%= form.text_field :license_plate_number %>
-  </div>
 
-  <div class="field">
-    <%= form.label :make_id %>
-    <%= form.text_field :make_id %>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :year, "Vehicle Year" %>
+                      <%= form.text_field :year, class: 'form-control' %>
+                    </div>
 
-  <div class="field">
-    <%= form.label :vehicle_status_id %>
-    <%= form.text_field :vehicle_status_id %>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :color, "Vehicle Color" %>
+                      <%= form.text_field :color, class: 'form-control' %>
+                    </div>
 
-  <div class="field">
-    <%= form.label :state_province_id %>
-    <%= form.text_field :state_province_id %>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :license_plate_number, "Vehicle License Plate Number" %>
+                      <%= form.text_field :license_plate_number, class: 'form-control' %>
+                    </div>
+                    
+                    <div class="form-group">
+                      <%= form.label :state_province_id, "Vehicle License Plate State" %>
+                      <br>
+                      <%= form.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
+                    </div>
 
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
+                    <div class="form-group">
+                      <%= form.label :make_id, "Vehicle Make" %>
+                      <br>
+                      <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-secondary text-white btn-sm' %></p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                    </div>
+
+                    <div class="form-group">
+                      <%= form.label :vehicle_status_id, "Vehicle Status" %>
+                      <br>
+                      <%= form.collection_select :vehicle_status_id, VehicleStatus.all, :id, :vehicle_status, class: 'form-control' %>
+                    </div>
+
+                    <div class="form-group">
+                      <%= form.label :customer_id, "Select Customer" %>
+                      <br>
+                      <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %>
+                    </div>
+
+                </div>
+            
+            <hr class="new1">
+
+              <div class="col-sm-12">
+                
+                <div class="form-group text-white">
+                    
+                    <div class="actions">
+                      <%= form.submit "Add Customer Vehicle", class: 'btn btn-secondary btn-block' %>
+                    </div>
+                
+                </div>
+              
+              </div> 
+
+</div>
 <% end %>

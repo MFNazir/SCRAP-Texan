@@ -10,18 +10,35 @@
       </ul>
     </div>
   <% end %>
+<div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :customer_type %>
-    <%= form.text_field :customer_type %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="field">
-    <%= form.label :customer_type_desc %>
-    <%= form.text_field :customer_type_desc %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                <div class="form-group">
+                  <%= form.label :customer_type, "Customer Type" %>
+                  <%= form.text_field :customer_type, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= form.label :customer_type_desc, "Customer Type Description" %>
+                  <%= form.text_field :customer_type_desc, class: 'form-control' %>
+                </div>
+
+              </div>
+
+          </div>  
+             <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">
+
+                  <div class="actions">
+                    <%= form.submit "Add Customer Type", class: 'btn btn-secondary btn-block' %>
+                  </div>
+
+                </div>
+              </div> 
 <% end %>

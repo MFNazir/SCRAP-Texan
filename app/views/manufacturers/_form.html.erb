@@ -11,12 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :manufacturer_name %>
-    <%= form.text_field :manufacturer_name %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="actions">
-    <%= form.submit 'Save Manufacturer', class: 'btn btn-primary' %>
-  </div>
+              <div class="col-md-4 text-white">
+
+                  <div class="form-group">
+                    <%= form.label :manufacturer_name, "Car Manufacturer Name" %>
+                    <%= form.text_field :manufacturer_name, class: 'form-control' %>
+                  </div>
+              
+              </div>
+          </div>    
+          
+          <div class="row">
+              <div class="col-md-4 text-white">
+                  <h4>Add Car Make:</h4>
+                      <div id="makes">
+                          <%= form.fields_for :makes do |make| %>
+                            <%= render 'make_fields', :f => make %>
+                          <% end %>
+                          <div class="links">
+                              <%= link_to_add_association 'Add Car Make', form, :makes, class: 'btn btn-outline-secondary text-white' %>
+                          </div>
+                      </div>
+              </div>        
+            </div>
+
+              <hr class="new1">
+
+  
+              <div class="col-sm-12">
+                  <div class="form-group text-white">
+              
+                    <div class="actions">
+                      <%= form.submit 'Add Manufacturer', class:'btn btn-secondary btn-block' %>
+                    </div>
+
+                  </div>
+              </div>
+
 <% end %>

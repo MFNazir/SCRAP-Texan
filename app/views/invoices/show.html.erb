@@ -1,12 +1,17 @@
+<%= link_to 'DOWNLOAD PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
 <p id="notice"><%= notice %></p>
 
 <div class="container portfolio-container text-white">
 <hr class="new1">
 <div class="album text-white">
-<div class="row">
+<div class="row" id="invoice-show">
 
-    <div class="col-md-3 text-white"><h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150) %></h2></div>
-    <div class="col-md-6 text-white text-center">
+    <div class="col-md-3 text-white" id="logo">
+      <h2>
+        <%= request.format == :pdf ? (wicked_pdf_image_tag 'tex.png') : (image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150))%>
+      </h2>
+  </div>
+    <div class="col-md-6 text-white text-center" id="scrap-info">
           <a>
           <strong>Texas Scrap Metal</strong>
           <br>
@@ -18,7 +23,7 @@
           </a>
           
     </div>
-    <div class="col-md-3 text-white">
+    <div class="col-md-3 text-white" id="info">
           <p> <strong>Invoice Number:</strong> <%= @invoice.invoice_number %> </p>
           <p> <strong>Invoice Date/Time: </strong> 
           <br>
@@ -139,5 +144,5 @@
   <%= @invoice.material_image %>
 </p>
 
-<%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' %> |
-<%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' %>
+<%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
+<%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>

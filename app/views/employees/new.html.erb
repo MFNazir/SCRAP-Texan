@@ -1,5 +1,14 @@
-<h1>New Employee</h1>
+<div class="container portfolio-container text-white">
+
+<h1>Create New Employee</h1>
+
+<br>
+
+<%= link_to 'Back', employees_path, class: 'btn btn-outline-secondary text-white' %> 
+
+
+<hr class="new1">
 
 <%= render 'form', employee: @employee %>
 
-<%= link_to 'Back', employees_path %>
+</div>

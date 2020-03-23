@@ -1,6 +1,14 @@
 <h1>Editing Country</h1>
+<div class="text-white">
+
+<%= link_to 'Show', @country, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', countries_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+
+<hr class="new1">
+
 
 <%= render 'form', country: @country %>
 
-<%= link_to 'Show', @country %> |
-<%= link_to 'Back', countries_path %>
+

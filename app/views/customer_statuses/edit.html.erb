@@ -1,6 +1,14 @@
 <h1>Editing Customer Status</h1>
+<div class="text-white">
+
+<%= link_to 'Show', @customer_status, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Back', customer_statuses_path, class: 'btn btn-outline-secondary text-white' %>
+
+</div>
+
+
+<hr class="new1">
 
 <%= render 'form', customer_status: @customer_status %>
 
-<%= link_to 'Show', @customer_status %> |
-<%= link_to 'Back', customer_statuses_path %>
+

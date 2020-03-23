@@ -11,17 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :employee_status %>
-    <%= form.text_field :employee_status %>
-  </div>
+  <div class="album text-white">
+  
+          <div class="row">
 
-  <div class="field">
-    <%= form.label :employee_status_desc %>
-    <%= form.text_field :employee_status_desc %>
-  </div>
+              <div class="col-md-4 text-white">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+                  <div class="form-group">
+                    <%= form.label :employee_status, "Employee Status" %>
+                    <%= form.text_field :employee_status, class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
+                    <%= form.label :employee_status_desc, "Employee Status Description" %>
+                    <%= form.text_field :employee_status_desc, class: 'form-control' %>
+                  </div>
+
+                </div>
+
+          </div>  
+
+          <hr class="new1">
+
+              <div class="col-sm-12">
+                <div class="form-group text-white">
+
+                  <div class="actions">
+                    <%= form.submit "Add Employee Status", class: 'btn btn-secondary btn-block' %>
+                  </div>
+
+                  </div>
+                </div> 
+
+
 <% end %>
