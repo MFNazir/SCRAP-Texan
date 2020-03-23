@@ -7,17 +7,33 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+#Employee Type Seed
 employeeTypes = [
     ["Manager", "Owner and/or administrator of the business"], 
     ["Supervisor", "Runs the scrapyard and supervises yard workers"], 
     ["Yard Worker", "Works in the Scrapyard and performs metalworking"]
 ]
 
+EmployeeType.delete_all
+employeeTypes.each do |emptype, typedesc|
+    et = EmployeeType.create(employee_type: emptype, employee_type_desc: typedesc)
+end
+
+
+#Employee Status Seed
 employeeStatuses = [
     ["Active", "Employee is currently actively working for the business"], 
     ["Terminated", "Employee is no longer working for the business"],
     ["Ghosted", "Employee has become unreachable, and no longer works for the business"]
 ]
+
+EmployeeStatus.delete_all
+employeeStatuses.each do |empstat, statdesc|
+    es = EmployeeStatus.create(employee_status: empstat, employee_status_desc: statdesc)
+end
+
+
+#Metal Type Seed
 metalTypes = [
     ["Aluminum", ""], 
     ["Brass", ""], 
@@ -27,33 +43,108 @@ metalTypes = [
     ["Iron or Steel", ""], 
     ["Nonferrous Metal", ""]
 ]
+
+MetalType.delete_all
+metalTypes.each do |mettype, typedesc|
+    mt = MetalType.create(metal_type: mettype, metal_type_desc: typedesc)
+end
+
+
+#Invoice Status Seed
 invoiceStatuses = [
     ["Paid", "The invoice has been paid"], 
     ["Unpaid", "The invoice has not been paid"]
 ]
+
+InvoiceStatus.delete_all
+invoiceStatuses.each do |invstat, statdesc|
+    is = InvoiceStatus.create(invoice_status: invstat, invoice_status_desc: statdesc)
+end
+
+
+#Invoice Type Seed
 invoiceTypes = [
     ["Buyer", "The invoice pertains to metal being purchased from Texan Scrap Metal"], 
     ["Seller", "The invoice pertains to metal being sold to Texan Scrap Metal"]
 ]
+
+InvoiceType.delete_all
+invoiceTypes.each do |invtype, typedesc|
+    it = InvoiceType.create(invoice_type: invtype, invoice_type_desc: typedesc)
+end
+
+
+#Customer Type Seed
 customerTypes = [
     ["Regular", ""],
     ["One-time", ""]
 ]
+
+CustomerType.delete_all
+customerTypes.each do |custtype, typedesc|
+    ct = CustomerType.create(customer_type: custtype, customer_type_desc: typedesc)
+end
+
+
+#Customer Status Seed
 customerStatuses = [
     ["Active", "Customer is active"],
     ["Flagged", "Customer has been marked by a government entity"],
     ["Inactive", "Customer is inactive"]
 ]
+
+CustomerStatus.delete_all
+customerStatuses.each do |custstat, statdesc|
+    cs = CustomerStatus.create(customer_status: custstat, customer_status_desc: statdesc)
+end
+
+
+#Vehicle Status Seed
 vehicleStatuses = [
     ["Active", "Customer Vehicle is active"],
     ["Inactive", "Customer Vehicle is not active"]
 ]
 
+VehicleStatus.delete_all
+vehicleStatuses.each do |vecstat, statdesc|
+    vs = VehicleStatus.create(vehicle_status: vecstat, vehicle_status_desc: statdesc)
+end
+
+
+#Vehicle Manufacturer Seed
 manufacturers = ["Acura","Audi","BMW","Buick","Cadillac","Chevrolet","Chrysler","Dodge",
     "Fiat","Ford","Gennesis","GMC","Honda","Hyundai","Infiniti","Jaugar","Jeep","Kia","Land Rover","Lexus","Lincoln",
     "Mazda","Mercedes-Benz","Mini","Mitsubishi","Nissan","Porsche","Ram","Subaru","Tesla","Toyota","Volkswagen","Volvo"
 ]
 
+Make.delete_all
+Manufacturer.delete_all
+manufacturers.each do |manuf|
+    mf = Manufacturer.create(manufacturer_name: manuf)
+end
+
+
+#Vehicle Model Seed
+models = [
+    ["Toyota", 
+        ["Camry","Celica","Prius","Cruiser","Yaris","Corolla","Supra","4Runner","Tundra","Tacoma"]
+    ],
+    ["Ford",
+        ["F150", "Focus", "Mustang", "Ranger", "Explorer", "Expedition", "Fiesta"]
+    ]
+]
+
+models.each do |manuf, model|
+    mf = Manufacturer.find_by(manufacturer_name: manuf)
+    model.each do |name|
+        puts name
+        puts mf.id()
+        Make.create(make_name: name, manufacturer_id: mf.id())
+    end
+end
+
+
+#Country Seed
 countries = ["Afghanistan", "Albania", "Algeria", "America", "Andorra", "Angola", "Antigua", "Argentina", "Armenia", "Australia", "Austria", 
     "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bissau", "Bolivia", "Bosnia", 
     "Botswana", "Brazil", "British", "Brunei", "Bulgaria", "Burkina", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", 
@@ -71,6 +162,13 @@ countries = ["Afghanistan", "Albania", "Algeria", "America", "Andorra", "Angola"
     "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ]
 
+Country.delete_all
+countries.each do |country|
+    ct = Country.create(country_name: country)
+end
+
+
+#State/Province Seed
 states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,"Connecticut" ,
     "Delaware" ,"Florida" ,"Georgia" ,"Hawaii" ,"Idaho" ,"Illinois" ,"Indiana" ,"Iowa" ,"Kansas" ,"Kentucky" ,"Louisiana" ,
     "Maine" ,"Maryland" ,"Massachusetts" ,"Michigan" ,"Minnesota" ,"Mississippi" ,"Missouri" ,"Montana" ,"Nebraska" ,"Nevada" ,
@@ -78,29 +176,7 @@ states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,
     "Rhode Island" ,"South Carolina" ,"South Dakota" ,"Tennessee" ,"Texas" ,"Utah" ,"Vermont" ,"Virginia" ,"Washington" ,"West Virginia" ,"Wisconsin" ,"Wyoming"
 ]
 
-EmployeeType.delete_all
-employeeTypes.each do |emptype, typedesc|
-    et = EmployeeType.create(employee_type: emptype, employee_type_desc: typedesc)
-end
-
-EmployeeStatus.delete_all
-employeeStatuses.each do |empstat, statdesc|
-    et = EmployeeType.create(employee_status: emptype, employee_status_desc: statdesc)
-end
-
-MetalType.delete_all
-metalTypes.each do |mettype, typedesc|
-    et = EmployeeType.create(metal_type: emptype, metal_type_desc: typedesc)
-end
-
-
-Country.delete_all
-countries.each do |country|
-    ct = Country.create(country_name: country)
-end
-
 StateProvince.delete_all
 states.each do |state|
     st = StateProvince.create(state_province_name: state)
 end
-
