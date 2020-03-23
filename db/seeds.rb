@@ -137,8 +137,6 @@ models = [
 models.each do |manuf, model|
     mf = Manufacturer.find_by(manufacturer_name: manuf)
     model.each do |name|
-        puts name
-        puts mf.id()
         Make.create(make_name: name, manufacturer_id: mf.id())
     end
 end
@@ -179,4 +177,33 @@ states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,
 StateProvince.delete_all
 states.each do |state|
     st = StateProvince.create(state_province_name: state)
+end
+
+
+#Seed Test Customer Data
+i = 50
+while i >= 1
+    state_id = StateProvince.find_by(state_province_name: states.sample).id()
+    country_id = Country.find_by(country_name: "United States").id()
+    customer_status_id = CustomerStatus.find_by(customer_status: customerStatuses.sample).id()
+    customer_type_id = CustomerType.find_by(customer_type: customerTypes.sample).id()
+    cst = Customer.create(
+        cust_f_name: Faker::Name.first_name,
+        cust_l_name: Faker::Name.last_name,
+        company: Faker::Company.name,
+        cust_address: Faker::Address.street_address,
+        cust_city: Faker::Address.city,
+        zip_code: Faker::Address.zip,
+        cust_phone: Faker::PhoneNumber.phone_number,
+        cust_email: Faker::Internet.safe_email,
+        dob: Faker::Date.birthday(min_age: 18, max_age: 70),
+        state_province_id: state_id,
+        country_id: country_id,
+        dl_number: Faker::Bank.account_number(digits: 8),
+        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name),
+        customer_status_id: customer_status_id,
+        customer_type_id: customer_type_id
+    )
+    puts "Creating Customers..."
+    i = i-1
 end
