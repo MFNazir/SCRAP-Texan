@@ -1,99 +1,99 @@
 <%= form_with(model: invoice, local: true) do |form| %>
-  <% if invoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+<% if invoice.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
 
-      <ul>
+    <ul>
         <% invoice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
 
 <div class="album text-white">
-<div class="row">
+    <div class="row">
 
-    <div class="col-md-6 text-white">
+        <div class="col-md-6 text-white">
 
-        <div class="form-group">
-          <%= form.label :invoice_number, "Invoice Number" %>
-          <%= form.number_field :invoice_number, class: 'form-control' %>
+            <div class="form-group">
+                <%= form.label :invoice_number, "Invoice Number" %>
+                <%= form.number_field :invoice_number, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.label :invoice_desc, "Invoice Description:" %>
+                <%= form.text_area :invoice_desc, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.label :invoice_date_time, "Invoice Date/Time:" %>
+                <br>
+                <%= form.text_field :invoice_date_time, type:"datetime-local", class: 'form-control' %>
+            </div>
+
+
+            <div class="form-group">
+                <%= form.label :material_image %>
+                <%= form.text_area :material_image, class: 'form-control' %>
+            </div>
+
         </div>
 
-        <div class="form-group">
-          <%= form.label :invoice_desc, "Invoice Description:" %>
-          <%= form.text_area :invoice_desc, class: 'form-control' %>
-        </div>
+        <div class="col-md-6 text-white">
 
-        <div class="form-group">
-          <%= form.label :invoice_date_time, "Invoice Date/Time:" %>
-          <br>
-          <%= form.datetime_select :invoice_date_time, class: 'form-control' %>
-        </div>
+            <div class="form-group">
+                <%= form.label :customer_id, "Select Customer" %>
+                <br>
+                <%= form.collection_select :customer_id, Customer.all, :id, :first_and_last, class: 'form-control' %>
+                <br>
+                Customer Does Not Exist? <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
+            </div>
 
-        
-        <div class="form-group">
-          <%= form.label :material_image %>
-          <%= form.text_area :material_image, class: 'form-control' %>
+            <div class="form-group">
+                <%= form.label :employee_id, "Select Employee" %>
+                <br>
+                <%= form.collection_select :employee_id, Employee.all, :id, :employee_first_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.label :invoice_type_id, "Invoice Type" %>
+                <br>
+                <%= form.collection_select :invoice_type_id, InvoiceType.all, :id, :invoice_type, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+                <%= form.label :invoice_status_id, "Invoice Status" %>
+                <br>
+                <%= form.collection_select :invoice_status_id, InvoiceStatus.all, :id, :invoice_status, class: 'form-control' %>
+            </div>
+
         </div>
 
     </div>
 
-    <div class="col-md-6 text-white">
+    <hr class="new1">
 
-        <div class="form-group">
-          <%= form.label :customer_id, "Select Customer" %>
-          <br>
-          <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %> 
-          
-          Customer Does Not Exist?  <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :employee_id, "Select Employee" %>
-          <br>
-          <%= form.collection_select :employee_id, Employee.all, :id, :employee_first_name, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :invoice_type_id, "Invoice Type" %>
-          <br>
-          <%= form.collection_select :invoice_type_id, InvoiceType.all, :id, :invoice_type, class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= form.label :invoice_status_id, "Invoice Status" %>
-          <br>
-          <%= form.collection_select :invoice_status_id, InvoiceStatus.all, :id, :invoice_status, class: 'form-control' %>
-        </div>
-      
-    </div>
-  
-  </div> 
-
-  <hr class="new1">
-  
 
     <div class="col-sm-6">
-      <h2>Add Metal Item:</h2>
-      <div id="metal_items">
-          <%= form.fields_for :metal_items do |metalitem| %>
+        <h2>Add Metal Item:</h2>
+        <div id="metal_items">
+            <%= form.fields_for :metal_items do |metalitem| %>
             <%= render 'metal_item_fields', :f => metalitem %>
-          <% end %>
-          <div class="links">
-              <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-secondary text-white' %>
-          </div>
-      </div>
-      <br>
+            <% end %>
+            <div class="links">
+                <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-secondary text-white' %>
+            </div>
+        </div>
+        <br>
     </div>
     <hr class="new1">
 
     <div class="col-sm-12 text-white">
-      <div class="form-group text-white">
-        <%= form.submit 'Create Invoice', class: 'btn btn-secondary btn-block' %>
-      </div>
-     </div> 
- </div>    
+        <div class="form-group text-white">
+            <%= form.submit 'Create Invoice', class: 'btn btn-secondary btn-block' %>
+        </div>
+    </div>
+</div>
 <% end %>

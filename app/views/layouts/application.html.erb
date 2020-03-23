@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>S.C.R.A.P</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
-  </head>
+</head>
 
-  <body>
-  <div class="site-wrapper">
-  <div class="site-wrapper-inner">
-  <div class="cover-container">
-   
-    <div id="background"></div>
-     <div class="masthead clearfix">
-      <div class="inner">
-       <h3 class="masthead-brand"><%= image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100) %></h3>
-         <nav class="nav sticky-top nav-masthead">
-          <%= link_to "Invoices", root_path, class: 'nav-link' %>
-          <%= link_to "Customers", customers_path, class: 'nav-link' %>
-          <%= link_to "Employees", employees_path, class: 'nav-link' %>
-          <p>" "</p>
-          <li class="nav-item dropdown">
-          <%= link_to "Miscellaneous", employees_path,  id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", toggle: "dropdown" }, aria: { haspopup: true, expanded: false } %>
-           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"> <%= link_to "Customer Status", customer_statuses_path, class: 'nav-link text-dark text-center' %></a>
-              <a class="dropdown-item"> <%= link_to "Customer Type", customer_types_path, class: 'nav-link text-dark text-center' %></a>
+<body>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+
+                <div id="background"></div>
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand"><%= image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100) %></h3>
+                        <nav class="nav sticky-top nav-masthead">
+                            <%= link_to "Invoices", root_path, class: 'nav-link' %>
+                            <%= link_to "Customers", customers_path, class: 'nav-link' %>
+                            <%= link_to "Employees", employees_path, class: 'nav-link' %>
+                            <%= link_to "Maintainence", employees_path, class: 'nav-link' %>
+                        </nav>
+                    </div>
+                </div>
+
+                <%= yield %>
+
             </div>
-      </li>
-         </nav>
-      </div>
+        </div>
     </div>
-       
-            <%= yield %>
-        
-      </div>
-     </div>
-    </div>
-  </body>
+</body>
+
 </html>
