@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Customer.delete_all
 #Employee Type Seed
 employeeTypes = [
     ["Manager", "Owner and/or administrator of the business"], 
@@ -181,7 +181,7 @@ end
 
 
 #Seed Test Customer Data
-i = 50
+i = 200
 while i >= 1
     state_id = StateProvince.find_by(state_province_name: states.sample).id()
     country_id = Country.find_by(country_name: "United States").id()
@@ -200,10 +200,21 @@ while i >= 1
         state_province_id: state_id,
         country_id: country_id,
         dl_number: Faker::Bank.account_number(digits: 8),
-        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name),
+        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name).map(&:to_s),
         customer_status_id: customer_status_id,
         customer_type_id: customer_type_id
     )
-    puts "Creating Customers..."
     i = i-1
 end
+
+
+#Seed an invoice for testing
+Invoice.create(
+    invoice_number: Faker::Bank.account_number(digits: 8),
+    invoice_date_time: Time.now,
+    material_image: "something.com/image.png",
+    customer_id: Customer.first.id(),
+    employee_id: Employee.first.id(),
+    invoice_type_id: InvoiceType.first.id(),
+    invoice_status_id: InvoiceStatus.first.id()
+)
