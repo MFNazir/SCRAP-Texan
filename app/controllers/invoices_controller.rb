@@ -85,6 +85,6 @@ class InvoicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invoice_params
-      params.require(:invoice).permit(:invoice_number, :invoice_desc, :invoice_date_time, :material_image, :total, :customer_id, :employee_id, :invoice_type_id, :invoice_status_id, metal_items_attributes: [:id, :metal_item_desc, :net_weight, :unit_price, :metal_type_id, :_destroy])
+      params.require(:invoice).permit(:invoice_number, :invoice_desc, :invoice_date_time, :material_image, :total, :metal_img, :customer_id, :employee_id, :invoice_type_id, :invoice_status_id, metal_items_attributes: [:id, :metal_item_desc, :net_weight, :unit_price, :metal_type_id, :_destroy])
     end
 end

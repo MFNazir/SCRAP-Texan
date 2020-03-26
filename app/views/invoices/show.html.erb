@@ -139,10 +139,15 @@
 
         <hr class="new1">
         <h2>Metal Image: </h2>
-        <p>
-            <strong>Material image:</strong>
-            <%= @invoice.material_image %>
-        </p>
+        <div class="col-sm-3 text-white">
+            <p>
+                <strong>Material image:</strong>
+                </br>
+                <% if @invoice.metal_img.attached? %>
+                <%= image_tag(@invoice.metal_img.variant(resize:"100x100"))  %>
+                <% end %>
+            </p>
+        </div>
 
         <%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
         <%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>

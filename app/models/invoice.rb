@@ -7,6 +7,6 @@ class Invoice < ApplicationRecord
   has_many :metal_items, through: :line_items
   accepts_nested_attributes_for :metal_items, reject_if: :all_blank, allow_destroy: true
 
-  
+  has_one_attached :metal_img
 
 end
