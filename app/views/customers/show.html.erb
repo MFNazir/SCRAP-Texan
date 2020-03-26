@@ -175,7 +175,10 @@
 
 <p>
   <strong>Customer's Drivers License Image:</strong>
-  <%= @customer.dl_picture %>
+   <% if @customer.dl_image.attached? %>
+   <br>
+  <%=  image_tag(@customer.dl_image.variant(resize:"100x100")) %>
+  <% end %>
 </p>
 
 
