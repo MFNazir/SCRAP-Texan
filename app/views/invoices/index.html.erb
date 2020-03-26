@@ -1,27 +1,4 @@
 <p id="notice"><%= notice %></p>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example').DataTable({
-
-            "language": {
-                "sLengthMenu": "Num. of Entries Per Page _MENU_ ",
-                "sSearch": "Search:"
-            }
-
-        });
-
-        $(document).ready(function() {
-            dataTable;
-        });
-
-        document.addEventListener("turbolinks:before-cache", function() {
-            if (dataTable !== null) {
-                dataTable.destroy();
-                dataTable = null;
-            }
-        });
-    });
-</script>
 
 
 <div class="container text-white">
@@ -72,4 +49,22 @@
     </div>
 </div>
 
-<br>
+<script type="text/javascript">
+    var dataTable = $('#example').DataTable({
+        "language": {
+            "sLengthMenu": "Num. of Entries Per Page _MENU_",
+            "sSearch": "Search:"
+        }
+    });
+
+    $(document).ready(function() {
+        dataTable;
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
+</script>
