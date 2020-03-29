@@ -125,16 +125,18 @@
             <%= render 'customer_vehicle_fields', :f => customervehicle %>
           <% end %>
           <div class="links">
-              <%= link_to_add_association 'Add A Customer Vehicle', form, :customer_vehicles, class: 'btn btn-outline-secondary text-white' %>
+              <%= link_to_add_association 'Add A Customer Vehicle', form, :customer_vehicles, class: 'btn btn-outline-success text-white' %>
           </div>
       </div>
      <br> 
+     <a href="#" class="btn btn-outline-secondary text-white">Back To Top</a>
   </div>  
+        <hr class="new1">
 
     <div class="col-sm-12">
       <div class="form-group text-white">
         <div class="actions">
-          <%= form.submit 'Create Customer', class: 'btn btn-secondary btn-block' %>
+          <%= form.submit 'Save Customer', class: 'btn btn-secondary btn-block' %>
         </div>
        </div>
     </div>  
