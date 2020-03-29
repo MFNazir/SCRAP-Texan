@@ -1,7 +1,13 @@
-<%= link_to 'DOWNLOAD PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
+
 <p id="notice"><%= notice %></p>
 
 <div class="container portfolio-container text-white">
+
+<div class="text-white">
+<%= link_to 'Download PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %> |
+ <%= link_to 'Edit Invoice', edit_invoice_path(@invoice), class: 'btn btn-outline-warning text-white' if request.format != :pdf %> |
+ <%= link_to 'Go Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
+</div>
     <hr class="new1">
     <div class="album text-white">
         <div class="row" id="invoice-show">
@@ -131,23 +137,22 @@
             <div class="col-md-5 text-white text-center"></div>
             <div class="col-md-3 text-white">
                 <p class="new1 text-right">
-                    <strong>Sub-Total: <%= number_to_currency(running_total, precision: 2) %>
-                        <strong>Invoice Total: <%= number_to_currency(@invoice.total) %>
+                    <strong>Total: <%= number_to_currency(running_total, precision: 2) %>
                 </p>
             </div>
         </div>
 
         <hr class="new1">
-        <h2>Metal Image: </h2>
+        <h2>Material Image: </h2>
         <div class="col-sm-3 text-white">
             <p>
-                <strong>Material image:</strong>
-                </br>
+                <div>
                 <% if @invoice.metal_img.attached? %>
                 <%= image_tag(@invoice.metal_img.variant(resize:"100x100"))  %>
                 <% end %>
+                </div>          
             </p>
         </div>
+        <hr class="new1">
 
-        <%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
-        <%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
+       

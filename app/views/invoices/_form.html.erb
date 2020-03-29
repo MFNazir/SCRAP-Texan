@@ -30,12 +30,12 @@
                 <div class="form-group">
                     <%= form.label :invoice_date_time, "Invoice Date/Time:" %>
                     <br>
-                    <%= form.datetime_local_field :invoice_date_time, class: 'form-control' %>
+                    <%= form.datetime_select :invoice_date_time, class: 'form-control' %>
                 </div>
 
 
                 <div class="form-group">
-                    <%= form.label :metal_img %>
+                    <%= form.label :metal_img, "Material Image" %>
                     <%= form.file_field :metal_img, class: 'form-control' %>
                 </div>
 
@@ -88,12 +88,7 @@
                 </div>
             </div>
             <br>
-            <div class="form-group">
-                <%= form.label :total, "Invoice Total" %>
-                <br>
-                <%= form.number_field :total, step: :any, class: 'form-control' %>
-
-            </div>
+            
         </div>
         <hr class="new1">
 
