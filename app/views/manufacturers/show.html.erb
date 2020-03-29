@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container portfolio-container text-white">
-  
+  <div class="text-white">
+
+    <%= link_to 'Edit Car Manufacturer', edit_manufacturer_path(@manufacturer), class: 'btn btn-outline-warning text-white' %> |
+    <%= link_to 'Manage Car Manufacturer', manufacturers_path, class: 'btn btn-outline-secondary text-white'  %>
+
+    </div>
   <hr class="new1">
     
     <div class="album text-white">
@@ -57,8 +62,8 @@
       <hr class="new1">
           
 
-<%= link_to 'Edit', edit_manufacturer_path(@manufacturer), class: 'btn btn-outline-info text-white' %> |
-<%= link_to 'Back', manufacturers_path, class: 'btn btn-outline-secondary text-white'  %>
+</div>
+</div>
 
-</div>
-</div>
+
+
