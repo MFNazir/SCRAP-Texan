@@ -6,7 +6,7 @@
 <div class="text-white">
 <%= link_to 'Download PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %> |
  <%= link_to 'Edit Invoice', edit_invoice_path(@invoice), class: 'btn btn-outline-warning text-white' if request.format != :pdf %> |
- <%= link_to 'Go Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
+ <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
 </div>
     <hr class="new1">
     <div class="album text-white">
