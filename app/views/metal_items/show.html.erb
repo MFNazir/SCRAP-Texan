@@ -2,7 +2,12 @@
 
 
 <div class="container portfolio-container text-white">
-  
+  <div class="text-white">
+
+    <%= link_to 'Edit Metal Item', edit_metal_item_path(@metal_item), class: 'btn btn-outline-warning text-white' %> |
+    <%= link_to 'Manage Metal Items', metal_items_path, class: 'btn btn-outline-secondary text-white' %>
+
+    </div>
   <hr class="new1">
     
     <div class="album text-white">
@@ -91,6 +96,3 @@
 
       <hr class="new1">
 
-
-<%= link_to 'Edit', edit_metal_item_path(@metal_item), class: 'btn btn-outline-info text-white' %> |
-<%= link_to 'Back', metal_items_path, class: 'btn btn-outline-secondary text-white' %>
