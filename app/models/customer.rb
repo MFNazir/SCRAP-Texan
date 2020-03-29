@@ -7,5 +7,10 @@ class Customer < ApplicationRecord
   has_many :customer_vehicles
   accepts_nested_attributes_for :customer_vehicles, reject_if: :all_blank, allow_destroy: true
 
+  has_one_attached :dl_image
+    
+  def first_and_last
+    "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}"
+end
 
 end

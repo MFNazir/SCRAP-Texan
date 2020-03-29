@@ -1,148 +1,158 @@
-<%= link_to 'DOWNLOAD PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
+
 <p id="notice"><%= notice %></p>
 
 <div class="container portfolio-container text-white">
-<hr class="new1">
-<div class="album text-white">
-<div class="row" id="invoice-show">
 
-    <div class="col-md-3 text-white" id="logo">
-      <h2>
-        <%= request.format == :pdf ? (wicked_pdf_image_tag 'tex.png') : (image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150))%>
-      </h2>
-  </div>
-    <div class="col-md-6 text-white text-center" id="scrap-info">
-          <a>
-          <strong>Texas Scrap Metal</strong>
-          <br>
-          <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
-          <br>
-          <strong>texscrap@gmail.com</strong>
-          <br>
-          <strong>123-456-7890</strong>
-          </a>
-          
-    </div>
-    <div class="col-md-3 text-white" id="info">
-          <p> <strong>Invoice Number:</strong> <%= @invoice.invoice_number %> </p>
-          <p> <strong>Invoice Date/Time: </strong> 
-          <br>
-          <%= @invoice.invoice_date_time.to_formatted_s(:long_ordinal) %> 
-          <p> <strong>Invoice Type: </strong>
-           <%= @invoice.invoice_type.invoice_type %>
-          </p>
-          <p> <strong>Created By: </strong>
-          <br>
-            <%= @invoice.employee.employee_first_name %>
-            <%= @invoice.employee.employee_last_name %>
-          </p>
-    </div>
+<div class="text-white">
+<%= link_to 'Download PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %> |
+ <%= link_to 'Edit Invoice', edit_invoice_path(@invoice), class: 'btn btn-outline-warning text-white' if request.format != :pdf %> |
+ <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
 </div>
+    <hr class="new1">
+    <div class="album text-white">
+        <div class="row" id="invoice-show">
 
-<hr class="new1">
+            <div class="col-md-3 text-white" id="logo">
+                <h2>
+                    <%= request.format == :pdf ? (wicked_pdf_image_tag 'tex.png') : (image_tag("dark2txscrap.png", alt: "tex", height: 110, width: 150))%>
+                </h2>
+            </div>
+            <div class="col-md-6 text-white text-center" id="scrap-info">
+                <a>
+                    <strong>Texas Scrap Metal</strong>
+                    <br>
+                    <strong>311 West Mountain Houston Rd, Houston, TX 77037</strong>
+                    <br>
+                    <strong>texscrap@gmail.com</strong>
+                    <br>
+                    <strong>123-456-7890</strong>
+                </a>
 
-<h2>Customer Information: </h2>
-<p>
-  <strong>Customer Name:</strong>
-  <%= @invoice.customer.cust_f_name %>
-  <%= @invoice.customer.cust_m_initial %>
-  <%= @invoice.customer.cust_l_name %>
-</p>
+            </div>
+            <div class="col-md-3 text-white" id="info">
+                <p> <strong>Invoice Number:</strong> <%= @invoice.invoice_number %> </p>
+                <p> <strong>Invoice Date/Time: </strong>
+                    <br>
+                    <%= @invoice.invoice_date_time.to_formatted_s(:long_ordinal) %>
+                    <p> <strong>Invoice Type: </strong>
+                        <%= @invoice.invoice_type.invoice_type %>
+                    </p>
+                    <p> <strong>Created By: </strong>
+                        <br>
+                        <%= @invoice.employee.employee_first_name %>
+                        <%= @invoice.employee.employee_last_name %>
+                    </p>
+            </div>
+        </div>
 
-<p>
-  <strong>Drivers License Number:</strong>
-  <%= @invoice.customer.dl_number %>
-</p>
+        <hr class="new1">
 
-<p>
-  <strong>Date of Birth:</strong>
-  <%= @invoice.customer.dob.to_formatted_s(:long_ordinal) %>
-</p>
+        <h2>Customer Information: </h2>
+        <p>
+            <strong>Customer Name:</strong>
+            <%= @invoice.customer.cust_f_name %>
+            <%= @invoice.customer.cust_m_initial %>
+            <%= @invoice.customer.cust_l_name %>
+        </p>
 
-<p>
-  <strong>Customer Address:</strong>
-  <%= @invoice.customer.cust_address %>,
-  <%= @invoice.customer.cust_city %>,
-  <%= @invoice.customer.state_province.state_province_name %> 
-  <%= @invoice.customer.zip_code %>
+        <p>
+            <strong>Drivers License Number:</strong>
+            <%= @invoice.customer.dl_number %>
+        </p>
 
-</p>
+        <p>
+            <strong>Date of Birth:</strong>
+            <%= @invoice.customer.dob.to_formatted_s(:long_ordinal) %>
+        </p>
 
-<hr class="new1">
-<h2>Customer Vehicle Information: </h2>
-<table class="table table-dark table-hover text-center table-sm text-nowrap" >
+        <p>
+            <strong>Customer Address:</strong>
+            <%= @invoice.customer.cust_address %>,
+            <%= @invoice.customer.cust_city %>,
+            <%= @invoice.customer.state_province.state_province_name %>
+            <%= @invoice.customer.zip_code %>
 
-  <thead>
-    <tr class="table-dark">
-      <th>Vehicle Year</th>
-      <th>Vehicle Color</th>
-      <th>License Plate Number</th>
-      <th>Registration State</th>
-      <th>Vehicle Make</th>
-      <th>Vehicle Manufacturer</th>
-    </tr>
-  </thead>
+        </p>
 
-  <tbody >
-    <% @invoice.customer.customer_vehicles.each do |cv| %>
-      <tr>
-        <td><%= cv.year %></td>
-        <td><%= cv.color %></td>
-        <td><%= cv.license_plate_number %></td>
-        <td><%= cv.state_province.state_province_name %></td>
-        <td><%= cv.make.make_name %></td>
-        <td><%= cv.make.manufacturer.manufacturer_name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <hr class="new1">
+        <h2>Customer Vehicle Information: </h2>
+        <table class="table table-dark table-hover text-center table-sm text-nowrap">
 
-<hr class="new1">
-<h2>Metal Item Information: </h2>
+            <thead>
+                <tr class="table-dark">
+                    <th>Vehicle Year</th>
+                    <th>Vehicle Color</th>
+                    <th>License Plate Number</th>
+                    <th>Registration State</th>
+                    <th>Vehicle Make</th>
+                    <th>Vehicle Manufacturer</th>
+                </tr>
+            </thead>
 
-<table class="table table-dark table-hover text-center table-sm text-nowrap">
-  <thead>
-    <tr class="table-dark">
-      <th>Metal Item Description</th>
-      <th>Metal Item Net Weight</th>
-      <th>Metal Item Unit Price</th>
-      <th>Metal Type</th>
-      <th>Unit Total</th>
-    </tr>
-  </thead>
+            <tbody>
+                <% @invoice.customer.customer_vehicles.each do |cv| %>
+                <tr>
+                    <td><%= cv.year %></td>
+                    <td><%= cv.color %></td>
+                    <td><%= cv.license_plate_number %></td>
+                    <td><%= cv.state_province.state_province_name %></td>
+                    <td><%= cv.make.make_name %></td>
+                    <td><%= cv.make.manufacturer.manufacturer_name %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
 
-  <tbody>
-    <% running_total = 0 %>
-    <% @invoice.metal_items.each do |metalitem| %>
-      <tr>
-        <td><%= metalitem.metal_item_desc %></td>
-        <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
-        <td><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
-        <td><%= metalitem.metal_type.metal_type %></td>
-        <td><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
-        <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="row">
+        <hr class="new1">
+        <h2>Metal Item Information: </h2>
 
-    <div class="col-md-4 text-white"></div>
-    <div class="col-md-5 text-white text-center"></div>
-    <div class="col-md-3 text-white">
-          <p class="new1">
-            <strong>Invoice Total: <%= number_to_currency(running_total, precision: 2) %></h6>
-                
-          </p>
-    </div>
-</div>
+        <table class="table table-dark table-hover text-center table-sm text-nowrap">
+            <thead>
+                <tr class="table-dark">
+                    <th>Metal Item Description</th>
+                    <th>Metal Item Net Weight</th>
+                    <th>Metal Item Unit Price</th>
+                    <th>Metal Type</th>
+                    <th>Unit Total</th>
+                </tr>
+            </thead>
 
-<hr class="new1">
-<h2>Metal Image: </h2>
-<p>
-  <strong>Material image:</strong>
-  <%= @invoice.material_image %>
-</p>
+            <tbody>
+                <% running_total = 0 %>
+                <% @invoice.metal_items.each do |metalitem| %>
+                <tr>
+                    <td><%= metalitem.metal_item_desc %></td>
+                    <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
+                    <td><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
+                    <td><%= metalitem.metal_type.metal_type %></td>
+                    <td><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                    <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <div class="row">
 
-<%= link_to 'Edit', edit_invoice_path(@invoice), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
-<%= link_to 'Back', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
+            <div class="col-md-4 text-white"></div>
+            <div class="col-md-5 text-white text-center"></div>
+            <div class="col-md-3 text-white">
+                <p class="new1 text-right">
+                    <strong>Total: <%= number_to_currency(running_total, precision: 2) %>
+                </p>
+            </div>
+        </div>
+
+        <hr class="new1">
+        <h2>Material Image: </h2>
+        <div class="col-sm-3 text-white">
+            <p>
+                <div>
+                <% if @invoice.metal_img.attached? %>
+                <%= image_tag(@invoice.metal_img.variant(resize:"100x100"))  %>
+                <% end %>
+                </div>          
+            </p>
+        </div>
+        <hr class="new1">
+      <a href="#" class="btn btn-outline-secondary text-white" >Back To Top</a>
+       
