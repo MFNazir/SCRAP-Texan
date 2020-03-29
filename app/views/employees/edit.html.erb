@@ -1,8 +1,10 @@
 <h1>Editing Employee</h1>
 <div class="text-white">
-<%= link_to 'Show', @employee, class: 'btn btn-outline-info text-white' %> |
-<%= link_to 'Back', employees_path, class: 'btn btn-outline-secondary text-white' %>
+<%= link_to 'Back To Employee', @employee, class: 'btn btn-outline-info text-white' %> |
+<%= link_to 'Manage Employees', employees_path, class: 'btn btn-outline-secondary text-white' %>
 </div>
+
+<hr class="new1">
 <%= render 'form', employee: @employee %>
 
 
