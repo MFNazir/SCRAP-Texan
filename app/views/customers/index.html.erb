@@ -37,7 +37,7 @@
                     <td><%= customer.dl_number %></td>
                     <td><%= customer.cust_address %></td>
                     <td><%= customer.cust_city %></td>
-                    <td><%= customer.cust_phone %></td>
+                    <td><%= number_to_phone(customer.cust_phone) %></td>
                     <td><%= customer.customer_status_id %></td>
                     <td><%= customer.customer_type_id %></td>
                     <td><%= link_to 'View', customer, class: 'btn btn-info btn-sm text-white' %></td>
