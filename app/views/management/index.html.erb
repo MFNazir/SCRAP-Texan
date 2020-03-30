@@ -3,9 +3,52 @@
 <div class="container text-white">
     <div class="album text-white">
 
-        <h1>Application Management And Reports</h1>
+        <h1 align="center">Application Management And Reports</h1>
+       
         <hr class="new1">
-        <p>Find me in app/views/management/index.html.erb</p>
+       
+        <div class="card text-center bg-dark border-light">
+            <div class="card-header text-dark border-light">
+                    <h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 45, width: 60) %></h2>
+           </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title text-light">Page Information</h5>
+                    <p class="card-text text-light">Gain Access To All Available Application Routes, Manage All The Data In The Application, And View Dynamically Generated Reports </p>
+                    <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
+                    
+                </div>
+                <div class="card-footer text-light border-light">
+                    
+                </div>
+        </div>
+        
+        <hr class="new1">
+
+        <div class="row">
+
+            <div class="col-md-6 text-white">
+                    
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("inv2.png", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Invoice Management</h5>
+                                <p class="card-text">Below you can access sections that manage all Invoices, the Invoice Statuses, and the invoice Types</p>
+                                <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-danger btn-sm text-white' %>
+                                <%= link_to 'Invoice Status', invoice_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
+                                <%= link_to 'Invoice Type', invoice_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                            </div>
+                        </div>
+                    
+            
+            </div>
+
+            <div class="col-md-6 text-white">
+            
+            </div>
+
+        </div>
 
 </div>
 </div>
