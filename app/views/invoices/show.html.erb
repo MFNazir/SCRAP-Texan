@@ -4,8 +4,10 @@
 <div class="container portfolio-container text-white">
 
 <div class="text-white">
-<%= link_to 'Download PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %> |
- <%= link_to 'Edit Invoice', edit_invoice_path(@invoice), class: 'btn btn-outline-warning text-white' if request.format != :pdf %> |
+<%= link_to 'Download PDF', invoice_path(@invoice, format: :pdf), class: 'btn btn-outline-info text-white' if request.format != :pdf %>
+<%= tag.a("|") if request.format != :pdf %>
+ <%= link_to 'Edit Invoice', edit_invoice_path(@invoice), class: 'btn btn-outline-warning text-white' if request.format != :pdf %>
+ <%= tag.a("|") if request.format != :pdf %>
  <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-secondary text-white' if request.format != :pdf %>
 </div>
     <hr class="new1">
@@ -76,6 +78,8 @@
 
         <hr class="new1">
         <h2>Customer Vehicle Information: </h2>
+
+        <% if request.format != :pdf %>
         <table class="table table-dark table-hover text-center table-sm text-nowrap">
 
             <thead>
@@ -136,11 +140,73 @@
             <div class="col-md-4 text-white"></div>
             <div class="col-md-5 text-white text-center"></div>
             <div class="col-md-3 text-white">
-                <p class="new1 text-right">
+                <p class="text-right">
                     <strong>Total: <%= number_to_currency(running_total, precision: 2) %>
                 </p>
             </div>
         </div>
+      <% end %>
+
+      <% if request.format == :pdf %>
+        <table class="pdf-table">
+
+            <thead>
+                <tr>
+                    <th class="pdf-th">Vehicle Year</th>
+                    <th class="pdf-th">Vehicle Color</th>
+                    <th class="pdf-th">License Plate Number</th>
+                    <th class="pdf-th">Registration State</th>
+                    <th class="pdf-th">Vehicle Make</th>
+                    <th class="pdf-th">Vehicle Manufacturer</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @invoice.customer.customer_vehicles.each do |cv| %>
+                <tr>
+                    <td class="pdf-td"><%= cv.year %></td>
+                    <td class="pdf-td"><%= cv.color %></td>
+                    <td class="pdf-td"><%= cv.license_plate_number %></td>
+                    <td class="pdf-td"><%= cv.state_province.state_province_name %></td>
+                    <td class="pdf-td"><%= cv.make.make_name %></td>
+                    <td class="pdf-td"><%= cv.make.manufacturer.manufacturer_name %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <hr class="new1">
+        <h2>Metal Item Information: </h2>
+
+        <table class="pdf-table">
+            <thead>
+                <tr>
+                    <th class="pdf-th">Metal Item Description</th>
+                    <th class="pdf-th">Metal Item Net Weight</th>
+                    <th class="pdf-th">Metal Item Unit Price</th>
+                    <th class="pdf-th">Metal Type</th>
+                    <th class="pdf-th">Unit Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% running_total = 0 %>
+                <% @invoice.metal_items.each do |metalitem| %>
+                <tr>
+                    <td class="pdf-td"><%= metalitem.metal_item_desc %></td>
+                    <td class="pdf-td"><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
+                    <td class="pdf-td"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
+                    <td class="pdf-td"><%= metalitem.metal_type.metal_type %></td>
+                    <td class="pdf-td"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                    <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
+                </tr>
+                <% end %>
+                <tr>
+                  <td class="pdf-total" colspan="5">Total: <%= number_to_currency(running_total, precision: 2) %></td>
+                </tr>
+            </tbody>
+        </table>
+      <% end %>
 
         <hr class="new1">
         <h2>Material Image: </h2>
@@ -154,5 +220,5 @@
             </p>
         </div>
         <hr class="new1">
-      <a href="#" class="btn btn-outline-secondary text-white" >Back To Top</a>
+      <%= content_tag(:a, "Back To Top", href: "#", class: "btn btn-outline-secondary text-white") if request.format != :pdf %>
        
