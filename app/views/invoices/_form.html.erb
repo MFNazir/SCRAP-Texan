@@ -33,10 +33,10 @@
                     <%= form.datetime_select :invoice_date_time, class: 'form-control' %>
                 </div>
 
-
                 <div class="form-group">
-                    <%= form.label :metal_img, "Material Image" %>
-                    <%= form.file_field :metal_img, class: 'form-control' %>
+                    <label class="btn btn-outline-primary text-white">
+                        Upload Material Image <%= form.file_field :metal_img, style: 'display:none;' %>
+                    </label>
                 </div>
 
             </div>
@@ -46,9 +46,9 @@
                 <div class="form-group">
                     <%= form.label :customer_id, "Select Customer" %>
                     <br>
-                    <%= form.collection_select :customer_id, Customer.all, :id, :first_and_last, class: 'form-control' %>
+                    <%= form.collection_select :customer_id, Customer.order('created_at DESC'), :id, :first_and_last, class: 'form-control' %>
                     <br>
-                    Customer Does Not Exist? <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
+                    Customer Does Not Exist? <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-success text-white btn-xs' %>
                 </div>
 
                 <div class="form-group">
