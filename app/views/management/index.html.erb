@@ -60,14 +60,38 @@
             </div>
 
         </div>
+        <hr>
 
         <div class="row">
             
-                        <div class="col-md-6 text-white"> </div>
+                        <div class="col-md-6 text-white"> 
+                            <div class="card bg-dark border-light">
+                                <div class="card-body text-light">
+                                    <div class="card-img-top">
+                                    <%= image_tag("veh.svg", alt: "tex", height: 55, width: 65) %>
+                                    </div>
+                                    <h5 class="card-title text-light">Customer Vehicle Management</h5>
+                                    <p class="card-text">Access sections that manage all Customer Vehicles, and the Vehicle Statuses</p>
+                                    <%= link_to 'Manage Customer Vehicles', customer_vehicles_path, class: 'btn btn-outline-danger btn-sm text-white' %>
+                                    <%= link_to 'Vehicle Status', vehicle_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
+                                </div>
+                             </div>   
 
                         </div>
 
-                        <div class="col-md-6 text-white"> </div>
+                        <div class="col-md-6 text-white"> 
+                            <div class="card bg-dark border-light">
+                                    <div class="card-body text-light">
+                                        <div class="card-img-top">
+                                        <%= image_tag("emp.svg", alt: "tex", height: 55, width: 65) %>
+                                        </div>
+                                        <h5 class="card-title text-light">Employee Management</h5>
+                                        <p class="card-text">Access sections that manage all Employees, Employee Statuses, and the Employee Types</p>
+                                        <%= link_to 'Manage Employees', customer_vehicles_path, class: 'btn btn-outline-danger btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Employee Status', vehicle_statuses_path, class: 'btn btn-outline-warning btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Employee Type', customer_types_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                                    </div>
+                                </div>   
 
                         </div>
 
