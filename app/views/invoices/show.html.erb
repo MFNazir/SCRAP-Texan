@@ -149,62 +149,51 @@
 
       <% if request.format == :pdf %>
         <table class="pdf-table">
-
-            <thead>
-                <tr>
-                    <th class="pdf-th">Vehicle Year</th>
-                    <th class="pdf-th">Vehicle Color</th>
-                    <th class="pdf-th">License Plate Number</th>
-                    <th class="pdf-th">Registration State</th>
-                    <th class="pdf-th">Vehicle Make</th>
-                    <th class="pdf-th">Vehicle Manufacturer</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @invoice.customer.customer_vehicles.each do |cv| %>
-                <tr>
-                    <td class="pdf-td"><%= cv.year %></td>
-                    <td class="pdf-td"><%= cv.color %></td>
-                    <td class="pdf-td"><%= cv.license_plate_number %></td>
-                    <td class="pdf-td"><%= cv.state_province.state_province_name %></td>
-                    <td class="pdf-td"><%= cv.make.make_name %></td>
-                    <td class="pdf-td"><%= cv.make.manufacturer.manufacturer_name %></td>
-                </tr>
-                <% end %>
-            </tbody>
+            <tr>
+                <th class="pdf-th">Vehicle Year</th>
+                <th class="pdf-th">Vehicle Color</th>
+                <th class="pdf-th">License Plate Number</th>
+                <th class="pdf-th">Registration State</th>
+                <th class="pdf-th">Vehicle Make</th>
+                <th class="pdf-th">Vehicle Manufacturer</th>
+            </tr>
+            <% @invoice.customer.customer_vehicles.each do |cv| %>
+            <tr>
+                <td class="pdf-td"><%= cv.year %></td>
+                <td class="pdf-td"><%= cv.color %></td>
+                <td class="pdf-td"><%= cv.license_plate_number %></td>
+                <td class="pdf-td"><%= cv.state_province.state_province_name %></td>
+                <td class="pdf-td"><%= cv.make.make_name %></td>
+                <td class="pdf-td"><%= cv.make.manufacturer.manufacturer_name %></td>
+            </tr>
+            <% end %>
         </table>
 
         <hr class="new1">
         <h2>Metal Item Information: </h2>
 
         <table class="pdf-table">
-            <thead>
-                <tr>
-                    <th class="pdf-th">Metal Item Description</th>
-                    <th class="pdf-th">Metal Item Net Weight</th>
-                    <th class="pdf-th">Metal Item Unit Price</th>
-                    <th class="pdf-th">Metal Type</th>
-                    <th class="pdf-th">Unit Total</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% running_total = 0 %>
-                <% @invoice.metal_items.each do |metalitem| %>
-                <tr>
-                    <td class="pdf-td"><%= metalitem.metal_item_desc %></td>
-                    <td class="pdf-td"><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
-                    <td class="pdf-td"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
-                    <td class="pdf-td"><%= metalitem.metal_type.metal_type %></td>
-                    <td class="pdf-td"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
-                    <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
-                </tr>
-                <% end %>
-                <tr>
-                  <td class="pdf-total" colspan="5">Total: <%= number_to_currency(running_total, precision: 2) %></td>
-                </tr>
-            </tbody>
+            <tr>
+                <th class="pdf-th">Metal Item Description</th>
+                <th class="pdf-th">Metal Item Net Weight</th>
+                <th class="pdf-th">Metal Item Unit Price</th>
+                <th class="pdf-th">Metal Type</th>
+                <th class="pdf-th">Unit Total</th>
+            </tr>
+            <% running_total = 0 %>
+            <% @invoice.metal_items.each do |metalitem| %>
+            <tr>
+                <td class="pdf-td"><%= metalitem.metal_item_desc %></td>
+                <td class="pdf-td"><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
+                <td class="pdf-td"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
+                <td class="pdf-td"><%= metalitem.metal_type.metal_type %></td>
+                <td class="pdf-td"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
+            </tr>
+            <% end %>
+            <tr>
+              <td class="pdf-total" colspan="5">Total: <%= number_to_currency(running_total, precision: 2) %></td>
+            </tr>
         </table>
       <% end %>
 
