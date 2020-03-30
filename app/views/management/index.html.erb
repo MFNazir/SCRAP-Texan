@@ -9,11 +9,11 @@
        
         <div class="card text-center bg-dark border-light">
             <div class="card-header text-dark border-light">
-                    <h2><%= image_tag("dark2txscrap.png", alt: "tex", height: 45, width: 60) %></h2>
+                    <h2><%= image_tag("app3.svg", alt: "tex", height: 70, width: 85) %></h2>
            </div>
                 <div class="card-body text-center">
                     <h5 class="card-title text-light">Page Information</h5>
-                    <p class="card-text text-light">Gain Access To All Available Application Routes, Manage All The Data In The Application, And View Dynamically Generated Reports </p>
+                    <p class="card-text text-light">Access To All Available Application Routes, Application Data, And View Dynamically Generated Reports </p>
                     <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
                     
                 </div>
@@ -34,19 +34,42 @@
                                 <%= image_tag("inv2.png", alt: "tex", height: 55, width: 65) %>
                                 </div>
                                 <h5 class="card-title text-light">Invoice Management</h5>
-                                <p class="card-text">Below you can access sections that manage all Invoices, the Invoice Statuses, and the invoice Types</p>
+                                <p class="card-text">Access sections that manage all Invoices, the Invoice Statuses, and the Invoice Types</p>
                                 <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-danger btn-sm text-white' %>
                                 <%= link_to 'Invoice Status', invoice_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
                                 <%= link_to 'Invoice Type', invoice_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
                             </div>
                         </div>
-                    
-            
+        
             </div>
 
             <div class="col-md-6 text-white">
             
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Customer Management</h5>
+                                <p class="card-text">Access sections that manage all Customers, the Customer Statuses, and the Customer Types</p>
+                                <%= link_to 'Manage Customers', customers_path, class: 'btn btn-outline-danger btn-sm text-white', style:"font-size:smaller;" %>
+                                <%= link_to 'Customer Status', customer_statuses_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
+                                <%= link_to 'Customer Type', customer_types_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                            </div>
+                        </div>
             </div>
+
+        </div>
+
+        <div class="row">
+            
+                        <div class="col-md-6 text-white"> </div>
+
+                        </div>
+
+                        <div class="col-md-6 text-white"> </div>
+
+                        </div>
 
         </div>
 
