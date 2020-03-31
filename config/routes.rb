@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/index'
   get 'management/index'
   resources :line_items
   resources :metal_items
