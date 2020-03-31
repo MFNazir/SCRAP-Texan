@@ -29,13 +29,12 @@
                         <div class="card bg-dark border-light">
                             <div class="card-body text-light">
                                 <div class="card-img-top">
-                                <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
+                                <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
                                 </div>
                                 <h5 class="card-title text-light">Customers</h5>
-                                <p class="card-text">Access sections that manage all Invoices, the Invoice Statuses, and the Invoice Types</p>
-                                <%= link_to 'Manage Invoices', customers_path, class: 'btn btn-outline-success btn-sm text-white' %>
-                                <%= link_to 'Invoice Status', invoice_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
-                                <%= link_to 'Invoice Type', invoice_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                                <p class="card-text">Create a new customer profile or search existing customers</p>
+                                <%= link_to 'Add New Customer', new_customer_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                <%= link_to 'Show Customers', customers_path, class: 'btn btn-outline-info btn-sm text-white' %>
                             </div>
                         </div>
         
@@ -48,11 +47,10 @@
                                 <div class="card-img-top">
                                 <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
                                 </div>
-                                <h5 class="card-title text-light">Invoice Management</h5>
-                                <p class="card-text">Access sections that manage all Invoices, the Invoice Statuses, and the Invoice Types</p>
-                                <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-success btn-sm text-white' %>
-                                <%= link_to 'Invoice Status', invoice_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
-                                <%= link_to 'Invoice Type', invoice_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                                <h5 class="card-title text-light">Invoices</h5>
+                                <p class="card-text">Create a new invoice or search existing invoices</p>
+                                <%= link_to 'Create Invoice', new_invoice_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                <%= link_to 'Show Invoices', invoices_path, class: 'btn btn-outline-info btn-sm text-white' %>
                             </div>
                         </div>
         
@@ -63,13 +61,13 @@
                         <div class="card bg-dark border-light">
                             <div class="card-body text-light">
                                 <div class="card-img-top">
-                                <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                                <%= image_tag("info.svg", alt: "tex", height: 55, width: 65) %>
                                 </div>
-                                <h5 class="card-title text-light">Customer Management</h5>
-                                <p class="card-text">Access sections that manage all Customers, the Customer Statuses, and the Customer Types</p>
-                                <%= link_to 'Manage Customers', customers_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
-                                <%= link_to 'Customer Status', customer_statuses_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
-                                <%= link_to 'Customer Type', customer_types_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                                <h5 class="card-title text-light">Statistics</h5>
+                                <p class="card-text">Dynamic information about business is displayed below</p>
+                                <p class="card-text">New Customers Today: 16</p>
+                                <p class="card-text">New Customers YTD: 106</p>
+                                <p class="card-text">New Invoices This Week: 26</p>
                             </div>
                         </div>
             </div>
@@ -78,6 +76,8 @@
 
         
         <hr />
+
+        <h2 align="center">Pending Invoices</h2>
 
         <hr class="new1">
 
