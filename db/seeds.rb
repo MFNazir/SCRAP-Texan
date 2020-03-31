@@ -181,8 +181,12 @@ end
 
 
 #Seed Test Customer Data
-i = 200
-while i >= 1
+
+case Rails.env
+when "development"
+    i = 200
+    
+    while i >= 1
     state_id = StateProvince.find_by(state_province_name: states.sample).id()
     country_id = Country.find_by(country_name: "United States").id()
     customer_status_id = CustomerStatus.find_by(customer_status: customerStatuses.sample).id()
@@ -205,6 +209,7 @@ while i >= 1
         customer_type_id: customer_type_id
     )
     i = i-1
+end
 end
 
 
