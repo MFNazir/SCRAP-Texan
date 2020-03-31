@@ -7,9 +7,9 @@
        
         <hr class="new1">
        
-        <div class="card text-center bg-dark border-light">
+        <div class="card text-center bg-dark border-light" style="width: 15rem; align: center">
             <div class="card-header text-dark border-light">
-                    <h2><%= image_tag("home.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h2><%= image_tag("home.svg", alt: "tex", height: 40, width: 55) %></h2>
            </div>
                 <div class="card-body text-center">
                     <h5 class="card-title text-light">Welcome</h5>
@@ -33,8 +33,8 @@
                                 </div>
                                 <h5 class="card-title text-light">Customers</h5>
                                 <p class="card-text">Create a new customer profile or search existing customers</p>
-                                <%= link_to 'Add New Customer', new_customer_path, class: 'btn btn-outline-success btn-sm text-white' %>
-                                <%= link_to 'Show Customers', customers_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                                <%= link_to 'Add New Customer', new_customer_path, class: 'btn btn-outline-success btn-sm text-white' , style:"font-size:smaller;" %>
+                                <%= link_to 'Show Customers', customers_path, class: 'btn btn-outline-info btn-sm text-white', style:"font-size:smaller;" %>
                             </div>
                         </div>
         
@@ -65,9 +65,12 @@
                                 </div>
                                 <h5 class="card-title text-light">Statistics</h5>
                                 <p class="card-text">Dynamic information about business is displayed below</p>
-                                <p class="card-text">New Customers Today: 16</p>
-                                <p class="card-text">New Customers YTD: 106</p>
-                                <p class="card-text">New Invoices This Week: 26</p>
+                                <table class="card-text">
+                                    <tr><td>New Customers Today:</td><td>16</td></tr>
+                                    <tr><td>New Customers YTD:</td><td>16</td></tr>
+                                    <tr><td>New Invoices This Week:</td><td>16</td></tr>
+
+                                </table>
                             </div>
                         </div>
             </div>
