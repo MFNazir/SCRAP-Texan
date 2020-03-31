@@ -22,9 +22,10 @@
                 <div id="background"></div>
                 <div class="masthead clearfix">
                     <div class="inner">
-                        <h3 class="masthead-brand"><%= image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100) %></h3>
+                        <h3 class="masthead-brand"><%= link_to image_tag("dark2txscrap.png", alt: "tex", height: 80, width: 100), root_path %></h3>
                         <nav class="nav sticky-top nav-masthead">
-                            <%= link_to "Invoices", root_path, class: 'nav-link' %>
+                            <%= link_to "Home", root_path, class: 'nav-link' %>
+                            <%= link_to "Invoices", invoices_path, class: 'nav-link' %>
                             <%= link_to "Customers", customers_path, class: 'nav-link' %>
                             <%= link_to "Employees", employees_path, class: 'nav-link' %>
                             <%= link_to "Management", management_index_path, class: 'nav-link' %>
