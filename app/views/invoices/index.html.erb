@@ -34,7 +34,7 @@
                     <td><%= invoice.invoice_number %></td>
                     <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                    <td class="text-center"><%= invoice.customer.cust_l_name %></td>
+                    <td class="text-center"><%= invoice.customer.first_and_last_no_id %></td>
                     <td class="text-center"><%= invoice.invoice_type.invoice_type %></td>
                     <td class="text-center"><%= invoice.invoice_status.invoice_status %></td>
                     <td><%= link_to 'Show', invoice, class: 'btn btn-info btn-sm text-white' %></td>
@@ -65,3 +65,8 @@
         }
     });
 </script>
+
+
+        Customer.find_by_sql(" select * from invoices inner join customers on invoices.customer_id = customers.id ")
+        Customer.joins(:invoices).group(:id).having("count(invoices.id) > 3").limit(10)
+        
