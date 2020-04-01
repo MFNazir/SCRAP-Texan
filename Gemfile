@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.5'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
@@ -51,6 +51,9 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'cocoon'
 
 gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary', platforms: [:mri]
+
 
 gem "mini_magick"
 

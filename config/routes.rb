@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'management/index'
+  get 'index/index'
   resources :line_items
   resources :metal_items
   resources :invoices
-  root to:  'invoices#index'
   resources :metal_types
   resources :invoice_statuses
   resources :invoice_types
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   resources :state_provinces
   resources :makes
   resources :manufacturers
+
+  root to:  'index#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
