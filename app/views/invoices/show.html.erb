@@ -117,7 +117,7 @@
                     <th>Metal Item Net Weight</th>
                     <th>Metal Item Unit Price</th>
                     <th>Metal Type</th>
-                    <th>Unit Total</th>
+                    <th >Unit Total</th>
                 </tr>
             </thead>
 
@@ -127,9 +127,9 @@
                 <tr>
                     <td><%= metalitem.metal_item_desc %></td>
                     <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
-                    <td><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
+                    <td class="text-right"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
                     <td><%= metalitem.metal_type.metal_type %></td>
-                    <td><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                    <td class="text-right"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
                     <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
                 </tr>
                 <% end %>

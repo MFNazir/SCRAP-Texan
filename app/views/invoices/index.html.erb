@@ -25,22 +25,20 @@
                     <th>Invoice Status</th>
                     <th>View Invoice</th>
                     <th>Edit Invoice</th>
-                    <th>Delete Invoice</th>
                 </tr>
             </thead>
 
             <tbody>
                 <% @invoices.each do |invoice| %>
-                <tr class="text-center">
+                <tr>
                     <td><%= invoice.invoice_number %></td>
-                    <td><%= invoice.invoice_desc %></td>
+                    <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                    <td><%= invoice.customer_id %></td>
-                    <td><%= invoice.invoice_type_id %></td>
-                    <td><%= invoice.invoice_status_id %></td>
+                    <td class="text-center"><%= invoice.customer.cust_l_name %></td>
+                    <td class="text-center"><%= invoice.invoice_type.invoice_type %></td>
+                    <td class="text-center"><%= invoice.invoice_status.invoice_status %></td>
                     <td><%= link_to 'Show', invoice, class: 'btn btn-info btn-sm text-white' %></td>
                     <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-warning btn-sm' %></td>
-                    <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
                 </tr>
                 <% end %>
             </tbody>
