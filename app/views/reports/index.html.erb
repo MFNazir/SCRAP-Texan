@@ -30,12 +30,32 @@
                     </div>
                     <h5 class="card-title text-light">Employee Reports</h5>
                     <p class="card-text text-light">View all reports pertaining to Employees stored on this application</p>
-                    <%= link_to 'Individual Employee Reports', reports_empfired_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Individual Employee Reports', employees_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
                     <%= link_to 'Active Employees', reports_empstatus_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
                     <p></p>
                     <%= link_to 'Inactive Employees', reports_empinactive_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
                     <%= link_to 'Fired Employees', reports_empfired_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
                      
+                </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                    </div>
+                    <h5 class="card-title text-light">Customer Reports</h5>
+                    <p class="card-text text-light">View all reports pertaining to Customers stored on this application</p>
+                    <%= link_to 'Individual Customer Reports', customers_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Active Customers', reports_custactive_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Active Contract Buyers', reports_empinactive_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Active Sellers', reports_empfired_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Prohibited Customers', reports_empfired_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
                 </div>
                 </div>
             </div>

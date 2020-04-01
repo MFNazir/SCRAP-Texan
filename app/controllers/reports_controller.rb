@@ -21,6 +21,12 @@ class ReportsController < ApplicationController
       @employees = Employee.where(employee_status_id: employee_fired_id)
     end
 
+    def custactive
+      customer_active_id = CustomerStatus.find_by(customer_status: "Active").id()
+      @customers = Customer.where(customer_status_id: customer_active_id)
+    
+    end
+
   end
 
 
