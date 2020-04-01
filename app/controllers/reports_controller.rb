@@ -16,6 +16,11 @@ class ReportsController < ApplicationController
   
     end
 
+    def empfired
+      employee_fired_id = EmployeeStatus.find_by(employee_status: "Fired").id()
+      @employees = Employee.where(employee_status_id: employee_fired_id)
+    end
+
   end
 
 

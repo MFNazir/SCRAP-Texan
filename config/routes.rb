@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'management/index'
   get 'reports/empstatus'
   get 'reports/empinactive'
+  get 'reports/empfired'
   get 'index/index'
   resources :line_items
   resources :metal_items

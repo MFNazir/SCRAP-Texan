@@ -21,18 +21,7 @@
         <hr class="new1">
 
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card bg-dark border-light">
-                <div class="card-body">
-                    <div class="card-img-top">
-                        <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
-                    </div>
-                    <h5 class="card-title text-light">Invoice Reports</h5>
-                    <p class="card-text text-light">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;">Go somewhere</a>
-                </div>
-                </div>
-            </div>
+            
             <div class="col-sm-6">
                 <div class="card bg-dark border-light">
                 <div class="card-body">
@@ -41,8 +30,12 @@
                     </div>
                     <h5 class="card-title text-light">Employee Reports</h5>
                     <p class="card-text text-light">View all reports pertaining to Employees stored on this application</p>
+                    <%= link_to 'Individual Employee Reports', reports_empfired_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
                     <%= link_to 'Active Employees', reports_empstatus_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
-                    <%= link_to 'Inactive Employees', reports_empinactive_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Inactive Employees', reports_empinactive_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Fired Employees', reports_empfired_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
+                     
                 </div>
                 </div>
             </div>
