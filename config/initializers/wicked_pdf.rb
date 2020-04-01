@@ -8,7 +8,6 @@
 #
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
-
 if RbConfig::CONFIG["host_os"] == "mingw32" then
   exe_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
 end

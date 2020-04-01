@@ -12,8 +12,11 @@ class Customer < ApplicationRecord
   validates :cust_phone, :presence => true, length: { minimum: 10 }
     
   def first_and_last
-    "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}"
-end
+      "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}"
+  end
 
+  def first_and_last_no_id
+   "#{cust_f_name} #{cust_l_name}"
+  end
 end
 
