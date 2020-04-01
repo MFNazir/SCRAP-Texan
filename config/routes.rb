@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'reports/index'
   get 'management/index'
+  get 'reports/empstatus'
   get 'index/index'
   resources :line_items
   resources :metal_items

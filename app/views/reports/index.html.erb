@@ -8,21 +8,42 @@
         <hr class="new1">
        
         <div class="card text-center bg-dark border-light">
-            <div class="card-header text-dark border-light">
-                    <h2><%= image_tag("report.svg", alt: "tex", height: 70, width: 85) %></h2>
-           </div>
                 <div class="card-body text-center">
+                    <h2><%= image_tag("report.svg", alt: "tex", height: 70, width: 85) %></h2>
                     <h5 class="card-title text-light">Page Information</h5>
                     <p class="card-text text-light">View Dynamically Generated Reports Regarding Invoices, Customers, Employees, And Many More </p>
                     <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
-                    
+
                 </div>
-                <div class="card-footer text-light border-light">
-                    
-                </div>
+            
         </div>
-        
+    
         <hr class="new1">
-                                <%= @employees.inspect %>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
+                    </div>
+                    <h5 class="card-title text-light">Invoice Reports</h5>
+                    <p class="card-text text-light">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;">Go somewhere</a>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("emp.svg", alt: "tex", height: 55, width: 65) %>
+                    </div>
+                    <h5 class="card-title text-light">Employee Reports</h5>
+                    <p class="card-text text-light">View all reports pertaining to Employees stored on this application</p>
+                    <%= link_to 'Active Employees', reports_empstatus_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                </div>
+                </div>
+            </div>
         </div>
 </div>
