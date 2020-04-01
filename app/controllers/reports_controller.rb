@@ -31,7 +31,8 @@ class ReportsController < ApplicationController
 
       cont_buyer_active_id = CustomerType.find_by(customer_type: "Contract Buyer").id()
       customer_active_id = CustomerStatus.find_by(customer_status: "Active").id()
-      @customers = Customer.where(customer_type_id:  cont_buyer_active_id).where(customer_status_id: customer_active_id)
+      total_invoices = Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0")
+      @customers =  Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0").where(customer_type_id:  cont_buyer_active_id).where(customer_status_id: customer_active_id)
     end
 
   end
