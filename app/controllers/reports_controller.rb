@@ -27,6 +27,13 @@ class ReportsController < ApplicationController
     
     end
 
+    def contactivebuyer
+
+      cont_buyer_active_id = CustomerType.find_by(customer_type: "Contract Buyer").id()
+      customer_active_id = CustomerStatus.find_by(customer_status: "Active").id()
+      @customers = Customer.where(customer_type_id:  cont_buyer_active_id).where(customer_status_id: customer_active_id)
+    end
+
   end
 
 
