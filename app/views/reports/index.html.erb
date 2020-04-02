@@ -63,16 +63,19 @@
             </div>
         </div>
 
-        <hr>
+        <br>
 
         <div class="row">
             
             <div class="col-sm-12">
                 <div class="card w-100 bg-dark border-light">
                     <div class="card-body">
-                        <h5 class="card-title text-light">Card title</h5>
-                        <p class="card-text text-light">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Button</a>
+                    <div class="card-img-top">
+                        <%= image_tag("report3.svg", alt: "tex", height: 50, width: 60) %>
+                    </div>
+                        <h5 class="card-title text-light">General Reports</h5>
+                        <p class="card-text text-light">This section provides general reports that cover multiple business areas that include Customers, Invoices, and Employees</p>
+                        <%= link_to 'Reported Invoices', reports_bancust_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
                     </div>
                 </div>
             
