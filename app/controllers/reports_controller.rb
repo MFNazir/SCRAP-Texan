@@ -55,6 +55,8 @@ class ReportsController < ApplicationController
       @customers = Customer.where(customer_type_id:  cust_seller__id).where(customer_status_id: customer_active_id)
     end
 
+    
+
   end
 
 

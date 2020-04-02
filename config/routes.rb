@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'reports/custgain'
   get 'reports/activesellers'
   get 'reports/ghostemp'
+  get 'reports/bancust'
   get 'index/index'
   resources :line_items
   resources :metal_items
