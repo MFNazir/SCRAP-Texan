@@ -61,6 +61,11 @@ class ReportsController < ApplicationController
     
     end
 
+    def invoicepend
+      inv_status__id = InvoiceStatus.find_by(invoice_status: "Pending").id()
+      @invoices = Invoice.where(invoice_status_id:  inv_status__id)
+
+    end
   end
 
 
