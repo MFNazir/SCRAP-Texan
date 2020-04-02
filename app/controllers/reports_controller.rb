@@ -66,6 +66,11 @@ class ReportsController < ApplicationController
       @invoices = Invoice.where(invoice_status_id:  inv_status__id)
 
     end
+
+    def invrept
+      inv_status__id = InvoiceStatus.find_by(invoice_status: "Reported").id()
+      @invoices = Invoice.where(invoice_status_id:  inv_status__id)
+    end
   end
 
 
