@@ -35,6 +35,13 @@ class ReportsController < ApplicationController
       @customers =  Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0").where(customer_type_id:  cont_buyer_active_id).where(customer_status_id: customer_active_id)
     end
 
+    def custgain
+
+      cont_buyer_active_id = CustomerType.find_by(customer_type: "Contract Buyer").id()
+      @customers = Customer.all
+    
+    end
+
   end
 
 

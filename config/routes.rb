@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'reports/empfired'
   get 'reports/custactive'
   get 'reports/contactivebuyer'
+  get 'reports/custgain'
   get 'index/index'
   resources :line_items
   resources :metal_items

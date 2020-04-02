@@ -1,7 +1,7 @@
 class ReportCalculations
 
-    def self.total_invoices
-        Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0")
+    def self.created_at
+        Customer.where(created_at: Date.today.beginning_of_year..Date.today.end_of_month)
     end
 
 end

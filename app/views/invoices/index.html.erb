@@ -67,7 +67,8 @@
 </script>
 
 
-        Customer.find_by_sql(" select * from invoices inner join customers on invoices.customer_id = customers.id ")
-        Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0").limit(10)
-        Customer.where(created_at: Date.today.beginning_of_year..Date.today).count
-        
+        Customer.where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).count 
+        Customer.where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).count
+        Customer.where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).count
+
+       
