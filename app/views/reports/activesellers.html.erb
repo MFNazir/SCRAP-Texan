@@ -26,4 +26,30 @@
         
         <hr class="new1">
 
-        <%= @customers.inspect %>
+       <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
+                            <thead>
+                                <tr class="table-dark text-center">
+                                    <th>Customer Name</th>
+                                    <th>DL Number</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Phone</th>
+                                    <th>Customer Status</th>
+                                    <th>Customer Type</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="text-center">
+                                <% @customers.each do |customer| %>
+                                <tr>
+                                    <td><%= link_to customer.first_and_last_no_id, customer, :style=> 'color:darkturquoise;' %></td>
+                                    <td><%= customer.dl_number %></td>
+                                    <td><%= customer.cust_address %></td>
+                                    <td><%= customer.cust_city %></td>
+                                    <td><%= number_to_phone(customer.cust_phone) %></td>
+                                    <td><%= customer.customer_status.customer_status %></td>
+                                    <td><%= customer.customer_type.customer_type %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
