@@ -55,7 +55,11 @@ class ReportsController < ApplicationController
       @customers = Customer.where(customer_type_id:  cust_seller__id).where(customer_status_id: customer_active_id)
     end
 
+    def bancust
+      customer_active_id = CustomerStatus.find_by(customer_status: "Prohibited").id()
+      @customers = Customer.where(customer_status_id: customer_active_id)
     
+    end
 
   end
 

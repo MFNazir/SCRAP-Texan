@@ -11,7 +11,7 @@
                 <div class="card-body text-center">
                     <h2><%= image_tag("report.svg", alt: "tex", height: 70, width: 85) %></h2>
                     <h5 class="card-title text-light">Page Information</h5>
-                    <p class="card-text text-light">View Dynamically Generated Reports Regarding Invoices, Customers, Employees, And Many More </p>
+                    <p class="card-text text-light">View Dynamically Generated Reports Regarding Customers, Employees, And Overall General Reports </p>
                     <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
 
                 </div>
@@ -57,10 +57,31 @@
                     <%= link_to 'Active Contract Buyers', reports_contactivebuyer_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
                     <%= link_to 'Active Sellers', reports_activesellers_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
                     <p></p>
-                    <%= link_to 'Prohibited Customers', reports_empfired_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Prohibited Customers', reports_bancust_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
                 </div>
                 </div>
             </div>
         </div>
+
+        <hr>
+
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div class="card w-100 bg-dark border-light">
+                    <div class="card-body">
+                        <h5 class="card-title text-light">Card title</h5>
+                        <p class="card-text text-light">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+
+     <hr class="new1">  
+
+    </div>
 
 </div>
