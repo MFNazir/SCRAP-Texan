@@ -52,7 +52,7 @@ class ReportsController < ApplicationController
 
       cust_seller__id = CustomerType.find_by(customer_type: "Seller").id()
       customer_active_id = CustomerStatus.find_by(customer_status: "Active").id()
-      @customers = Customer.joins(:invoices).group(:id).having("count(invoices.id) > 0").where(customer_type_id:  cust_seller__id).where(customer_status_id: customer_active_id)
+      @customers = Customer.where(customer_type_id:  cust_seller__id).where(customer_status_id: customer_active_id)
     end
 
   end
