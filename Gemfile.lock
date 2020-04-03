@@ -81,6 +81,8 @@ GEM
     ffi (1.12.2-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.0.0)
+      activesupport (>= 5)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.3)
@@ -202,6 +204,7 @@ DEPENDENCIES
   cocoon
   dotenv-rails (~> 2.1, >= 2.1.1)
   faker!
+  groupdate
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   mini_magick
