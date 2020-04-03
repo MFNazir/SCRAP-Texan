@@ -7,16 +7,12 @@
        
         <hr class="new1">
        
-        <div class="card text-center bg-dark border-light" style="width: 15rem; align: center">
-            <div class="card-header text-dark border-light">
-                    <h2><%= image_tag("home.svg", alt: "tex", height: 40, width: 55) %></h2>
-           </div>
+        <div class="card text-center bg-dark border-light" style="align: center">
+
                 <div class="card-body text-center">
+                    <h2><%= image_tag("home.svg", alt: "tex", height: 40, width: 55) %></h2>
                     <h5 class="card-title text-light">Welcome</h5>
                     <p class="card-text text-light">Select an option below to continue, or use the nav bar above</p>                    
-                </div>
-                <div class="card-footer text-light border-light">
-                    
                 </div>
         </div>
         
@@ -34,6 +30,7 @@
                                 <h5 class="card-title text-light">Customers</h5>
                                 <p class="card-text">Create a new customer profile or search existing customers</p>
                                 <%= link_to 'Add New Customer', new_customer_path, class: 'btn btn-outline-success btn-sm text-white' , style:"font-size:smaller;" %>
+                                <p></p>
                                 <%= link_to 'Show Customers', customers_path, class: 'btn btn-outline-info btn-sm text-white', style:"font-size:smaller;" %>
                             </div>
                         </div>
@@ -66,9 +63,9 @@
                                 <h5 class="card-title text-light">Statistics</h5>
                                 <p class="card-text">Dynamic information about business is displayed below</p>
                                 <table class="card-text">
-                                    <tr><td>New Customers Today:</td><td>16</td></tr>
-                                    <tr><td>New Customers YTD:</td><td>16</td></tr>
-                                    <tr><td>New Invoices This Week:</td><td>16</td></tr>
+                                    <tr><td>New Customers Today:</td><td><%= Customer.group_by_day(:created_at).count.fetch(Date.current, 0) %></td></tr>
+                                    <tr><td>New Customers YTD:</td><td><%= Customer.group_by_year(:created_at).count.fetch(Date.current.beginning_of_year, 0) %></td></tr>
+                                    <tr><td>New Invoices This Week:</td><td><%= Invoice.group_by_week(:created_at).count.fetch(Date.current.beginning_of_week(start_day = :sunday), 0) %></td></tr>
 
                                 </table>
                             </div>
@@ -90,13 +87,10 @@
                 <tr class="table-dark text-center">
                     <th>Invoice #</th>
                     <th>Invoice Desc.</th>
-                    <th>Invoice Date</th>
+                    <th id="clicky">Invoice Date</th>
                     <th>Customer Name</th>
                     <th>Invoice Type</th>
                     <th>Invoice Status</th>
-                    <th>View Invoice</th>
-                    <th>Edit Invoice</th>
-                    <th>Delete Invoice</th>
                 </tr>
             </thead>
 
@@ -109,13 +103,34 @@
                     <td><%= invoice.customer.first_and_last_no_id %></td>
                     <td><%= invoice.invoice_type.invoice_type %></td>
                     <td><%= invoice.invoice_status.invoice_status %></td>
-                    <td><%= link_to 'Show', invoice, class: 'btn btn-info btn-sm text-white' %></td>
-                    <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-warning btn-sm' %></td>
-                    <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
                 </tr>
                 <% end %>
             </tbody>
         </table>
+
+<script type="text/javascript">
+
+    var dataTable = $('#example').DataTable({
+        "language": {
+            "sLengthMenu": "Num. of Entries Per Page _MENU_",
+            "sSearch": "Search:"
+        }
+    });
+
+    $(document).ready(function() {
+        dataTable.search('Drafted').draw;
+        $("#clicky").trigger('click');
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
+
+
+</script>
 
         <hr class="new1">
         <a href="#" onclick="document.body.scrollTop=0;document.documentElement.scrollTop=0;event.preventDefault()" class="btn btn-outline-secondary text-white">Back To Top</a>
