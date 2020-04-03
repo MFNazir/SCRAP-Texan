@@ -80,6 +80,11 @@ class ReportsController < ApplicationController
       @customers = Customer.all
 
     end
+
+    def sellersrpt
+      @customers = Customer.all
+
+    end
   end
 
 

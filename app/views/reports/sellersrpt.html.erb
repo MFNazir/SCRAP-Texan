@@ -13,9 +13,9 @@
         <div class="card text-center bg-dark border-light">
                     
                 <div class="card-body text-center">
-                <h2><%= image_tag("buyers.svg", alt: "tex", height: 70, width: 85) %></h2>
-                    <h5 class="card-title text-light">One-Time Buyers Gained Report</h5>
-                    <p class="card-text text-light">The Following Report Displays All One-Time Buyers That The Business Has Gained This Year, Last Month, and This Month</p>
+                <h2><%= image_tag("seller3.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h5 class="card-title text-light">Metal Sellers Gained Report</h5>
+                    <p class="card-text text-light">The Following Report Displays All Metal Sellers That The Business Has Gained This Year, Last Month, and This Month</p>
                     <%= link_to 'Manage Customers', customers_path, class: 'btn btn-outline-primary text-white' %>
 
                 </div>
@@ -33,7 +33,7 @@
                     <tbody class="text-white">
                     <tr>
                     <td align = "center">This Year</td>
-                    <%  cont_buyer_active_id = CustomerType.find_by(customer_type: "One-Time Buyer").id() %>
+                    <%  cont_buyer_active_id = CustomerType.find_by(customer_type: "Seller").id() %>
                     <td align = "center"><%= @customers.where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(customer_type_id:  cont_buyer_active_id).count %></td>
                     </tr>
                     <tr>
@@ -47,6 +47,8 @@
                     </tbody>
                 </table>
             </div>
+
+            
 
 
 

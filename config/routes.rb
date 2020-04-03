@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'reports/invrept'
   get 'reports/buyeronegain'
   get 'reports/contractbuyer'
+  get 'reports/sellersrpt'
   get 'index/index'
   resources :line_items
   resources :metal_items
