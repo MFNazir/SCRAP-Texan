@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'reports/index'
   get 'management/index'
   get 'reports/empstatus'
