@@ -75,6 +75,11 @@ class ReportsController < ApplicationController
     def buyeronegain
       @customers = Customer.all
     end
+
+    def contractbuyer
+      @customers = Customer.all
+
+    end
   end
 
 
