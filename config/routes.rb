@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
+  get 'reports/index'
   get 'management/index'
+  get 'reports/empstatus'
+  get 'reports/empinactive'
+  get 'reports/empfired'
+  get 'reports/custactive'
+  get 'reports/contactivebuyer'
+  get 'reports/custgain'
+  get 'reports/activesellers'
+  get 'reports/ghostemp'
+  get 'reports/bancust'
+  get 'reports/invoicepend'
+  get 'reports/invrept'
+  get 'reports/buyeronegain'
+  get 'reports/contractbuyer'
+  get 'reports/sellersrpt'
   get 'index/index'
   resources :line_items
   resources :metal_items

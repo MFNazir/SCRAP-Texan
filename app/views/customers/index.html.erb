@@ -23,9 +23,9 @@
                     <th>Phone</th>
                     <th>Customer Status</th>
                     <th>Customer Type</th>
+                    <th> Created At</th>
                     <th>View Customer</th>
                     <th>Edit Customer</th>
-                    <th>Delete Customer</th>
                 </tr>
             </thead>
 
@@ -40,9 +40,9 @@
                     <td><%= number_to_phone(customer.cust_phone) %></td>
                     <td><%= customer.customer_status_id %></td>
                     <td><%= customer.customer_type_id %></td>
+                    <td><%= customer.created_at %></td>
                     <td><%= link_to 'View', customer, class: 'btn btn-info btn-sm text-white' %></td>
                     <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-sm'  %></td>
-                    <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
                 </tr>
                 <% end %>
             </tbody>
