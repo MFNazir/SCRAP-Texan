@@ -71,6 +71,10 @@ class ReportsController < ApplicationController
       inv_status__id = InvoiceStatus.find_by(invoice_status: "Reported").id()
       @invoices = Invoice.where(invoice_status_id:  inv_status__id)
     end
+
+    def buyeronegain
+      @customers = Customer.all
+    end
   end
 
 

@@ -36,6 +36,7 @@
                     <th>Phone</th>
                     <th>Customer Status</th>
                     <th>Customer Type</th>
+                    <th>Total Invoices</th>
                 </tr>
             </thead>
 
@@ -49,7 +50,7 @@
                     <td><%= number_to_phone(customer.cust_phone) %></td>
                     <td><%= customer.customer_status.customer_status %></td>
                     <td><%= customer.customer_type.customer_type %></td>
-                   
+                    <td><%= customer.invoices.count %></td>
                 </tr>
                 <% end %>
             </tbody>

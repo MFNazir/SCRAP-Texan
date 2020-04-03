@@ -14,7 +14,7 @@
 		</tr>
         <tr>
          <td>Last Month</td>
-        <td align = "center"></td>
+        <td align = "center"><%= Customer.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count %></td>
 		</tr>
         <tr>
          <td>This Month</td>
@@ -23,3 +23,5 @@
 		</tbody>
 	</table>
 </div>
+
+Customer.where(created_at: Date.today).count

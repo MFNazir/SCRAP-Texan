@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'reports/bancust'
   get 'reports/invoicepend'
   get 'reports/invrept'
+  get 'reports/buyeronegain'
   get 'index/index'
   resources :line_items
   resources :metal_items
