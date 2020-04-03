@@ -97,7 +97,7 @@
             <tbody>
                 <% Invoice.all.each do |invoice| %>
                 <tr class="text-center">
-                    <td><%= invoice.invoice_number %></td>
+                    <td><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
                     <td><%= invoice.invoice_desc %></td>
                     <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
                     <td><%= invoice.customer.first_and_last_no_id %></td>
