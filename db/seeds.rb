@@ -167,7 +167,7 @@ countries.each do |country|
     ct = Country.create(country_name: country)
 end
 
-#TODO: Add Mexican States, Salvadoran Departments, Hondurian, Costa Rican, and Panama
+# TODO: Add Mexican States, Salvadoran Departments, Hondurian, Costa Rican, and Panama
 #State/Province Seed
 states = ["Alabama" ,"Alaska" ,"Arizona" ,"Arkansas" ,"California" ,"Colorado" ,"Connecticut" ,
     "Delaware" ,"Florida" ,"Georgia" ,"Hawaii" ,"Idaho" ,"Illinois" ,"Indiana" ,"Iowa" ,"Kansas" ,"Kentucky" ,"Louisiana" ,
@@ -206,7 +206,7 @@ when "development"
         state_province_id: state_id,
         country_id: country_id,
         dl_number: Faker::Bank.account_number(digits: 8),
-        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name).to_s,
+        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name).flatten.join(' '),
         customer_status_id: customer_status_id,
         customer_type_id: customer_type_id
     )
