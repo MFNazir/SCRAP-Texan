@@ -200,7 +200,7 @@ when "development"
         cust_address: Faker::Address.street_address,
         cust_city: Faker::Address.city,
         zip_code: Faker::Address.zip,
-        cust_phone: Faker::PhoneNumber.phone_number,
+        cust_phone: Faker::Number.number(digits: 10),
         cust_email: Faker::Internet.safe_email,
         dob: Faker::Date.birthday(min_age: 18, max_age: 70),
         state_province_id: state_id,
