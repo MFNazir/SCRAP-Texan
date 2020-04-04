@@ -1,9 +1,11 @@
 <h1>Editing Customer Vehicle</h1>
 
 <div class="text-white">
-    <%= link_to 'Show', @customer_vehicle, class: 'btn btn-outline-info text-white' %> |
-    <%= link_to 'Back', customer_vehicles_path, class: 'btn btn-outline-secondary text-white' %>
+    <%= link_to 'Back To Customer Vehicle', @customer_vehicle, class: 'btn btn-outline-info text-white' %> |
+    <%= link_to 'Manage Customer Vehicles', customer_vehicles_path, class: 'btn btn-outline-secondary text-white' %>
 </div>
+
+<hr class="new1">
 
 <%= render 'form', customer_vehicle: @customer_vehicle %>
 

@@ -51,3 +51,10 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'cocoon'
 
 gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary', platforms: [:mri]
+
+
+gem "mini_magick"
+
+gem 'image_processing', '~> 1.2'

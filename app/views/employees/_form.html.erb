@@ -53,6 +53,8 @@
                           <%= form.label :email_emp, "Employee E-Mail" %>
                           <%= form.text_field :email_emp, class: 'form-control' %>
                         </div>
+                                    <a href="#" class="btn btn-outline-secondary text-white">Back To Top</a>
+
               
               </div>
 
@@ -101,6 +103,7 @@
                          <%= form.collection_select :employee_status_id, EmployeeStatus.all, :id, :employee_status, class: 'form-control' %>
                       </div>
               </div>
+              
 
           </div>
             
@@ -110,7 +113,7 @@
               <div class="col-sm-12">
                 <div class="form-group text-white">
                   <div class="actions">
-                    <%= form.submit "Create Employee", class: 'btn btn-secondary btn-block' %>
+                    <%= form.submit "Save Employee", class: 'btn btn-secondary btn-block' %>
                   </div>
                 </div>
               </div>    

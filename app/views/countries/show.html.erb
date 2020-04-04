@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="container portfolio-container text-white">
-  
+  <div class="text-white">
+
+  <%= link_to 'Edit Country', edit_country_path(@country), class: 'btn btn-outline-warning text-white' %> |
+  <%= link_to 'Manage Countries', countries_path, class: 'btn btn-outline-secondary text-white' %>
+
+  </div>
   <hr class="new1">
     
     <div class="album text-white">
@@ -41,5 +46,3 @@
 
           <hr class="new1">
 
-<%= link_to 'Edit', edit_country_path(@country), class: 'btn btn-outline-info text-white' %> |
-<%= link_to 'Back', countries_path, class: 'btn btn-outline-secondary text-white' %>

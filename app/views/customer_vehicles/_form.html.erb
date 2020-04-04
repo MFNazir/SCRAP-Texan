@@ -42,7 +42,7 @@
                     <div class="form-group">
                       <%= form.label :make_id, "Vehicle Make" %>
                       <br>
-                      <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-secondary text-white btn-sm' %></p>
+                      <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-success text-white btn-sm' %></p>
 
                     </div>
 
@@ -55,14 +55,16 @@
                     <div class="form-group">
                       <%= form.label :customer_id, "Select Customer" %>
                       <br>
-                      <%= form.collection_select :customer_id, Customer.all, :id, :dl_number, class: 'form-control' %>
+                      <%= form.collection_select :customer_id, Customer.all, :id, :first_and_last, class: 'form-control' %>
                     </div>
 
                 </div>
+                
             
-            <hr class="new1">
 
               <div class="col-sm-12">
+                          <hr class="new1">
+
                 
                 <div class="form-group text-white">
                     

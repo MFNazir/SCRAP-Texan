@@ -1,0 +1,163 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <h1 align="center">Application Management And Reports</h1>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light">
+            <div class="card-header text-dark border-light">
+                    <h2><%= image_tag("app3.svg", alt: "tex", height: 70, width: 85) %></h2>
+           </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title text-light">Page Information</h5>
+                    <p class="card-text text-light">Access All Application Reports, Data, and Routes</p>
+                    <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
+                    
+                </div>
+                <div class="card-footer text-light border-light">
+                    
+                </div>
+        </div>
+        
+        <hr class="new1">
+
+        <div class="row">
+
+            <div class="col-md-6 text-white">
+                    
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Invoice Management</h5>
+                                <p class="card-text">Access sections that manage all Invoices, the Invoice Statuses, and the Invoice Types</p>
+                                <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                <%= link_to 'Invoice Status', invoice_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
+                                <%= link_to 'Invoice Type', invoice_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                            </div>
+                        </div>
+        
+            </div>
+
+            <div class="col-md-6 text-white">
+            
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Customer Management</h5>
+                                <p class="card-text">Access sections that manage all Customers, the Customer Statuses, and the Customer Types</p>
+                                <%= link_to 'Manage Customers', customers_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
+                                <%= link_to 'Customer Status', customer_statuses_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
+                                <%= link_to 'Customer Type', customer_types_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                            </div>
+                        </div>
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="row">
+            
+                        <div class="col-md-6 text-white"> 
+                            <div class="card bg-dark border-light">
+                                <div class="card-body text-light">
+                                    <div class="card-img-top">
+                                    <%= image_tag("veh.svg", alt: "tex", height: 55, width: 65) %>
+                                    </div>
+                                    <h5 class="card-title text-light">Customer Vehicle Management</h5>
+                                    <p class="card-text">Access sections that manage all Customer Vehicles, and the Vehicle Statuses</p>
+                                    <%= link_to 'Manage Customer Vehicles', customer_vehicles_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                    <%= link_to 'Vehicle Status', vehicle_statuses_path, class: 'btn btn-outline-warning btn-sm text-white' %>
+                                </div>
+                             </div>   
+
+                        </div>
+
+                        <div class="col-md-6 text-white"> 
+                            <div class="card bg-dark border-light">
+                                    <div class="card-body text-light">
+                                        <div class="card-img-top">
+                                        <%= image_tag("emp.svg", alt: "tex", height: 55, width: 65) %>
+                                        </div>
+                                        <h5 class="card-title text-light">Employee Management</h5>
+                                        <p class="card-text">Access sections that manage all Employees, Employee Statuses, and the Employee Types</p>
+                                        <%= link_to 'Manage Employees', employees_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Employee Status', employee_statuses_path, class: 'btn btn-outline-warning btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Employee Type', employee_types_path, class: 'btn btn-outline-info btn-sm text-white small', style:"font-size:smaller;" %>
+                                    </div>
+                                </div>   
+
+                        </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+                        <div class="col-md-6 text-white"> 
+                            <div class="card bg-dark border-light">
+                                <div class="card-body text-light">
+                                    <div class="card-img-top">
+                                    <%= image_tag("veh2.svg", alt: "tex", height: 55, width: 65) %>
+                                    </div>
+                                    <h5 class="card-title text-light">Vehicle Information Management</h5>
+                                    <p class="card-text">Access sections that manage all Car Manufacturers and the Makes Associated With Them</p>
+                                    <%= link_to 'Manage Car Makes', makes_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                    <%= link_to 'Manage Car Manufacturers', manufacturers_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                </div>
+                             </div>   
+
+                        </div>
+
+                        <div class="col-md-6 text-white"> 
+                                <div class="card bg-dark border-light">
+                                    <div class="card-body text-light">
+                                        <div class="card-img-top">
+                                        <%= image_tag("metal2.svg", alt: "tex", height: 55, width: 65) %>
+                                        </div>
+                                        <h5 class="card-title text-light">Metal Item Managment</h5>
+                                        <p class="card-text">Access sections that manage all Metal Items, and the Metal Types</p>
+                                        <%= link_to 'Manage Metal Items', metal_items_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                        <%= link_to 'Metal Type', metal_types_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                                    </div>
+                                </div>   
+                        </div>
+
+        
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2 text-white"> </div>
+
+            <div class="col-md-8 text-white"> 
+                    <div class="card bg-dark border-light">
+                                    <div class="card-body text-light">
+                                        <div class="card-img-top">
+                                        <%= image_tag("info.svg", alt: "tex", height: 55, width: 65) %>
+                                        </div>
+                                        <h5 class="card-title text-light">Miscellaneous</h5>
+                                        <p class="card-text">Access sections that manage all Countries, State/Provinces, and the Line Items </p>
+                                        <%= link_to 'Manage Countries', countries_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Manage State/Provinces', state_provinces_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
+                                        <%= link_to 'Manage Line Items', line_items_path, class: 'btn btn-outline-success btn-sm text-white', style:"font-size:smaller;" %>
+                                    </div>
+                                </div>   
+            </div>
+
+            <div class="col-md-2 text-white"> </div>
+
+        </div>
+
+        <hr class="new1">
+        <a href="#" class="btn btn-outline-secondary text-white">Back To Top</a>
+</div>
+</div>

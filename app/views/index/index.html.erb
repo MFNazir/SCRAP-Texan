@@ -1,0 +1,123 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <h1 align="center">Texas Scrap Metal</h1>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light" style="width: 15rem; align: center">
+            <div class="card-header text-dark border-light">
+                    <h2><%= image_tag("home.svg", alt: "tex", height: 40, width: 55) %></h2>
+           </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title text-light">Welcome</h5>
+                    <p class="card-text text-light">Select an option below to continue, or use the nav bar above</p>                    
+                </div>
+                <div class="card-footer text-light border-light">
+                    
+                </div>
+        </div>
+        
+        <hr class="new1">
+
+        <div class="row">
+
+            <div class="col-md-4 text-white">
+                    
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Customers</h5>
+                                <p class="card-text">Create a new customer profile or search existing customers</p>
+                                <%= link_to 'Add New Customer', new_customer_path, class: 'btn btn-outline-success btn-sm text-white' , style:"font-size:smaller;" %>
+                                <%= link_to 'Show Customers', customers_path, class: 'btn btn-outline-info btn-sm text-white', style:"font-size:smaller;" %>
+                            </div>
+                        </div>
+        
+            </div>
+
+            <div class="col-md-4 text-white">
+                    
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("inv4.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Invoices</h5>
+                                <p class="card-text">Create a new invoice or search existing invoices</p>
+                                <%= link_to 'Create Invoice', new_invoice_path, class: 'btn btn-outline-success btn-sm text-white' %>
+                                <%= link_to 'Show Invoices', invoices_path, class: 'btn btn-outline-info btn-sm text-white' %>
+                            </div>
+                        </div>
+        
+            </div>
+
+            <div class="col-md-4 text-white">
+            
+                        <div class="card bg-dark border-light">
+                            <div class="card-body text-light">
+                                <div class="card-img-top">
+                                <%= image_tag("info.svg", alt: "tex", height: 55, width: 65) %>
+                                </div>
+                                <h5 class="card-title text-light">Statistics</h5>
+                                <p class="card-text">Dynamic information about business is displayed below</p>
+                                <table class="card-text">
+                                    <tr><td>New Customers Today:</td><td>16</td></tr>
+                                    <tr><td>New Customers YTD:</td><td>16</td></tr>
+                                    <tr><td>New Invoices This Week:</td><td>16</td></tr>
+
+                                </table>
+                            </div>
+                        </div>
+            </div>
+
+        </div>
+
+        
+        <hr />
+
+        <h2 align="center">Pending Invoices</h2>
+
+        <hr class="new1">
+
+        <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
+
+            <thead>
+                <tr class="table-dark text-center">
+                    <th>Invoice #</th>
+                    <th>Invoice Desc.</th>
+                    <th>Invoice Date</th>
+                    <th>Customer Name</th>
+                    <th>Invoice Type</th>
+                    <th>Invoice Status</th>
+                    <th>View Invoice</th>
+                    <th>Edit Invoice</th>
+                    <th>Delete Invoice</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% Invoice.all.each do |invoice| %>
+                <tr class="text-center">
+                    <td><%= invoice.invoice_number %></td>
+                    <td><%= invoice.invoice_desc %></td>
+                    <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
+                    <td><%= invoice.customer.first_and_last_no_id %></td>
+                    <td><%= invoice.invoice_type.invoice_type %></td>
+                    <td><%= invoice.invoice_status.invoice_status %></td>
+                    <td><%= link_to 'Show', invoice, class: 'btn btn-info btn-sm text-white' %></td>
+                    <td><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-warning btn-sm' %></td>
+                    <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <hr class="new1">
+        <a href="#" onclick="document.body.scrollTop=0;document.documentElement.scrollTop=0;event.preventDefault()" class="btn btn-outline-secondary text-white">Back To Top</a>
+</div>
+</div>

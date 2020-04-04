@@ -8,10 +8,15 @@
 #
 # https://github.com/mileszs/wicked_pdf/blob/master/README.md
 
+#Check for Windows platform
+if RbConfig::CONFIG["host_os"] == "mingw32" then
+  exe_path = 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+end
 WickedPdf.config = {
   # Path to the wkhtmltopdf executable: This usually isn't needed if using
   # one of the wkhtmltopdf-binary family of gems.
-  exe_path: 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe',
+  exe_path: exe_path
+
   #   or
   # exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
 

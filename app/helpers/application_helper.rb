@@ -56,4 +56,13 @@ module ApplicationHelper
           ['Wyoming', 'WY']
         ]
     end
+
+    def total_sample
+
+      total_sample = 0
+      @invoice.metal_items.each do |metalitem| 
+      total_sample = total_sample + metalitem.unit_price
+      total_sample
+    end
+  end
 end
