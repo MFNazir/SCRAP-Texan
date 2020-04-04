@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Invoice.delete_all
 Customer.delete_all
+Employee.delete_all
 #Employee Type Seed
 employeeTypes = [
     ["Manager", "Owner and/or administrator of the business"], 
@@ -143,21 +145,21 @@ end
 
 
 #Country Seed
-countries = ["Afghanistan", "Albania", "Algeria", "America", "Andorra", "Angola", "Antigua", "Argentina", "Armenia", "Australia", "Austria", 
+countries = ["United States", "El Salvador", "Mexico", "Afghanistan", "Albania", "Algeria", "America", "Andorra", "Angola", "Antigua", "Argentina", "Armenia", "Australia", "Austria", 
     "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bissau", "Bolivia", "Bosnia", 
     "Botswana", "Brazil", "British", "Brunei", "Bulgaria", "Burkina", "Burma", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Central African Republic", 
     "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech", "Denmark", "Djibouti", "Dominica", "East Timor", 
-    "Ecuador", "Egypt", "El Salvador", "Emirate", "England", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", 
+    "Ecuador", "Egypt", "Emirate", "England", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", 
     "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Grenada", "Grenadines", "Guatemala", "Guinea", "Guyana", "Haiti", "Herzegovina", "Honduras", "Hungary", 
     "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea", 
     "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", 
-    "Malaysia", "Maldives", "Mali", "Malta", "Marshall", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", 
+    "Malaysia", "Maldives", "Mali", "Malta", "Marshall", "Mauritania", "Mauritius", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", 
     "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua", "Paraguay", 
     "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Samoa", "San Marino", "Sao Tome", "Saudi Arabia", "Scotland", "Senegal", "Serbia", 
     "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", 
     "St. Kitts", "St. Lucia", "St. Kitts", "St. Lucia", "Saint Kitts", "Santa Lucia", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", 
     "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Tobago", "Togo", "Tonga", "Trinidad", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", 
-    "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    "United Kingdom", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ]
 
 Country.delete_all
@@ -184,7 +186,7 @@ end
 
 case Rails.env
 when "development"
-    i = 200
+    i = 50
     
     while i >= 1
     state_id = StateProvince.find_by(state_province_name: states.sample).id()
@@ -214,12 +216,12 @@ end
 
 
 #Seed an invoice for testing
-Invoice.create(
-    invoice_number: Faker::Bank.account_number(digits: 8),
-    invoice_date_time: Time.now,
-    material_image: "something.com/image.png",
-    customer_id: Customer.first.id(),
-    employee_id: Employee.first.id(),
-    invoice_type_id: InvoiceType.first.id(),
-    invoice_status_id: InvoiceStatus.first.id()
-)
+#Invoice.create(
+#    invoice_number: Faker::Bank.account_number(digits: 8),
+#    invoice_date_time: Time.now,
+#    material_image: "something.com/image.png",
+#    customer_id: Customer.first.id(),
+#    employee_id: Employee.first.id(),
+#    invoice_type_id: InvoiceType.first.id(),
+#    invoice_status_id: InvoiceStatus.first.id()
+#)
