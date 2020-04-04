@@ -45,6 +45,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
     activejob (6.0.2.1)
       activesupport (= 6.0.2.1)
       globalid (>= 0.3.6)
@@ -64,6 +67,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -120,6 +125,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.2.2)
     pg (1.2.2-x64-mingw32)
+    public_suffix (4.0.3)
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
@@ -212,6 +218,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  active_link_to
   bootsnap (>= 1.4.2)
   byebug
   cocoon
