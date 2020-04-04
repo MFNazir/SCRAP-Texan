@@ -1,12 +1,30 @@
 module ApplicationHelper
 
-  def login_helper style = ''
+  def login_helper style = 'nav-link'
     if user_signed_in?
-        (link_to "Edit Account", edit_user_registration_path, class: style) + 
+    (link_to "Home", root_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Invoices", invoices_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Customers", customers_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Employees", employees_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Management", management_index_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Reports", reports_index_path, class: style) + 
+
+    " ".html_safe +
+    (link_to "Edit Account", edit_user_registration_path, class: style) + 
 
           " ".html_safe +
 
-          (link_to "Logout", destroy_user_session_path, method: :delete, class: style) 
+    (link_to "Logout", destroy_user_session_path, method: :delete, class: style) 
     else 
        link_to "Login", new_user_session_path, class: style
    end
