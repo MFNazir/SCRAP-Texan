@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2'
@@ -58,3 +58,9 @@ gem 'wkhtmltopdf-binary', platforms: [:mri]
 gem "mini_magick"
 
 gem 'image_processing', '~> 1.2'
+
+gem 'groupdate'
+
+gem 'devise', '~> 4.2'
+
+gem 'active_link_to'

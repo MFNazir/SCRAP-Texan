@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <h1 align="center">Reports</h1>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light">
+                <div class="card-body text-center">
+                    <h2><%= image_tag("report.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h5 class="card-title text-light">Page Information</h5>
+                    <p class="card-text text-light">View Dynamically Generated Reports Regarding Customers, Employees, And Overall General Reports </p>
+                    <%= link_to 'Go Home', root_path, class: 'btn btn-outline-primary text-white' %>
+
+                </div>
+            
+        </div>
+    
+        <hr class="new1">
+
+        <div class="row">
+            
+            <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("emp.svg", alt: "tex", height: 55, width: 65) %>
+                    </div>
+                    <h5 class="card-title text-light">Employee Reports</h5>
+                    <p class="card-text text-light">View all reports pertaining to Employees stored on this application</p>
+                    <%= link_to 'Individual Employee Reports', employees_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Active Employees', reports_empstatus_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Inactive Employees', reports_empinactive_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Ghosted Employees', reports_ghostemp_path, class: 'btn btn-outline-secondary btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Fired Employees', reports_empfired_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
+                     
+                </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("cust.svg", alt: "tex", height: 55, width: 65) %>
+                    </div>
+                    <h5 class="card-title text-light">Customer Reports</h5>
+                    <p class="card-text text-light">View all reports pertaining to Customers stored on this application</p>
+                    <%= link_to 'Individual Customer Reports', customers_path, class: 'btn btn-outline-primary btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Active Customers', reports_custactive_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Active Contract Buyers', reports_contactivebuyer_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                    <%= link_to 'Active Sellers', reports_activesellers_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                    <p></p>
+                    <%= link_to 'Prohibited Customers', reports_bancust_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <div class="card w-100 bg-dark border-light">
+                    <div class="card-body">
+                    <div class="card-img-top">
+                        <%= image_tag("report3.svg", alt: "tex", height: 50, width: 60) %>
+                    </div>
+                        <h5 class="card-title text-light">General Reports</h5>
+                        <p class="card-text text-light">This section provides general reports that cover multiple business areas that include Customers, Invoices, and Employees</p>
+                        <%= link_to 'Pending Invoices', reports_invoicepend_path, class: 'btn btn-outline-warning btn-sm text-white small', style:"font-size:smaller;" %>
+                        <%= link_to 'Reported Invoices', reports_invrept_path, class: 'btn btn-outline-danger btn-sm text-white small', style:"font-size:smaller;" %>
+                        <%= link_to 'One-Time Buyers Gained', reports_buyeronegain_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                        <%= link_to 'Contract Buyers Gained', reports_contractbuyer_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+                        <%= link_to 'Sellers Gained', reports_sellersrpt_path, class: 'btn btn-outline-success btn-sm text-white small', style:"font-size:smaller;" %>
+
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+
+     <hr class="new1">  
+
+    </div>
+
+</div>

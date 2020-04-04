@@ -1,10 +1,15 @@
 class MetalTypesController < ApplicationController
   before_action :set_metal_type, only: [:show, :edit, :update, :destroy]
 
+  
   # GET /metal_types
   # GET /metal_types.json
   def index
     @metal_types = MetalType.all
+  end
+
+  def protected 
+
   end
 
   # GET /metal_types/1

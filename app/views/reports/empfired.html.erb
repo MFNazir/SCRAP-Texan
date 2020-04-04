@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <div class="text-white">
+            <%= link_to 'Back To Reports', reports_index_path, class: 'btn btn-outline-primary text-white' %> |
+            <%= link_to 'Go Home', root_path, class: 'btn btn-outline-warning text-white' %>       
+        </div>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light">
+                    
+                <div class="card-body text-center">
+                <h2><%= image_tag("fired.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h5 class="card-title text-light">Fired Employees Report</h5>
+                    <p class="card-text text-light">The Following Report Displays All Fired Employees </p>
+                    <%= link_to 'Manage Employees', employees_path, class: 'btn btn-outline-primary text-white' %>
+
+                </div>
+             
+        </div>
+
+        
+        
+        <hr class="new1">
+
+             <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
+            <thead>
+                <tr class="table-dark text-center">
+                    <th>Employee Name</td>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Employee Type</th>
+                    <th>Employee Status</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody class="text-center">
+                <% @employees.each do |employee| %>
+                <tr>
+                    <td><%= link_to employee.emp_first_and_last_no_id, employee, :style=> 'color:darkturquoise;' %></td>
+                    <td><%= employee.phone_number %></td>
+                    <td><%= employee.email_emp %></td>
+                    <td><%= employee.emp_address %></td>
+                    <td><%= employee.city %></td>
+                    <td><%= employee.state_province.state_province_name %></td>
+                    <td><%= employee.employee_type.employee_type %></td>
+                    <td><%= employee.employee_status.employee_status %></td>
+                  
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+                <hr class="new1">
+
+
+        </div>
+</div>

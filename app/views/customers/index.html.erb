@@ -25,7 +25,6 @@
                     <th>Customer Type</th>
                     <th>View Customer</th>
                     <th>Edit Customer</th>
-                    <th>Delete Customer</th>
                 </tr>
             </thead>
 
@@ -42,7 +41,6 @@
                     <td><%= customer.customer_type_id %></td>
                     <td><%= link_to 'View', customer, class: 'btn btn-info btn-sm text-white' %></td>
                     <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-sm'  %></td>
-                    <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
                 </tr>
                 <% end %>
             </tbody>
@@ -55,11 +53,17 @@
             "sLengthMenu": "Num. of Entries Per Page _MENU_",
             "sSearch": "Search:"
         }
+
+        
+        
     });
 
     $(document).ready(function() {
         dataTable;
     });
+
+    
+    
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {
