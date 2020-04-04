@@ -2,10 +2,12 @@
 <div class="album text-white">
 <div class="login">
   <div class="card  bg-dark border-light">
-    <div class="card-body">
+    <div class="card-body text-center">
+    <%= image_tag("login2.svg", alt: "tex", height: 50, width: 65) %>
     <h1 class="text-center">Login</h1>
     <hr>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
       <div class="form-group">
         <%= f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control' %>
       </div>
