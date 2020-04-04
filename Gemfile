@@ -60,3 +60,7 @@ gem "mini_magick"
 gem 'image_processing', '~> 1.2'
 
 gem 'groupdate'
+
+gem 'devise', '~> 4.2'
+
+gem 'active_link_to'
