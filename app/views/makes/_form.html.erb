@@ -15,19 +15,21 @@
   
           <div class="row">
 
-              <div class="col-md-6 text-white">
+              <div class="col-md-4 text-white">
 
                 <div class="form-group">
                   <%= form.label :make_name, "Car Make Name" %>
-                  <%= form.text_field :make_name, class: 'form-control' %>
+                  <%= form.text_field :make_name, placeholder: "Enter Car Make Name", class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
                   <%= form.label :manufacturer_id, "Select Manufacturer" %>
                   <br>
                   <%= form.collection_select :manufacturer_id, Manufacturer.all, :id, :manufacturer_name, class: 'form-control' %>
-                  <br>
-                  Manufacturer Does Not Exist?  <%= link_to 'Add a New Manufacturer', manufacturers_path, class: 'btn btn-outline-secondary text-white btn-xs' %>
+                  <p></p>
+                  Manufacturer Does Not Exist?  
+                  <p></p>
+                  <%= link_to 'Add a New Manufacturer', manufacturers_path, class: 'btn btn-outline-success text-white btn-sm' %>
                 </div>
               
               </div>
