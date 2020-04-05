@@ -16,20 +16,18 @@
     <tr class="table-dark text-center">
       <th>Invoice Type</th>
       <th>Invoice Type Description</th>
-      <th>Show Invoice Type</th>
+      <th>View Invoice Type</th>
       <th>Edit Invoice Type</th>
-      <th>Delete Invoice Type</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody>
     <% @invoice_types.each do |invoice_type| %>
       <tr>
-        <td><%= invoice_type.invoice_type %></td>
-        <td><%= invoice_type.invoice_type_desc %></td>
-        <td><%= link_to 'Show', invoice_type, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_invoice_type_path(invoice_type), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', invoice_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-left"><%= invoice_type.invoice_type %></td>
+        <td class="text-left"><%= invoice_type.invoice_type_desc %></td>
+        <td class="text-center"><%= link_to 'View', invoice_type, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_invoice_type_path(invoice_type), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
