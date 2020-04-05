@@ -42,7 +42,7 @@
                     <div class="form-group">
                       <%= form.label :make_id, "Vehicle Make" %>
                       <br>
-                      <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-success text-white btn-sm' %></p>
+                      <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-success text-white btn-sm', style:"font-size:smaller;" %></p>
 
                     </div>
 

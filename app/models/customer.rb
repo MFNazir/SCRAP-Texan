@@ -10,7 +10,8 @@ class Customer < ApplicationRecord
   has_one_attached :dl_image
 
   validates :cust_phone, :presence => true, length: { minimum: 10 }
-  validates :cust_f_name, :presence => true
+  validates :cust_f_name, :cust_l_name, :cust_address, :cust_city, :zip_code, :cust_phone, :cust_email, :dob, :dl_image, :state_province_id, :country_id, :customer_status_id, :customer_type_id, :presence => true
+  validates :customer_vehicles, :presence => true
     
   def first_and_last
       "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}"
