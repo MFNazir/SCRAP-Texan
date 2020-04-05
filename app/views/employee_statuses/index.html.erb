@@ -14,20 +14,18 @@
     <tr class="table-dark text-center">
       <th>Employee Status</th>
       <th>Employee Status Description</th>
-      <th>View Emp Status</th>
-      <th>Edit Emp Status</th>
-      <th>Delete Emp Status</th>
+      <th>View Employee Status</th>
+      <th>Edit Employee Status</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody class="text-left">
     <% @employee_statuses.each do |employee_status| %>
       <tr>
         <td><%= employee_status.employee_status %></td>
         <td><%= employee_status.employee_status_desc %></td>
-        <td><%= link_to 'Show', employee_status, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_employee_status_path(employee_status), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', employee_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-center"><%= link_to 'View', employee_status, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_employee_status_path(employee_status), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
