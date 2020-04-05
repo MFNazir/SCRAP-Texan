@@ -43,7 +43,7 @@
 
       <div class="form-group">
         <%= form.label :dl_state, "Drivers License State" %>
-        <%= form.select :dl_state, options_for_select(us_states),{}, class: 'form-control' %>
+        <%= form.text_field :dl_state, placeholder: 'Enter Two Letter Abbreviation', class: 'form-control' %>
       </div>
 
       <div class="form-group">
@@ -96,7 +96,7 @@
 
       <div class="form-group">
         <%= form.label :cust_phone, "Customer Phone Number" %>
-        <%= form.text_field :cust_phone, placeholder: 'Primary Phone Number', class: 'form-control' %>
+        <%= form.text_field :cust_phone, placeholder: '10-Digit: e.x. 1234567890', class: 'form-control' %>
       </div>
 
       <div class="form-group">

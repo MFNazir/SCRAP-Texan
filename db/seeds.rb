@@ -168,7 +168,7 @@ models = [
     ["Cadillac", 
         ["ATS","ATS-V","CT6","CT5","Escalade","SRX","XT4","XT5","XTS"]
     ],
-    ["Chevorlet", 
+    ["Chevrolet", 
         ["Bolt","Camaro","Corvette","Cruze","Equinox","Imapala","Malibu","Silverado 1500","Silverado 2500","Suburban","Tahoe","Volt"]
     ],
     ["Chrysler", 
