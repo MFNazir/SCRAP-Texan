@@ -28,7 +28,7 @@
     <% @metal_items.each do |metal_item| %>
       <tr>
         <td><%= metal_item.metal_item_desc %></td>
-        <td><%= number_with_precision(metal_item.net_weight, precision: 0) %>g</td>
+        <td><%= number_with_precision(metal_item.net_weight, precision: 0) %>lbs</td>
         <td><%= number_to_currency(metal_item.unit_price, precision: 2) %></td>
         <td><%= number_to_currency(metal_item.net_weight * metal_item.unit_price, precision: 2) %></td>
         <td><%= metal_item.metal_type_id %></td>
