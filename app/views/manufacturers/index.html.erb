@@ -24,8 +24,8 @@
     <% @manufacturers.each do |manufacturer| %>
       <tr>
         <td class="text-left"><%= manufacturer.manufacturer_name %></td>
-        <td class="text-center"><%= link_to 'View', manufacturer, class: 'btn btn-info btn-xs text-white' %></td>
-        <td class="text-center"><%= link_to 'Edit', edit_manufacturer_path(manufacturer), class: 'btn btn-warning btn-xs' %></td>
+        <td class="text-center"><%= link_to 'View', manufacturer, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_manufacturer_path(manufacturer), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

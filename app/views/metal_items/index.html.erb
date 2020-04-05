@@ -31,7 +31,7 @@
         <td class="text-right"><%= number_to_currency(metal_item.unit_price, precision: 2) %></td>
         <td class="text-right"><%= number_to_currency(metal_item.net_weight * metal_item.unit_price, precision: 2) %></td>
         <td class="text-center"><%= metal_item.metal_type.metal_type %></td>
-        <td class="text-center"><%= link_to 'Show', metal_item, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'View', metal_item, class: 'btn btn-info btn-sm text-white' %></td>
         <td class="text-center"><%= link_to 'Edit', edit_metal_item_path(metal_item), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
