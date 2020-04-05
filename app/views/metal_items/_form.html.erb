@@ -15,21 +15,21 @@
   
           <div class="row">
 
-              <div class="col-md-4 text-white">
+              <div class="col-md-5 text-white">
 
                   <div class="form-group">
                     <%= form.label :metal_item_desc, "Metal Item Description" %>
-                    <%= form.text_field :metal_item_desc, class: 'form-control' %>
+                    <%= form.text_field :metal_item_desc, placeholder: "Please Enter A Short Description", class: 'form-control' %>
                   </div>
 
                   <div class="form-group">
-                    <%= form.label :net_weight, "Net Weight" %>
-                    <%= form.number_field :net_weight, step: :any, class: 'form-control' %>
+                    <%= form.label :net_weight, "Net Weight (lbs)" %>
+                    <%= form.number_field :net_weight, step: :any, placeholder: "Enter Metal Item Net Weight In lbs", class: 'form-control' %>
                   </div>
 
                   <div class="form-group">
                     <%= form.label :unit_price, "Unit Price" %>
-                    <%= form.number_field :unit_price, step: :any, class: 'form-control' %>
+                    <%= form.number_field :unit_price, step: :any, placeholder: "Enter Unit Price", class: 'form-control' %>
                   </div>
 
                   <div class="form-group">
