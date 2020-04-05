@@ -55,9 +55,7 @@
         <h2>Customer Information: </h2>
         <p>
             <strong>Customer Name:</strong>
-            <%= @invoice.customer.cust_f_name %>
-            <%= @invoice.customer.cust_m_initial %>
-            <%= @invoice.customer.cust_l_name %>
+            <%= link_to @invoice.customer.first_and_last_no_id, @invoice.customer, :style=> 'color:darkturquoise;' %>
         </p>
 
         <p>
