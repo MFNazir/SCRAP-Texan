@@ -16,18 +16,16 @@
       <th>Vehicle Status Description</th>
       <th>Show Vehicle Status</th>
       <th>Edit Vehicle Status</th>
-      <th>Delete Vehicle Status</th>
     </tr>
   </thead>
 
   <tbody class="text-center">
     <% @vehicle_statuses.each do |vehicle_status| %>
       <tr>
-        <td><%= vehicle_status.vehicle_status %></td>
-        <td><%= vehicle_status.vehicle_status_desc %></td>
-        <td><%= link_to 'Show', vehicle_status, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_vehicle_status_path(vehicle_status), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', vehicle_status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-left"><%= vehicle_status.vehicle_status %></td>
+        <td class="text-left"><%= vehicle_status.vehicle_status_desc %></td>
+        <td><%= link_to 'View', vehicle_status, class: 'btn btn-info btn-sm text-white' %></td>
+        <td><%= link_to 'Edit', edit_vehicle_status_path(vehicle_status), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
