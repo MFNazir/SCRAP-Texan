@@ -15,11 +15,11 @@
   
           <div class="row">
 
-              <div class="col-md-4 text-white">
+              <div class="col-md-5 text-white">
 
                   <div class="form-group">
                     <%= form.label :manufacturer_name, "Car Manufacturer Name" %>
-                    <%= form.text_field :manufacturer_name, class: 'form-control' %>
+                    <%= form.text_field :manufacturer_name, placeholder: "Enter Manufacturer Name" , class: 'form-control' %>
                   </div>
               
               </div>
@@ -33,7 +33,7 @@
                             <%= render 'make_fields', :f => make %>
                           <% end %>
                           <div class="links">
-                              <%= link_to_add_association 'Add Car Make', form, :makes, class: 'btn btn-outline-secondary text-white' %>
+                              <%= link_to_add_association 'Add Car Make', form, :makes, class: 'btn btn-outline-success text-white' %>
                           </div>
                       </div>
               </div>        

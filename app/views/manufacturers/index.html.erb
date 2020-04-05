@@ -17,17 +17,15 @@
       <th>Car Manufacturer Name</th>
       <th>View Car Manufacturer</th>
       <th>Edit Car Manufacturer</th>
-      <th>Delete Car Manufacturer</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody>
     <% @manufacturers.each do |manufacturer| %>
       <tr>
-        <td><%= manufacturer.manufacturer_name %></td>
-        <td><%= link_to 'Show', manufacturer, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-left"><%= manufacturer.manufacturer_name %></td>
+        <td class="text-center"><%= link_to 'View', manufacturer, class: 'btn btn-info btn-xs text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_manufacturer_path(manufacturer), class: 'btn btn-warning btn-xs' %></td>
       </tr>
     <% end %>
   </tbody>
