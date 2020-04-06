@@ -59,8 +59,8 @@
     });
 
     $(document).ready(function () {             
-  $('.dataTables_filter input[type="search"]').css(
-     {'width':'400px','display':'block'}
+  $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Invoice #, Customer Name, Status, Type...').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
   );
 });
 
