@@ -15,17 +15,15 @@
       <th>Country Name</th>
       <th>Show Country</th>
       <th>Edit Country</th>
-      <th>Delete Country</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody >
     <% @countries.each do |country| %>
       <tr>
-        <td><%= country.country_name %></td>
-        <td><%= link_to 'Show', country, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_country_path(country), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-left"><%= country.country_name %></td>
+        <td class="text-center"><%= link_to 'Show', country, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_country_path(country), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
