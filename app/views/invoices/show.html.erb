@@ -126,8 +126,8 @@
                 <% running_total = 0 %>
                 <% @invoice.metal_items.each do |metalitem| %>
                 <tr>
-                    <td><%= metalitem.metal_item_desc %></td>
-                    <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
+                    <td class="text-left"><%= metalitem.metal_item_desc %></td>
+                    <td ><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
                     <td class="text-right"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
                     <td><%= metalitem.metal_type.metal_type %></td>
                     <td class="text-right"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>

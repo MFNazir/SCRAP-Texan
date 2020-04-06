@@ -29,7 +29,7 @@
                     <td class="text-left"><%= employee.emp_first_and_last_no_id %></td>
                     <td><%=  number_to_phone(employee.phone_number) %></td>
                     <td class="text-left"><%= employee.email_emp %></td>
-                    <td><%= employee.employee_type.employee_type %></td>
+                    <td class="text-left"><%= employee.employee_type.employee_type %></td>
                     <td><%= employee.employee_status.employee_status %></td>
                     <td><%= link_to 'View', employee, class: 'btn btn-info btn-sm text-white' %></td>
                     <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-warning btn-sm' %></td>

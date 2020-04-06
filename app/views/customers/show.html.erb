@@ -39,8 +39,10 @@
             </p>
 
             <p>
+             <% if @customer.cust_m_initial.present?  %>
               <strong>Customer Middle Initial:</strong>
               <%= @customer.cust_m_initial %>
+              <% end %>
             </p>
 
             <p>
@@ -99,7 +101,7 @@
 
         <p>
           <strong>Customer Phone:</strong>
-          <%= @customer.cust_phone %>
+          <%= number_to_phone(@customer.cust_phone) %>
         </p>
 
         <p>

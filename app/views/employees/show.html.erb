@@ -43,8 +43,10 @@
             </p>
 
             <p>
+             <% if @employee.employee_middle_initial.present?  %>
               <strong>Middle Initial:</strong>
               <%= @employee.employee_middle_initial %>
+              <% end %>
             </p>
 
             <p>
