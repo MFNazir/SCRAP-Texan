@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
 Invoice.delete_all
 Customer.delete_all
 Employee.delete_all
@@ -322,3 +325,4 @@ end
 #    invoice_type_id: InvoiceType.first.id(),
 #    invoice_status_id: InvoiceStatus.first.id()
 #)
+

@@ -17,18 +17,16 @@
       <th>Car Manufacturer</th>
       <th>View Car Make</th>
       <th>Edit Car Make</th>
-      <th>Delete Car Make</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody >
     <% @makes.each do |make| %>
       <tr>
-        <td><%= make.make_name %></td>
-        <td><%= make.manufacturer.manufacturer_name %></td>
-        <td><%= link_to 'Show', make, class: 'btn btn-info btn-sm text-white' %></td>
-        <td><%= link_to 'Edit', edit_make_path(make), class: 'btn btn-warning btn-sm' %></td>
-        <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
+        <td class="text-left"><%= make.make_name %></td>
+        <td class="text-left"><%= make.manufacturer.manufacturer_name %></td>
+        <td class="text-center"><%= link_to 'View', make, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_make_path(make), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

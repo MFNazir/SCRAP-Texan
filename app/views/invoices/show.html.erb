@@ -55,9 +55,7 @@
         <h2>Customer Information: </h2>
         <p>
             <strong>Customer Name:</strong>
-            <%= @invoice.customer.cust_f_name %>
-            <%= @invoice.customer.cust_m_initial %>
-            <%= @invoice.customer.cust_l_name %>
+            <%= link_to @invoice.customer.first_and_last_no_id, @invoice.customer, :style=> 'color:darkturquoise;' %>
         </p>
 
         <p>
@@ -128,8 +126,8 @@
                 <% running_total = 0 %>
                 <% @invoice.metal_items.each do |metalitem| %>
                 <tr>
-                    <td><%= metalitem.metal_item_desc %></td>
-                    <td><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
+                    <td class="text-left"><%= metalitem.metal_item_desc %></td>
+                    <td ><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
                     <td class="text-right"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
                     <td><%= metalitem.metal_type.metal_type %></td>
                     <td class="text-right"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
@@ -187,7 +185,7 @@
             <% @invoice.metal_items.each do |metalitem| %>
             <tr>
                 <td class="pdf-td"><%= metalitem.metal_item_desc %></td>
-                <td class="pdf-subtotal"><%= number_with_precision(metalitem.net_weight, precision: 0) %>g</td>
+                <td class="pdf-subtotal"><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
                 <td class="pdf-subtotal"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
                 <td class="pdf-metal"><%= metalitem.metal_type.metal_type %></td>
                 <td class="pdf-subtotal"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>

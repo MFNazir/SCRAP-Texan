@@ -17,18 +17,16 @@
       <th>Metal Type Description</th>
       <th>View Metal Type</th>
       <th>Edit Metal Type</th>
-      <th>Delete Metal Type</th>
     </tr>
   </thead>
 
-  <tbody  class="text-center">
+  <tbody>
     <% @metal_types.each do |metal_type| %>
       <tr>
-        <td><%= metal_type.metal_type %></td>
-        <td><%= metal_type.metal_type_desc %></td>
-        <td><%= link_to 'Show', metal_type, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_metal_type_path(metal_type), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', metal_type, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td  class="text-left"><%= metal_type.metal_type %></td>
+        <td  class="text-left"><%= metal_type.metal_type_desc %></td>
+        <td  class="text-center"><%= link_to 'View', metal_type, class: 'btn btn-info btn-sm text-white' %></td>
+        <td  class="text-center"><%= link_to 'Edit', edit_metal_type_path(metal_type), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

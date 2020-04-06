@@ -1,7 +1,7 @@
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2><%= pluralize(customer.errors.count, "Error") %> Prohibited This Customer From Being Saved:</h2>
 
       <ul>
         <% customer.errors.full_messages.each do |message| %>
@@ -42,7 +42,9 @@
       </div>
 
       <div class="form-group">
-        <%= form.label :dl_state, "Drivers License State" %>
+
+        <%= form.label :dl_state, "Drivers License State/Province" %>
+
         <%= form.text_field :dl_state, placeholder: 'Enter Two Letter Abbreviation', class: 'form-control' %>
       </div>
 

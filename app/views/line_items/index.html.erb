@@ -5,8 +5,6 @@
 <div class="container text-white">
 <div class="album text-white">
 <h1>Manage Line Items</h1>
-<%= link_to 'Add Line Item', new_line_item_path, class: 'btn btn-outline-secondary text-white' %>
-
 <br>
 <hr class="new1">
 
@@ -17,8 +15,6 @@
       <th>Invoice Number</th>
       <th>Metal Item ID</th>
       <th>View Line Item</th>
-      <th>Edit Line Item</th>
-      <th>Delete Line Item</th>
     </tr>
   </thead>
 
@@ -28,9 +24,7 @@
         <td><%= line_item.invoice_id%></td>
         <td><%= link_to line_item.invoice.invoice_number, line_item.invoice, :style=> 'color:darkturquoise;' %></td>
         <td><%= link_to line_item.metal_item_id, line_item.metal_item, :style=> 'color:darkturquoise;' %></td>
-        <td><%= link_to 'Show', line_item, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_line_item_path(line_item), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td><%= link_to 'View', line_item, class: 'btn btn-info btn-sm text-white' %></td>
       </tr>
     <% end %>
   </tbody>

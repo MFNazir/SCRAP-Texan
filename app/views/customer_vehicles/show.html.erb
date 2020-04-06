@@ -33,7 +33,7 @@
       <h2>Customer Vehicle Information: </h2>
                 <p>
                   <strong>Customer Name:</strong>
-                  <%= link_to @customer_vehicle.customer.cust_f_name, @customer_vehicle.customer  %> <%= @customer_vehicle.customer.cust_m_initial %> <%= @customer_vehicle.customer.cust_l_name %>
+                  <%= link_to @customer_vehicle.customer.first_and_last_no_id,  @customer_vehicle.customer, :style=> 'color:darkturquoise;' %>
                 </p>
                 
                 <p>
@@ -53,7 +53,7 @@
 
                 <p>
                   <strong> Vehicle License Plate State:</strong>
-                  <%= @customer_vehicle.state_province_id %>
+                  <%= @customer_vehicle.state_province.state_province_name %>
                 </p>
 
                 <p>

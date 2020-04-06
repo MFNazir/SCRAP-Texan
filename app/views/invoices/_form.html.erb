@@ -19,12 +19,12 @@
 
                 <div class="form-group">
                     <%= form.label :invoice_number, "Invoice Number" %>
-                    <%= form.number_field :invoice_number, class: 'form-control' %>
+                    <%= form.number_field :invoice_number, placeholder: "Enter 7-Digit Invoice Number", class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
                     <%= form.label :invoice_desc, "Invoice Description:" %>
-                    <%= form.text_area :invoice_desc, class: 'form-control' %>
+                    <%= form.text_area :invoice_desc, placeholder: "Place The Invoice Description Here",class: 'form-control' %>
                 </div>
 
                 <div class="form-group">

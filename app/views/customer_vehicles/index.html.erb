@@ -23,7 +23,6 @@
           <th>Customer Name</th>
           <th>View Vehicle</th>
           <th>Edit Vehicle</th>
-          <th>Delete Vehicle</th>
         </tr>
       </thead>
 
@@ -31,15 +30,14 @@
         <% @customer_vehicles.each do |customer_vehicle| %>
           <tr>
             <td><%= customer_vehicle.year %></td>
-            <td><%= customer_vehicle.color %></td>
+            <td class="text-left"><%= customer_vehicle.color %></td>
             <td><%= customer_vehicle.license_plate_number %></td>
-            <td><%= customer_vehicle.make.manufacturer.manufacturer_name %></td>
-            <td><%= customer_vehicle.make.make_name %></td>
-            <td><%= customer_vehicle.vehicle_status_id %></td>
-            <td><%= link_to customer_vehicle.customer.cust_f_name, customer_vehicle.customer %></td>
-            <td><%= link_to 'Show', customer_vehicle, class: 'btn btn-info btn-sm text-white' %></td>
+            <td class="text-left"><%= customer_vehicle.make.manufacturer.manufacturer_name %></td>
+            <td class="text-left"><%= customer_vehicle.make.make_name %></td>
+            <td><%= customer_vehicle.vehicle_status.vehicle_status %></td>
+            <td class="text-left"><%= link_to customer_vehicle.customer.first_and_last_no_id, customer_vehicle.customer, :style=> 'color:darkturquoise;' %></td>
+            <td><%= link_to 'View', customer_vehicle, class: 'btn btn-info btn-sm text-white' %></td>
             <td><%= link_to 'Edit', edit_customer_vehicle_path(customer_vehicle), class: 'btn btn-warning btn-sm' %></td>
-            <td><%= link_to 'Destroy', customer_vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm' %></td>
           </tr>
         <% end %>
       </tbody>
