@@ -14,17 +14,15 @@
       <th>State Province Name</th>
       <th>Show State Province</th>
       <th>Edit State Province</th>
-      <th>Delete State Province</th>
     </tr>
   </thead>
 
-  <tbody class="text-center">
+  <tbody>
     <% @state_provinces.each do |state_province| %>
       <tr>
-        <td><%= state_province.state_province_name %></td>
-        <td><%= link_to 'Show', state_province, class: 'btn btn-info btn-xs text-white' %></td>
-        <td><%= link_to 'Edit', edit_state_province_path(state_province), class: 'btn btn-warning btn-xs' %></td>
-        <td><%= link_to 'Destroy', state_province, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-xs' %></td>
+        <td class="text-left"><%= state_province.state_province_name %></td>
+        <td class="text-center"><%= link_to 'Show', state_province, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'Edit', edit_state_province_path(state_province), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
