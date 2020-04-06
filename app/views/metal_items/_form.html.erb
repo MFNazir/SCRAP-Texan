@@ -33,6 +33,11 @@
                   </div>
 
                   <div class="form-group">
+                    <%= form.label :total, "Unit Total" %>
+                    <%= form.number_field :total, step: :any, placeholder: "Enter Unit Total", class: 'form-control' %>
+                  </div>
+
+                  <div class="form-group">
                     <%= form.label :metal_type_id, "Metal Type" %>
                     <br>
                     <%= form.collection_select :metal_type_id, MetalType.all, :id, :metal_type, class: 'form-control' %>
