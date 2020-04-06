@@ -44,12 +44,12 @@
             </p>
             <p>
               <strong>Metal type:</strong>
-              <%= @metal_item.metal_type_id %>
+              <%= @metal_item.metal_type.metal_type %>
             </p>
 
             <p>
               <strong>Net weight:</strong>
-              <%= number_with_precision(@metal_item.net_weight, precision: 0) %>lbs
+              <%= number_with_precision(@metal_item.net_weight, precision: 1) %>lbs
             </p>
 
             <p>

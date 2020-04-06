@@ -5,9 +5,9 @@ class MetalItem < ApplicationRecord
   accepts_nested_attributes_for :invoices, reject_if: :all_blank, allow_destroy: true
 
 
-  validates :net_weight, :presence => true, numericality: {greater_than_or_equal_to: 0,  message: ":cannot be negative"}
+  validates :net_weight, :presence => true, numericality: {greater_than_or_equal_to: 0,  message: ":value cannot be negative"}
 
-  validates :unit_price, :presence => true, numericality: {greater_than_or_equal_to: 0,  message: ":cannot be negative"}
+  validates :unit_price, :presence => true, numericality: {greater_than_or_equal_to: 0,  message: ":value cannot be negative"}
   
   validates :metal_item_desc, :metal_type_id, :presence => true
 
