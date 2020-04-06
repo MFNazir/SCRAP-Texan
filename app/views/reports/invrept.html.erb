@@ -23,6 +23,32 @@
         </div>
 
         <hr class="new1">
+                <h2>Reported Invoices</h2>
+            <table id="example" class="table table-dark table-hover table-sm text-nowrap">
+                <thead>
+                <th class="table-light text-center">Timeframe</th>
+                <th class="table-light text-center">Total Customers Gained</th>
+                    </thead>
+                    <tbody class="text-white">
+                    <tr>
+                    <td align = "center">This Year</td>
+                    <%  invoice_status_id = InvoiceStatus.find_by(invoice_status: "Reported").id() %>
+                    <td align = "center"><%= @invoices.where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_status_id:  invoice_status_id).count %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Last Month</td>
+                    <td align = "center"><%= @invoices.where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_status_id:  invoice_status_id).count %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">This Month</td>
+                    <td align = "center"><%= @invoices.where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_status_id:  invoice_status_id).count %></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            
+        <hr class="new1">
+
         <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
 
             <thead>
@@ -50,3 +76,5 @@
                 <% end %>
             </tbody>
         </table>
+
+        
