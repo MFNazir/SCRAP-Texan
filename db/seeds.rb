@@ -101,8 +101,8 @@ end
 
 #Customer Type Seed
 customerTypes = [
-    ["Buyer", "A regular customer that purchases metal from the business but does not have a contract with the business"],
-    ["One-time Buyer", "A one time purchase from a buyer"],
+    ["Regular Buyer", "A regular customer that purchases metal from the business but does not have a contract with the business"],
+    ["One-Time Buyer", "A one time purchase from a buyer"],
     ["Contract Buyer", "A regular customer that has signed a contract with the business to buy metals from them at a fixed rate"],
     ["Seller", "A customer that sells metals to the business"]
 

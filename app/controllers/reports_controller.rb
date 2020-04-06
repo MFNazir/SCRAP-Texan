@@ -85,6 +85,13 @@ class ReportsController < ApplicationController
       @customers = Customer.all
 
     end
+
+    def activeregbuyer
+      cust_seller__id = CustomerType.find_by(customer_type: "Regular Buyer").id()
+      customer_active_id = CustomerStatus.find_by(customer_status: "Active").id()
+      @customers = Customer.where(customer_type_id:  cust_seller__id).where(customer_status_id: customer_active_id)
+    end
+
   end
 
 
