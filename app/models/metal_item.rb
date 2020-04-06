@@ -11,12 +11,12 @@ class MetalItem < ApplicationRecord
   
   validates :metal_item_desc, :metal_type_id, :presence => true
 
-  after_save :calculate_total
-  after_update :calculate_total
-  after_validation :calculate_total
+  after_save :calc_total
+  after_update :calc_total
+  after_validation :calc_total
   
   
-  def calculate_total
+  def calc_total
     
     self.total = (self.net_weight * self.unit_price)
   

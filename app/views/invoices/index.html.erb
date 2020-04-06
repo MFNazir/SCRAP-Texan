@@ -58,6 +58,12 @@
         dataTable;
     });
 
+    $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').css(
+     {'width':'400px','display':'block'}
+  );
+});
+
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {
             dataTable.destroy();
