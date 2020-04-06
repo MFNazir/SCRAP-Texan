@@ -4,5 +4,8 @@ class MetalItem < ApplicationRecord
   has_many :invoices, through: :line_items
   accepts_nested_attributes_for :invoices, reject_if: :all_blank, allow_destroy: true
 
-  validates :metal_item_desc, :net_weight, :unit_price, :total, :metal_type_id, :presence => true
+  validates :total, :presence => true, length: { minimum: 1, maximum: 11 }
+
+
+  validates :metal_item_desc, :net_weight, :unit_price, :metal_type_id, :presence => true
 end
