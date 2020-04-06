@@ -24,4 +24,8 @@
 	</table>
 </div>
 
-Customer.where(created_at: Date.today).count
+  Invoice.includes("metal_items").where(invoice_type: invoice_type, metal_items: { metal_type: metal_type }).count
+        Invoice.includes("metal_items").where(invoice_type: invoice_type, metal_items: { metal_type: metal_type }).sum("net_weight")
+         Invoice.includes("metal_items").where(invoice_type: invoice_type, metal_items: { metal_type: metal_type }).sum("unit_price")
+
+        MetalItem.where(metal_type_id: metal_type).sum("net_weight")

@@ -1,0 +1,178 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <div class="text-white">
+            <%= link_to 'Back To Reports', reports_index_path, class: 'btn btn-outline-primary text-white' %> |
+            <%= link_to 'Go Home', root_path, class: 'btn btn-outline-warning text-white' %>       
+        </div>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light">
+                    
+                <div class="card-body text-center">
+                <h2><%= image_tag("buyers.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h5 class="card-title text-light">Top Selling Metal Items</h5>
+                    <p class="card-text text-light">The Following Report Displays The Top Selling Metal Items Broken Down By The Metal Type, Total Weight Sold, And The Total Price</p>
+                    <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-primary text-white' %>
+
+                </div>
+             
+        </div>
+
+        <hr class="new1">
+
+               <h2>Top Selling Metal Items (All-Time)</h2>
+            <table id="example" class="table table-dark table-hover table-sm text-nowrap">
+                <thead>
+                <th class="table-light text-center">Metal Type</th>
+                <th class="table-light text-center">Total Amount Sold (In Lbs)</th>
+                <th class="table-light text-center">Total</th>
+                    </thead>
+                    <tbody class="text-white">
+                    <tr>
+                    <td align = "center">Aluminum</td>
+                    <%  metal_type_alu = MetalType.find_by(metal_type: "Aluminum").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Brass</td>
+                    <%  metal_type_brass = MetalType.find_by(metal_type: "Brass").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Carbide</td>
+                    <%  metal_type_carbide = MetalType.find_by(metal_type: "Carbide").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Carbon Steel</td>
+                    <%  metal_type_cbsteel = MetalType.find_by(metal_type: "Carbon Steel").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Cobalt</td>
+                    <%  metal_type_cob = MetalType.find_by(metal_type: "Cobalt").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Copper</td>
+                    <%  metal_type_copper = MetalType.find_by(metal_type: "Copper").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Ferrous Metals</td>
+                    <%  metal_type_fmetal = MetalType.find_by(metal_type: "Ferrous Metals").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Insulated Copper</td>
+                    <%  metal_type_icopper = MetalType.find_by(metal_type: "Insulated Copper").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Iron</td>
+                    <%  metal_type_iron = MetalType.find_by(metal_type: "Iron").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <tr>
+                    <td align = "center">Lead</td>
+                    <%  metal_type_lead = MetalType.find_by(metal_type: "Lead").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <td align = "center">Mild Steel</td>
+                    <%  metal_type_msteel = MetalType.find_by(metal_type: "Mild Steel").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <td align = "center">Nickel</td>
+                    <%  metal_type_nickel = MetalType.find_by(metal_type: "Nickel").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <td align = "center">Nonferrous Metal</td>
+                    <%  metal_type_nfmetal = MetalType.find_by(metal_type: "Nonferrous Metal").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <td align = "center">Silver</td>
+                    <%  metal_type_Silver = MetalType.find_by(metal_type: "Silver").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    <td align = "center">Stainless Steel</td>
+                    <%  metal_type_ssteel = MetalType.find_by(metal_type: "Stainless Steel").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                      <td align = "center">Steel</td>
+                    <%  metal_type_steel = MetalType.find_by(metal_type: "Steel").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                      <td align = "center">Tin</td>
+                    <%  metal_type_tin = MetalType.find_by(metal_type: "Tin").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                      <td align = "center">Titanium</td>
+                    <%  metal_type_Titanium = MetalType.find_by(metal_type: "Titanium").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                      <td align = "center">Tungsten</td>
+                    <%  metal_type_Tungsten = MetalType.find_by(metal_type: "Tungsten").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                      <td align = "center">Zinc</td>
+                    <%  metal_type_Zinc = MetalType.find_by(metal_type: "Zinc").id() %>
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 0) %>lbs</td>
+                    <td align = "center"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("unit_price"), precision: 2) %></td>
+                    </tr>
+                    
+                  
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+      
