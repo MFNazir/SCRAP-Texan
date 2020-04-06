@@ -63,9 +63,9 @@
                                 <h5 class="card-title text-light">Statistics</h5>
                                 <p class="card-text">Dynamic information about business is displayed below</p>
                                 <table class="card-text">
-                                    <tr><td>New Customers Today:</td><td><%= Customer.group_by_day(:created_at).count.fetch(Date.current, 0) %></td></tr>
-                                    <tr><td>New Customers YTD:</td><td><%= Customer.group_by_year(:created_at).count.fetch(Date.current.beginning_of_year, 0) %></td></tr>
-                                    <tr><td>New Invoices This Week:</td><td><%= Invoice.group_by_week(:created_at).count.fetch(Date.current.beginning_of_week(start_day = :sunday), 0) %></td></tr>
+                                    <tr><td>New Customers Today:</td><td style="text-align: right"><%= Customer.group_by_day(:created_at).count.fetch(Date.current, 0) %></td></tr>
+                                    <tr><td>New Customers YTD:</td><td style="text-align: right"><%= Customer.group_by_year(:created_at).count.fetch(Date.current.beginning_of_year, 0) %></td></tr>
+                                    <tr><td>New Invoices This Week:</td><td style="text-align: right"><%= Invoice.group_by_week(:created_at).count.fetch(Date.current.beginning_of_week(start_day = :sunday), 0) %></td></tr>
 
                                 </table>
                             </div>
