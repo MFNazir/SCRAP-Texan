@@ -46,6 +46,12 @@
         dataTable;
     });
 
+      $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Employee Status and Description...').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
+  );
+});
+
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {
             dataTable.destroy();
