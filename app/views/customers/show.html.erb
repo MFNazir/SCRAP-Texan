@@ -168,7 +168,7 @@
               <% @customer.invoices.each do |iv| %>
                 <tr>
                   <td><%= link_to iv.invoice_number, iv, :style=> 'color:darkturquoise;' %></td>
-                  <td><%= iv.invoice_desc %></td>
+                  <td class="text-left"><%= iv.invoice_desc %></td>
                   <td><%= iv.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
                   <td><%= iv.invoice_type.invoice_type %></td>
                   <td><%= iv.invoice_status.invoice_status %></td>

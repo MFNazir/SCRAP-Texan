@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
   validates :customer_vehicles, :presence => true
     
   def first_and_last
-      "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}"
+      "#{cust_f_name} #{cust_l_name}" " " "#{dl_number}" " " "(#{customer_type.customer_type})"
   end
 
   def first_and_last_no_id
