@@ -2,7 +2,7 @@
 lock "~> 3.12.1"
 
 set :application, "scrap"
-set :repo_url, "git@github.com:MFNazir/SCRAP-Texan.git"
+set :repo_url, "https://github.com/MFNazir/SCRAP-Texan.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
