@@ -13,7 +13,8 @@ class Customer < ApplicationRecord
   validates :zip_code, :presence => true, length: { minimum: 5 }
   validates :dl_state, :presence => true, length: { minimum: 2, maximum: 2 }
   validates :cust_m_initial, length: { minimum: 2, maximum: 2 }, allow_blank: true
-  validates :cust_f_name, :cust_l_name, :cust_address, :cust_city, :cust_email, :dl_number, :dob, :dl_image, :state_province_id, :country_id, :customer_status_id, :customer_type_id, :presence => true
+  validates :cust_email, :presence => true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :cust_f_name, :cust_l_name, :cust_address, :cust_city, :dl_number, :dob, :dl_image, :state_province_id, :country_id, :customer_status_id, :customer_type_id, :presence => true
   validates :customer_vehicles, :presence => true
     
   def first_and_last

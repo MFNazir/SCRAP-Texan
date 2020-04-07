@@ -47,14 +47,14 @@
                     <%= form.label :customer_id, "Select Customer" %>
                     <br>
                     <%= form.collection_select :customer_id, Customer.order('created_at DESC'), :id, :first_and_last, class: 'form-control' %>
-                    <br>
-                    Customer Does Not Exist? <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-success text-white btn-xs' %>
+                    <p></p>
+                    <%= link_to 'Add A New Customer', new_customer_path, class: 'btn btn-outline-success text-white btn-sm' %>
                 </div>
 
                 <div class="form-group">
                     <%= form.label :employee_id, "Select Employee" %>
                     <br>
-                    <%= form.collection_select :employee_id, Employee.all, :id, :employee_first_name, class: 'form-control' %>
+                    <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_and_last_no_id, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
