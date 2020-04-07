@@ -36,7 +36,7 @@
                     <td><%= customer.cust_city %></td>
                     <td><%= number_to_phone(customer.cust_phone) %></td>
                     <td><%= customer.customer_status.customer_status %></td>
-                    <td><%= customer.customer_type.customer_type %></td>
+                    <td class="text-left"><%= customer.customer_type.customer_type %></td>
                     <td><%= link_to 'View', customer, class: 'btn btn-info btn-sm text-white' %></td>
                     <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-sm'  %></td>
                 </tr>
