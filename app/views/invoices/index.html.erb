@@ -31,7 +31,7 @@
             <tbody>
                 <% @invoices.each do |invoice| %>
                 <tr>
-                    <td><%= invoice.invoice_number %></td>
+                    <td><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
                     <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td class="text-center"><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
                     <td class="text-left"><%= link_to invoice.customer.first_and_last_no_id, invoice.customer, :style=> 'color:darkturquoise;' %></td>
