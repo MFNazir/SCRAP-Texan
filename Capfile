@@ -37,10 +37,12 @@ install_plugin Capistrano::SCM::Git
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
-#require 'capistrano/rails'
-require 'capistrano/rails/migrations'
+require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.1'
+set :migration_role, :app
+set :conditionally_migrate, true
+set :keep_assets, 0
