@@ -22,7 +22,7 @@
     <% @countries.each do |country| %>
       <tr>
         <td class="text-left"><%= country.country_name %></td>
-        <td class="text-center"><%= link_to 'Show', country, class: 'btn btn-info btn-sm text-white' %></td>
+        <td class="text-center"><%= link_to 'View', country, class: 'btn btn-info btn-sm text-white' %></td>
         <td class="text-center"><%= link_to 'Edit', edit_country_path(country), class: 'btn btn-warning btn-sm' %></td>
       </tr>
     <% end %>
@@ -43,6 +43,12 @@
     $(document).ready(function() {
         dataTable;
     });
+
+      $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Country Name...').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
+  );
+});
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {

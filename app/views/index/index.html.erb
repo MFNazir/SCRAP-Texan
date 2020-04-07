@@ -98,11 +98,11 @@
                 <% Invoice.all.each do |invoice| %>
                 <tr class="text-center">
                     <td><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
-                    <td><%= invoice.invoice_desc %></td>
+                    <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                    <td><%= invoice.customer.first_and_last_no_id %></td>
-                    <td><%= invoice.invoice_type.invoice_type %></td>
-                    <td><%= invoice.invoice_status.invoice_status %></td>
+                    <td class="text-left"><%= link_to invoice.customer.first_and_last_no_id, invoice.customer, :style=> 'color:darkturquoise;' %></td>
+                    <td class="text-left"><%= invoice.invoice_type.invoice_type %></td>
+                    <td class="text-left"><%= invoice.invoice_status.invoice_status %></td>
                 </tr>
                 <% end %>
             </tbody>
@@ -121,6 +121,11 @@
         dataTable.search('Pending').draw;
         $("#clicky").trigger('click');
     });
+     $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
+  );
+});
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {
