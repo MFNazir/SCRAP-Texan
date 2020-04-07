@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'reports/activeregbuyer'
   get 'reports/topsellmetal'
   get 'reports/toppurchmetal'
+  get 'reports/purchmetalyr'
   get 'index/index'
   resources :line_items
   resources :metal_items
