@@ -37,7 +37,7 @@
                     <td class="text-left"><%= link_to invoice.customer.first_and_last_no_id, invoice.customer, :style=> 'color:darkturquoise;' %></td>
                     <td class="text-left"><%= invoice.invoice_type.invoice_type %></td>
                     <td class="text-left"><%= invoice.invoice_status.invoice_status %></td>
-                    <td class="text-center"><%= link_to 'Show', invoice, class: 'btn btn-info btn-sm text-white' %></td>
+                    <td class="text-center"><%= link_to 'View', invoice, class: 'btn btn-info btn-sm text-white' %></td>
                     <td class="text-center"><%= link_to 'Edit', edit_invoice_path(invoice), class: 'btn btn-warning btn-sm' %></td>
                 </tr>
                 <% end %>
@@ -60,7 +60,7 @@
 
     $(document).ready(function () {             
   $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Invoice #, Customer Name, Status, Type...').css(
-     {'width':'400px','display':'block', 'position' : 'absolute'}
+     {'width':'410px','display':'block', 'position' : 'absolute'}
   );
 });
 
