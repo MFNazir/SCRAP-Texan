@@ -61,4 +61,4 @@
 #   }
 
 #Deployment Settings
-server '54.212.129.186', user: 'deploy', roles: %w{app db web}
+server '54.212.129.186', user: 'deploy', password: ENV['LINUX_PASSWORD'], roles: %w{app db web}
