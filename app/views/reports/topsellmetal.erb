@@ -21,6 +21,27 @@
                 </div>
              
         </div>
+        <br>
+        <div class="row">
+         <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body text-white">
+                    <div class="card-img-top">
+                        <%= image_tag("summary.svg", alt: "tex", height: 45, width: 55) %>
+                    </div>
+                    <h5 class="card-title text-light">Report Summary:</h5>
+                    <table class="card-text">
+                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
+
+                                    <tr><td style="color:darkturquoise;">Total Amount Sold (In Lbs)</td><td style="text-align: right"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type).sum("net_weight"), precision: 1) %> lbs</td></tr>
+                                    <tr><td style="color:darkturquoise;">Total Revenue:</td><td style="text-align: right"> <%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type).sum("total"), precision: 2) %></td></tr>
+
+                    </table>
+        
+                </div>
+                </div>
+        </div>
+        </div>
         
 
 
@@ -171,27 +192,7 @@
                 </table>
 
                 
-         <hr class="new1">
-        
-            <table class="table table-dark table-hover table-sm text-nowrap">
-                <thead>
-                <th class="table-light text-center">Metal Type</th>
-                <th class="table-light text-center">Total Amount Sold (In Lbs )</th>
-                <th class="table-light text-right">Total</th>
-                    </thead>
-                    <tbody class="text-white">
-                    <tr>
-                    <td align = "center">All Metals</td>
-                    <% invoice_type = InvoiceType.find_by(invoice_type: "Sale").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(invoice_type: invoice_type).sum("net_weight"), precision: 0) %> </td>
-                    <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(invoice_type: invoice_type).sum("total"), precision: 2) %></td>
-
-                 
-                    </tr>
-               
-                  
-                    </tbody>
-                </table>
+         
             </div>
 <script type="text/javascript">
     var dataTable = $('#example').DataTable({
