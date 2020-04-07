@@ -86,7 +86,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: SCRAP_production
-  username: postgres
-  password: <%= ENV['SCRAP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
