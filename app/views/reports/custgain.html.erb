@@ -34,4 +34,4 @@
         Invoice.includes("metal_items").where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight")
         Invoice.includes("metal_items").where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("unit_price")
 
-        Invoice.includes("metal_items").where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight")
+        Invoice.includes("metal_items").where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight")

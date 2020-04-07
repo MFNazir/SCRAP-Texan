@@ -21,9 +21,30 @@
                 </div>
              
         </div>
+        <br>
+        <div class="row">
+         <div class="col-sm-6">
+                <div class="card bg-dark border-light">
+                <div class="card-body text-white">
+                    <div class="card-img-top">
+                        <%= image_tag("summary.svg", alt: "tex", height: 45, width: 55) %>
+                    </div>
+                    <h5 class="card-title text-light">Report Summary:</h5>
+                    <table class="card-text">
+                                <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
+
+                                    <tr><td style="color:darkturquoise;">Total Amount Spent This Year:</td><td style="text-align: right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type).sum("total"), precision: 2) %></td></tr>
+                                    <tr><td style="color:darkturquoise;">Total Amount Spent Last Month:</td><td style="text-align: right"> <%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type).sum("total"), precision: 2) %></td></tr>
+                                    <tr><td style="color:darkturquoise;">Total Amount Spent This Month:</td><td style="text-align: right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type).sum("total"), precision: 2) %></td></tr>
+
+                    </table>
         
+                     
+                </div>
+                </div>
 
-
+        </div>
+        </div>
         <hr class="new1">
 
         <h2>Purchased Metal Items</h2>
@@ -33,191 +54,212 @@
                 <th class="table-light text-center">Amount Purhcased In Lbs (Year)</th>
                 <th class="table-light text-center">Amount Purchased In Lbs (Last Month)</th>
                 <th class="table-light text-center">Amount Purchased In Lbs (This Month)</th>
-                <th class="table-light text-center">Total (Overall)</th>
+                <th class="table-light text-center">Total Spent (Overall)</th>
 
                     </thead>
                     <tbody class="text-white">
                     <tr>
-                    <td align = "center">Aluminum</td>
+                    <td align = "left">Aluminum</td>
                     <%  metal_type_alu = MetalType.find_by(metal_type: "Aluminum").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_alu }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Brass</td>
+                    <td align = "left">Brass</td>
                     <%  metal_type_brass = MetalType.find_by(metal_type: "Brass").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_brass }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Carbide</td>
+                    <td align = "left">Carbide</td>
                     <%  metal_type_carbide = MetalType.find_by(metal_type: "Carbide").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_carbide }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Carbon Steel</td>
+                    <td align = "left">Carbon Steel</td>
                     <%  metal_type_cbsteel = MetalType.find_by(metal_type: "Carbon Steel").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cbsteel }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Cobalt</td>
+                    <td align = "left">Cobalt</td>
                     <%  metal_type_cob = MetalType.find_by(metal_type: "Cobalt").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_cob }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                     <td align = "center">Copper</td>
+                     <td align = "left">Copper</td>
                     <%  metal_type_copper = MetalType.find_by(metal_type: "Copper").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_copper }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                     <td align = "center">Ferrous Metals</td>
+                     <td align = "left">Ferrous Metals</td>
                     <%  metal_type_fmetal = MetalType.find_by(metal_type: "Ferrous Metals").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_fmetal }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                     <td align = "center">Insulated Copper</td>
+                     <td align = "left">Insulated Copper</td>
                     <%  metal_type_icopper = MetalType.find_by(metal_type: "Insulated Copper").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_icopper }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                     <td align = "center">Iron</td>
+                     <td align = "left">Iron</td>
                     <%  metal_type_iron = MetalType.find_by(metal_type: "Iron").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_iron }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                     <td align = "center">Lead</td>
+                     <td align = "left">Lead</td>
                     <%  metal_type_lead = MetalType.find_by(metal_type: "Lead").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_lead }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                    <td align = "center">Mild Steel</td>
+                    <td align = "left">Mild Steel</td>
                     <%  metal_type_msteel = MetalType.find_by(metal_type: "Mild Steel").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_msteel }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                    <td align = "center">Nickel</td>
+                    <td align = "left">Nickel</td>
                     <%  metal_type_nickel = MetalType.find_by(metal_type: "Nickel").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nickel }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                    <td align = "center">Nonferrous Metal</td>
+                    <td align = "left">Nonferrous Metal</td>
                     <%  metal_type_nfmetal = MetalType.find_by(metal_type: "Nonferrous Metal").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_nfmetal }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                    <td align = "center">Silver</td>
+                    <td align = "left">Silver</td>
                     <%  metal_type_Silver = MetalType.find_by(metal_type: "Silver").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Silver }).sum("total"), precision: 2) %> </td>
                     </tr>
                      <tr>
-                    <td align = "center">Stainless Steel</td>
+                    <td align = "left">Stainless Steel</td>
                     <%  metal_type_ssteel = MetalType.find_by(metal_type: "Stainless Steel").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_ssteel }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Steel</td>
+                    <td align = "left">Steel</td>
                     <%  metal_type_steel = MetalType.find_by(metal_type: "Steel").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_steel }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Tin</td>
+                    <td align = "left">Tin</td>
                     <%  metal_type_tin = MetalType.find_by(metal_type: "Tin").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_tin }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Titanium</td>
+                    <td align = "left">Titanium</td>
                     <%  metal_type_Titanium = MetalType.find_by(metal_type: "Titanium").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Titanium }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Tungsten</td>
+                    <td align = "left">Tungsten</td>
                     <%  metal_type_Tungsten = MetalType.find_by(metal_type: "Tungsten").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Tungsten }).sum("total"), precision: 2) %> </td>
                     </tr>
                     <tr>
-                    <td align = "center">Zinc</td>
+                    <td align = "left">Zinc</td>
                     <%  metal_type_Zinc = MetalType.find_by(metal_type: "Zinc").id() %>
                     <% invoice_type = InvoiceType.find_by(invoice_type: "Purchase").id() %>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
-                    <td align = "center"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month.last_month..Date.today.end_of_month.last_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
+                    <td align = "right"><%= number_with_precision(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_month..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("net_weight"), precision: 1) %> </td>
                     <td align = "right"><%= number_to_currency(Invoice.joins(:metal_items).where(created_at: Date.today.beginning_of_year..Date.today.end_of_month).where(invoice_type: invoice_type, metal_items: { metal_type: metal_type_Zinc }).sum("total"), precision: 2) %> </td>
                     </tr>
                   
                     </tbody>
                 </table>
             </div>
+
+            <script type="text/javascript">
+    var dataTable = $('#example').DataTable({
+        "searching":   false,
+        "language": {
+            "sLengthMenu": "Num. of Entries Per Page _MENU_",
+            "sSearch": "Search:"
+        }
+    });
+
+    $(document).ready(function() {
+        dataTable;
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
+</script>
