@@ -66,3 +66,5 @@ gem 'devise', '~> 4.2'
 gem 'active_link_to'
 
 gem 'strong_password', '~> 0.0.8'
+
+gem 'activestorage-validator'
