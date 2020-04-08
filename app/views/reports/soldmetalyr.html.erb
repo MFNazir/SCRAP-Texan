@@ -15,6 +15,7 @@
                 <div class="card-body text-center">
                 <h2><%= image_tag("money.svg", alt: "tex", height: 70, width: 85) %></h2>
                     <h5 class="card-title text-light">Yearly Metal Items Sold Report</h5>
+                    <p class="card-text text-light "><%= Date.today.beginning_of_year.to_formatted_s(:long_ordinal) %>-<%= Date.today.end_of_year.to_formatted_s(:long_ordinal)%></h6>
                     <p class="card-text text-light">The Following Report Displays Metal Items Sold Broken Down By The Metal Type, Total Weight Sold (Year, Last Month, This Month), And The Total Revenue From Those Sales</p>
                     <%= link_to 'Manage Invoices', invoices_path, class: 'btn btn-outline-primary text-white' %>
 
@@ -48,10 +49,10 @@
         <h2>Purchased Metal Items</h2>
             <table id="example" class="table table-dark table-hover table-sm text-nowrap">
                 <thead>
-                <th class="table-light text-center">Metal Type</th>
-                <th class="table-light text-center">Amount Sold In Lbs (Year)</th>
-                <th class="table-light text-center">Amount Sold In Lbs (Last Month)</th>
-                <th class="table-light text-center">Amount Sold In Lbs (This Month)</th>
+                <th class="table-light text-left">Metal Type</th>
+                <th class="table-light text-right">Amount Sold In Lbs (Year)</th>
+                <th class="table-light text-right">Amount Sold In Lbs (Last Month)</th>
+                <th class="table-light text-right">Amount Sold In Lbs (This Month)</th>
                 <th class="table-light text-right">Total Revenue (Overall)</th>
 
                     </thead>
