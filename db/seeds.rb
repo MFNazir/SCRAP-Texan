@@ -62,7 +62,7 @@ metalTypes = [
     ["Titanium", "A hard silver-gray metal"],
     ["Tungsten", "A hard steel-gray metal of the transition series."], 
     ["Tin", "A silvery-white metal"],
-    ["Zinc", "A silvery-white metal that is a constituent of brass and is used for coating (galvanizing) iron and steel to protect against corrosion."],
+    ["Zinc", "A silvery-white metal that is a constituent of brass and is used for coating (galvanizing) iron and steel to protect against corrosion."]
 ]
 
 MetalType.delete_all
