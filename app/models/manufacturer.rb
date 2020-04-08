@@ -3,7 +3,5 @@ class Manufacturer < ApplicationRecord
     accepts_nested_attributes_for :makes, reject_if: :all_blank, allow_destroy: true
 
   validates :manufacturer_name, :presence => true
-  validates :makes, :presence => true
-
 
 end
