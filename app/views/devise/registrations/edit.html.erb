@@ -15,7 +15,7 @@
               <%= devise_error_messages! %>
 
               <div class="form-group">
-                <%= f.label :email %><br />
+                <%= f.label :email, "Email*" %><br />
                 <%= f.email_field :email, class: 'form-control'  %>
               </div>
 
@@ -24,19 +24,21 @@
               <% end %>
 
               <div class="form-group">
-                <%= f.label :password, "New Password" %> <br />
+                <%= f.label :password, "New Password*" %> <br />
                 <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
               </div>
 
               <div class="form-group">
-                <%= f.label :password_confirmation, "New Password Confirmation" %><br />
+                <%= f.label :password_confirmation, "New Password Confirmation*" %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
               </div>
 
               <div class="form-group">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                <%= f.label :current_password, "Current Password*" %> <i>(we need your current password to confirm your changes)</i><br />
                 <%= f.password_field :current_password, autocomplete: "off", class: 'form-control'  %>
               </div>
+
+              <p class="text-center">*Required Fields</p>
 
               <div class="form-group">
                 <%= f.submit "Update", class: 'btn  btn-outline-primary btn-block btn-lg text-white' %>
