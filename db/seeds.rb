@@ -1,3 +1,4 @@
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -289,27 +290,32 @@ when "development"
     i = 50
     
     while i >= 1
-    state_id = StateProvince.find_by(state_province_name: states.sample).id()
+    state_id = StateProvince.find_by(state_province_name: "Texas").id()
     country_id = Country.find_by(country_name: "United States").id()
     customer_status_id = CustomerStatus.find_by(customer_status: customerStatuses.sample).id()
     customer_type_id = CustomerType.find_by(customer_type: customerTypes.sample).id()
+    file = open(Faker::LoremFlickr.image)
     cst = Customer.create(
         cust_f_name: Faker::Name.first_name,
+        cust_m_initial: "",
         cust_l_name: Faker::Name.last_name,
         company: Faker::Company.name,
         cust_address: Faker::Address.street_address,
-        cust_city: Faker::Address.city,
-        zip_code: Faker::Address.zip,
+        cust_city: ["Houston","Sugar Land", "Pasadena", "Beaumont", "Galveston", "Richmond", "Rosenberg", "Cypres", "Spring", "Katy", "Missouri City", "Alvin", "Stafford"].sample,
+        zip_code: "77077",
         cust_phone: Faker::Number.number(digits: 10),
         cust_email: Faker::Internet.safe_email,
         dob: Faker::Date.birthday(min_age: 18, max_age: 70),
         state_province_id: state_id,
         country_id: country_id,
         dl_number: Faker::Bank.account_number(digits: 8),
-        dl_state: StateProvince.where(id: state_id).pluck(:state_province_name).flatten.join(' '),
+        dl_state: "TX",
         customer_status_id: customer_status_id,
         customer_type_id: customer_type_id
-    )
+    ).save(validate: false)
+    cst = Customer.last
+    cst.dl_image.attach(io: file, filename: 'image.jpg', content_type: 'image/jpeg')
+    
     i = i-1
 end
 end
