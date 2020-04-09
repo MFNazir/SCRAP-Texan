@@ -13,4 +13,8 @@ class Invoice < ApplicationRecord
   validates :metal_img, blob: { content_type: :image }
   validates :invoice_date_time, :customer_id, :employee_id, :invoice_type_id, :invoice_status_id, :invoice_desc, :presence => true
 
+  def inv_num
+    "#{invoice_number}"
+end
+
 end

@@ -19,41 +19,41 @@
 
 
                     <div class="form-group">
-                      <%= form.label :year, "Vehicle Year" %>
+                      <%= form.label :year, "Vehicle Year" %><i style=" color:aquamarine;">*</i>
                       <%= form.text_field :year, placeholder: "Enter Vehicle Year" , class: 'form-control' %>
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :color, "Vehicle Color" %>
+                      <%= form.label :color, "Vehicle Color" %><i style=" color:aquamarine;">*</i>
                       <%= form.text_field :color, placeholder: "Enter Vehicle Color" , class: 'form-control' %>
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :license_plate_number, "Vehicle License Plate Number" %>
+                      <%= form.label :license_plate_number, "Vehicle License Plate Number" %><i style=" color:aquamarine;">*</i>
                       <%= form.text_field :license_plate_number, placeholder: "Enter License Plate Number" , class: 'form-control' %>
                     </div>
                     
                     <div class="form-group">
-                      <%= form.label :state_province_id, "Vehicle License Plate State" %>
+                      <%= form.label :state_province_id, "Vehicle License Plate State" %><i style=" color:aquamarine;">*</i>
                       <br>
                       <%= form.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :make_id, "Vehicle Make" %>
+                      <%= form.label :make_id, "Vehicle Make" %><i style=" color:aquamarine;">*</i>
                       <br>
                       <p> <%= form.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> Make Does Not Exist?  <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-success text-white btn-sm', style:"font-size:smaller;" %></p>
 
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :vehicle_status_id, "Vehicle Status" %>
+                      <%= form.label :vehicle_status_id, "Vehicle Status" %><i style=" color:aquamarine;">*</i>
                       <br>
                       <%= form.collection_select :vehicle_status_id, VehicleStatus.all, :id, :vehicle_status, class: 'form-control' %>
                     </div>
 
                     <div class="form-group">
-                      <%= form.label :customer_id, "Select Customer" %>
+                      <%= form.label :customer_id, "Select Customer" %><i style=" color:aquamarine;">*</i>
                       <br>
                       <%= form.collection_select :customer_id, Customer.all, :id, :first_and_last, class: 'form-control' %>
                     </div>

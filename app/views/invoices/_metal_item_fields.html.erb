@@ -6,7 +6,7 @@
     
                 <div class="field">
                 <div class="form-group">
-                <%= f.label :metal_item_desc, "Metal Item Description:" %>
+                <%= f.label :metal_item_desc, "Metal Item Description:" %><i style=" color:aquamarine;"> *</i>
                 <%= f.text_area :metal_item_desc, placeholder: "Please Enter A Short Description", class: 'form-control' %>
                 </div>
 
@@ -14,7 +14,7 @@
 
                 <div class="field">
                   <div class="form-group">
-                <%= f.label :metal_type_id, "Metal Type:" %>
+                <%= f.label :metal_type_id, "Metal Type:" %><i style=" color:aquamarine;"> *</i>
                 <br>
                 <%= f.collection_select :metal_type_id, MetalType.all, :id, :metal_type, class: 'form-control' %>
                 </div>
@@ -37,7 +37,7 @@
 
                   <div class="field">
                   <div class="form-group">
-                  <%= f.label :net_weight, "Net Weight (lbs):" %>
+                  <%= f.label :net_weight, "Net Weight (lbs):" %><i style=" color:aquamarine;"> *</i>
                   <%= f.number_field :net_weight, step: :any, placeholder: "Enter Metal Item Net Weight In lbs", class: 'form-control col-sm-9' %>
                   </div>
 
@@ -46,7 +46,7 @@
 
                   <div class="field">
                   <div class="form-group">
-                  <%= f.label :unit_price, "Unit Price (Per lbs):" %>
+                  <%= f.label :unit_price, "Unit Price (Per lbs):" %><i style=" color:aquamarine;"> *</i>
                   <%= f.number_field :unit_price, step: :any, placeholder: "Enter Unit Price", class: 'form-control col-sm-5' %>
                   </div>
                 </div>
