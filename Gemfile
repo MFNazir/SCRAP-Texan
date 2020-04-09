@@ -68,3 +68,4 @@ gem 'active_link_to'
 gem 'strong_password', '~> 0.0.8'
 
 gem 'activestorage-validator'
+gem "aws-sdk-s3", require: false
