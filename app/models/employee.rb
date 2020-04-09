@@ -9,7 +9,7 @@ class Employee < ApplicationRecord
   validates :phone_number, :presence => true, length: { minimum: 10, maximum: 10 }
   validates :home_phone, :presence => true, length: { minimum: 10, maximum: 10 }
   validates :zip, :presence => true, length: { minimum: 5 }
-  validates :employee_middle_initial, length: { minimum: 2, maximum: 2 }, allow_blank: true
+  validates :employee_middle_initial, length: { maximum: 1 }, allow_blank: true
   def emp_first_and_last_no_id
     "#{employee_first_name} #{employee_last_name}"
    end
