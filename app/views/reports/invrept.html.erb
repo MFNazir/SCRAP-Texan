@@ -54,11 +54,11 @@
             <thead>
                 <tr class="table-dark text-center">
                     <th>Invoice #</th>
-                    <th>Invoice Description</th>
+                    <th class="text-left">Invoice Description</th>
                     <th>Invoice Date</th>
-                    <th>Customer Name</th>
-                    <th>Invoice Type</th>
-                    <th>Invoice Status</th>
+                    <th class="text-left">Customer Name</th>
+                    <th class="text-left">Invoice Type</th>
+                    <th class="text-left">Invoice Status</th>
                 </tr>
             </thead>
 
@@ -68,9 +68,9 @@
                     <td class="text-center"><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
                     <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td class="text-center"><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                    <td class="text-center"><%= invoice.customer.first_and_last_no_id %></td>
-                    <td class="text-center"><%= invoice.invoice_type.invoice_type %></td>
-                    <td class="text-center"><%= invoice.invoice_status.invoice_status %></td>
+                    <td class="text-left"><%= invoice.customer.first_and_last_no_id %></td>
+                    <td class="text-left"><%= invoice.invoice_type.invoice_type %></td>
+                    <td class="text-left"><%= invoice.invoice_status.invoice_status %></td>
                
                 </tr>
                 <% end %>
