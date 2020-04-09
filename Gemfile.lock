@@ -241,11 +241,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-<<<<<<< HEAD
    ruby 2.7.1p83
-=======
-   ruby 2.6.5p114
->>>>>>> seed_and_sass
 
 BUNDLED WITH
    2.1.4
