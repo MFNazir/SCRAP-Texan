@@ -3,19 +3,9 @@
 <div class="container text-white">
     <div class="album text-white">
 
-        <h1 align="center">Texas Scrap Metal</h1>
-       
-        <hr class="new1">
-       
-        <div class="card text-center bg-dark border-light" style="align: center">
-
-                <div class="card-body text-center">
-                    <h2><%= image_tag("home.svg", alt: "tex", height: 40, width: 55) %></h2>
-                    <h5 class="card-title text-light">Welcome</h5>
-                    <p class="card-text text-light">Select an option below to continue, or use the nav bar above</p>                    
-                </div>
-        </div>
         
+        <h1 align="center"><%= image_tag("home2.svg", alt: "tex", height: 40, width: 55) %></h1>
+        <h1 class="card-title text-light text-center">Welcome</h1>
         <hr class="new1">
 
         <div class="row">
@@ -98,11 +88,11 @@
                 <% Invoice.all.each do |invoice| %>
                 <tr class="text-center">
                     <td><%= link_to invoice.invoice_number, invoice, :style=> 'color:darkturquoise;' %></td>
-                    <td><%= invoice.invoice_desc %></td>
+                    <td class="text-left"><%= invoice.invoice_desc %></td>
                     <td><%= invoice.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                    <td><%= invoice.customer.first_and_last_no_id %></td>
-                    <td><%= invoice.invoice_type.invoice_type %></td>
-                    <td><%= invoice.invoice_status.invoice_status %></td>
+                    <td class="text-left"><%= link_to invoice.customer.first_and_last_no_id, invoice.customer, :style=> 'color:darkturquoise;' %></td>
+                    <td class="text-left"><%= invoice.invoice_type.invoice_type %></td>
+                    <td class="text-left"><%= invoice.invoice_status.invoice_status %></td>
                 </tr>
                 <% end %>
             </tbody>
@@ -121,6 +111,11 @@
         dataTable.search('Pending').draw;
         $("#clicky").trigger('click');
     });
+     $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').css(
+     {'width':'410px','display':'block', 'position' : 'absolute'}
+  );
+});
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {

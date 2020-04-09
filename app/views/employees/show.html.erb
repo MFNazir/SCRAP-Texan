@@ -61,12 +61,12 @@
 
             <p>
               <strong>Phone Number:</strong>
-              <%= @employee.phone_number %>
+              <%= number_to_phone(@employee.phone_number) %>
             </p>
 
             <p>
               <strong>Home Phone:</strong>
-              <%= @employee.home_phone %>
+              <%= number_to_phone(@employee.home_phone) %>
             </p>
 
             <p>

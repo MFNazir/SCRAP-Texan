@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container text-white">
+    <div class="album text-white">
+
+        <div class="text-white">
+            <%= link_to 'Back To Reports', reports_index_path, class: 'btn btn-outline-primary text-white' %> |
+            <%= link_to 'Go Home', root_path, class: 'btn btn-outline-warning text-white' %>       
+        </div>
+       
+        <hr class="new1">
+       
+        <div class="card text-center bg-dark border-light">
+                    
+                <div class="card-body text-center">
+                <h2><%= image_tag("reg.svg", alt: "tex", height: 70, width: 85) %></h2>
+                    <h5 class="card-title text-light">Active Regular Buyers Report</h5>
+                    <p class="card-text text-light">The Following Report Displays All Active Customers That Are Cosidered Regular Buyers</p>
+                    <%= link_to 'Manage Customers', customers_path, class: 'btn btn-outline-primary text-white' %>
+
+                </div>
+             
+        </div>
+
+    
+        <hr class="new1">
+
+         <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
+                            <thead>
+                                <tr class="table-dark text-center">
+                                    <th class="text-left">Customer Name</th>
+                                    <th>DL Number</th>
+                                    <th class="text-left">Address</th>
+                                    <th class="text-left">City</th>
+                                    <th>Phone</th>
+                                    <th class="text-left">Customer Status</th>
+                                    <th class="text-left">Customer Type</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="text-center">
+                                <% @customers.each do |customer| %>
+                                <tr>
+                                    <td class="text-left"><%= link_to customer.first_and_last_no_id, customer, :style=> 'color:darkturquoise;' %></td>
+                                    <td><%= customer.dl_number %></td>
+                                    <td class="text-left"><%= customer.cust_address %></td>
+                                    <td class="text-left"><%= customer.cust_city %></td>
+                                    <td><%= number_to_phone(customer.cust_phone) %></td>
+                                    <td class="text-left"><%= customer.customer_status.customer_status %></td>
+                                    <td class="text-left"><%= customer.customer_type.customer_type %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                        </table>

@@ -44,12 +44,12 @@
             </p>
             <p>
               <strong>Metal type:</strong>
-              <%= @metal_item.metal_type_id %>
+              <%= @metal_item.metal_type.metal_type %>
             </p>
 
             <p>
               <strong>Net weight:</strong>
-              <%= number_with_precision(@metal_item.net_weight, precision: 0) %>lbs
+              <%= number_with_precision(@metal_item.net_weight, precision: 1) %>lbs
             </p>
 
             <p>
@@ -57,10 +57,10 @@
               <%= number_to_currency(@metal_item.unit_price, precision: 2) %>
             </p>
 
-            <p>
               <strong>Unit Total:</strong>
-              <%= number_to_currency(@metal_item.net_weight * @metal_item.unit_price, precision: 2) %>
+              <%= number_to_currency(@metal_item.total, precision: 2) %>
             </p>
+            
 
          </div>
       </div>

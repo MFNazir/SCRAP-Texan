@@ -69,6 +69,6 @@ class MetalItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def metal_item_params
-      params.require(:metal_item).permit(:metal_item_desc, :net_weight, :unit_price, :metal_type_id)
+      params.require(:metal_item).permit(:metal_item_desc, :net_weight, :unit_price, :total, :metal_type_id)
     end
 end

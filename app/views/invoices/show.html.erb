@@ -114,11 +114,11 @@
         <table class="table table-dark table-hover text-center table-sm text-nowrap">
             <thead>
                 <tr class="table-dark">
-                    <th>Metal Item Description</th>
-                    <th>Metal Item Net Weight</th>
-                    <th>Metal Item Unit Price</th>
-                    <th>Metal Type</th>
-                    <th >Unit Total</th>
+                    <th class="text-left">Metal Item Description</th>
+                    <th class="text-right">Metal Item Net Weight</th>
+                    <th class="text-right">Metal Item Unit Price</th>
+                    <th class="text-left">Metal Type</th>
+                    <th class="text-right">Unit Total</th>
                 </tr>
             </thead>
 
@@ -127,10 +127,10 @@
                 <% @invoice.metal_items.each do |metalitem| %>
                 <tr>
                     <td class="text-left"><%= metalitem.metal_item_desc %></td>
-                    <td ><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
+                    <td class="text-right"><%= number_with_precision(metalitem.net_weight, precision: 1) %> lbs</td>
                     <td class="text-right"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
-                    <td><%= metalitem.metal_type.metal_type %></td>
-                    <td class="text-right"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                    <td class="text-left"><%= metalitem.metal_type.metal_type %></td>
+                    <td class="text-right"><%= number_to_currency(metalitem.total, precision: 2) %></td>
                     <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
                 </tr>
                 <% end %>
@@ -185,10 +185,10 @@
             <% @invoice.metal_items.each do |metalitem| %>
             <tr>
                 <td class="pdf-td"><%= metalitem.metal_item_desc %></td>
-                <td class="pdf-subtotal"><%= number_with_precision(metalitem.net_weight, precision: 0) %>lbs</td>
+                <td class="pdf-subtotal"><%= number_with_precision(metalitem.net_weight, precision: 1) %>lbs</td>
                 <td class="pdf-subtotal"><%= number_to_currency(metalitem.unit_price, precision: 2) %></td>
                 <td class="pdf-metal"><%= metalitem.metal_type.metal_type %></td>
-                <td class="pdf-subtotal"><%= number_to_currency(metalitem.net_weight * metalitem.unit_price, precision: 2) %></td>
+                <td class="pdf-subtotal"><%= number_to_currency(metalitem.total, precision: 2) %></td>
                 <% running_total = running_total + (metalitem.net_weight * metalitem.unit_price) %>
             </tr>
             <% end %>

@@ -157,10 +157,10 @@
             <thead>
               <tr class="table-dark">
                 <th>Invoice Number</th>
-                <th>Invoice Description</th>
+                <th class="text-left">Invoice Description</th>
                 <th>Invoice Date</th>
-                <th>Invoice Type</th>
-                <th>Invoice Status</th>
+                <th class="text-left">Invoice Type</th>
+                <th class="text-left">Invoice Status</th>
               </tr>
             </thead>
 
@@ -168,10 +168,10 @@
               <% @customer.invoices.each do |iv| %>
                 <tr>
                   <td><%= link_to iv.invoice_number, iv, :style=> 'color:darkturquoise;' %></td>
-                  <td><%= iv.invoice_desc %></td>
+                  <td class="text-left"><%= iv.invoice_desc %></td>
                   <td><%= iv.invoice_date_time.to_formatted_s(:long_ordinal) %></td>
-                  <td><%= iv.invoice_type.invoice_type %></td>
-                  <td><%= iv.invoice_status.invoice_status %></td>
+                  <td class="text-left"><%= iv.invoice_type.invoice_type %></td>
+                  <td class="text-left"><%= iv.invoice_status.invoice_status %></td>
                 </tr>
               <% end %>
             </tbody>

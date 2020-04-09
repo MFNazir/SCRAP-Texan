@@ -10,6 +10,11 @@ class Invoice < ApplicationRecord
   has_one_attached :metal_img
   validates :metal_items, :presence => true
   validates :invoice_number, :presence => true, length: { minimum: 7, maximum: 7 }
-  validates :invoice_date_time, :metal_img, :customer_id, :employee_id, :invoice_type_id, :invoice_status_id, :invoice_desc, :presence => true
+  validates :metal_img, :presence => true, blob: { content_type: :image }
+  validates :invoice_date_time, :customer_id, :employee_id, :invoice_type_id, :invoice_status_id, :invoice_desc, :presence => true
+
+  def inv_num
+    "#{invoice_number}"
+end
 
 end

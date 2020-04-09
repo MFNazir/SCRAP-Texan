@@ -18,12 +18,12 @@
               <div class="col-md-4 text-white">
 
                 <div class="form-group">
-                  <%= form.label :make_name, "Car Make Name" %>
+                  <%= form.label :make_name, "Car Make Name" %><i style=" color:aquamarine;">*</i>
                   <%= form.text_field :make_name, placeholder: "Enter Car Make Name", class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                  <%= form.label :manufacturer_id, "Select Manufacturer" %>
+                  <%= form.label :manufacturer_id, "Select Manufacturer" %><i style=" color:aquamarine;">*</i>
                   <br>
                   <%= form.collection_select :manufacturer_id, Manufacturer.all, :id, :manufacturer_name, class: 'form-control' %>
                   <p></p>

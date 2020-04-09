@@ -29,28 +29,28 @@
         <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
             <thead>
                 <tr class="table-dark text-center">
-                    <th>Customer Name</th>
+                    <th class="text-left">Customer Name</th>
                     <th>DL Number</th>
-                    <th>Address</th>
-                    <th>City</th>
+                    <th class="text-left">Address</th>
+                    <th class="text-left">City</th>
                     <th>Phone</th>
-                    <th>Customer Status</th>
-                    <th>Customer Type</th>
-                    <th>Total Invoices</th>
+                    <th class="text-left">Customer Status</th>
+                    <th class="text-left">Customer Type</th>
+                    <th class="text-right">Total Invoices</th>
                 </tr>
             </thead>
 
             <tbody class="text-center">
                 <% @customers.each do |customer| %>
                 <tr>
-                    <td><%= link_to customer.first_and_last_no_id, customer, :style=> 'color:darkturquoise;' %></td>
-                    <td><%= customer.dl_number %></td>
-                    <td><%= customer.cust_address %></td>
-                    <td><%= customer.cust_city %></td>
+                    <td class="text-left"><%= link_to customer.first_and_last_no_id, customer, :style=> 'color:darkturquoise;' %></td>
+                    <td ><%= customer.dl_number %></td>
+                    <td class="text-left"><%= customer.cust_address %></td>
+                    <td class="text-left"><%= customer.cust_city %></td>
                     <td><%= number_to_phone(customer.cust_phone) %></td>
-                    <td><%= customer.customer_status.customer_status %></td>
-                    <td><%= customer.customer_type.customer_type %></td>
-                    <td><%= customer.invoices.count %></td>
+                    <td class="text-left"><%= customer.customer_status.customer_status %></td>
+                    <td class="text-left"><%= customer.customer_type.customer_type %></td>
+                    <td class="text-right"><%= customer.invoices.count %></td>
                 </tr>
                 <% end %>
             </tbody>

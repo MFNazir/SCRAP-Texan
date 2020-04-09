@@ -13,8 +13,8 @@
 <table id="example" class="table table-dark table-hover table-sm text-nowrap" data-turbolinks="false">
   <thead>
     <tr class="table-dark text-center">
-      <th>Metal Type</th>
-      <th>Metal Type Description</th>
+      <th class="text-left">Metal Type</th>
+      <th class="text-left">Metal Type Description</th>
       <th>View Metal Type</th>
       <th>Edit Metal Type</th>
     </tr>
@@ -46,6 +46,12 @@
     $(document).ready(function() {
         dataTable;
     });
+
+      $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Metal Type and Description...').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
+  );
+});
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {

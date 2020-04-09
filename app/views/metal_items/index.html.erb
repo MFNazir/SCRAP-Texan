@@ -17,7 +17,7 @@
       <th class="text-right">Net Weight</th>
       <th class="text-right">Unit Price</th>
       <th class="text-right">Unit Total</th>
-      <th class="text-center">Metal Type</th>
+      <th class="text-left">Metal Type</th>
       <th class="text-center">View Metal Item</th>
       <th class="text-center">Edit Metal Item</th>
     </tr>
@@ -27,10 +27,10 @@
     <% @metal_items.each do |metal_item| %>
       <tr>
         <td><%= metal_item.metal_item_desc %></td>
-        <td class="text-right"><%= number_with_precision(metal_item.net_weight, precision: 0) %>lbs</td>
+        <td class="text-right"><%= number_with_precision(metal_item.net_weight, precision: 0) %> lbs</td>
         <td class="text-right"><%= number_to_currency(metal_item.unit_price, precision: 2) %></td>
         <td class="text-right"><%= number_to_currency(metal_item.net_weight * metal_item.unit_price, precision: 2) %></td>
-        <td class="text-center"><%= metal_item.metal_type.metal_type %></td>
+        <td class="text-left"><%= metal_item.metal_type.metal_type %></td>
         <td class="text-center"><%= link_to 'View', metal_item, class: 'btn btn-info btn-sm text-white' %></td>
         <td class="text-center"><%= link_to 'Edit', edit_metal_item_path(metal_item), class: 'btn btn-warning btn-sm' %></td>
       </tr>
@@ -52,6 +52,12 @@
     $(document).ready(function() {
         dataTable;
     });
+
+      $(document).ready(function () {             
+  $('.dataTables_filter input[type="search"]').attr('placeholder','Search by Metal Description, or Type...').css(
+     {'width':'400px','display':'block', 'position' : 'absolute'}
+  );
+});
 
     document.addEventListener("turbolinks:before-cache", function() {
         if (dataTable !== null) {

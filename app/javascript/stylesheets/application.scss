@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap";
 
 html,
 body {
@@ -9,6 +9,8 @@ body {
 strong {
   color: mediumaquamarine;
 }
+
+
 
 h1, .h1,
 h2, .h2,
@@ -254,3 +256,5 @@ p.new1 {
 #error_explanation {
   color: black;
 }
+
+

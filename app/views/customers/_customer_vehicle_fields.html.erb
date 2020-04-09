@@ -2,34 +2,34 @@
 
 
 <div class="field">
-    <%= f.label :year, "Vehicle Year" %>
-    <%= f.text_field :year, class: 'form-control' %>
+    <%= f.label :year, "Vehicle Year:" %><i style=" color:aquamarine;"> *</i>
+    <%= f.text_field :year, placeholder: "Enter Vehicle Year" , class: 'form-control col-sm-8' %>
   </div>
 
   <div class="field">
-    <%= f.label :color, "Vehicle Color" %>
-    <%= f.text_field :color, class: 'form-control' %>
+    <%= f.label :color, "Vehicle Color:" %><i style=" color:aquamarine;"> *</i>
+    <%= f.text_field :color, placeholder: "Enter Vehicle Color" , class: 'form-control col-sm-8' %>
   </div>
 
   <div class="field">
-    <%= f.label :license_plate_number, "Vehicle License Plate Number" %>
-    <%= f.text_field :license_plate_number, class: 'form-control' %>
+    <%= f.label :license_plate_number, "Vehicle License Plate Number:" %><i style=" color:aquamarine;"> *</i>
+    <%= f.text_field :license_plate_number,  placeholder: "Enter License Plate Number" , class: 'form-control col-sm-8' %>
   </div>
 
   <div class="field">
-    <%= f.label :state_province_id, "Vehicle LP State" %>
+    <%= f.label :state_province_id, "Vehicle LP State:" %><i style=" color:aquamarine;"> *</i>
     <br>
     <%= f.collection_select :state_province_id, StateProvince.all, :id, :state_province_name, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :make_id, "Vehicle Make" %>
+    <%= f.label :make_id, "Vehicle Make:" %><i style=" color:aquamarine;"> *</i>
     <br>
     <%= f.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= f.label :vehicle_status_id, "Vehicle Status" %>
+    <%= f.label :vehicle_status_id, "Vehicle Status:" %><i style=" color:aquamarine;"> *</i>
     <br>
     <%= f.collection_select :vehicle_status_id, VehicleStatus.all, :id, :vehicle_status, class: 'form-control' %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_201617) do
+ActiveRecord::Schema.define(version: 2020_04_06_090403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,7 +160,6 @@ ActiveRecord::Schema.define(version: 2020_04_03_201617) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "invoice_desc"
-    t.decimal "total"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoice_status_id"], name: "index_invoices_on_invoice_status_id"
@@ -197,6 +196,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_201617) do
     t.bigint "metal_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "total"
     t.index ["metal_type_id"], name: "index_metal_items_on_metal_type_id"
   end
 

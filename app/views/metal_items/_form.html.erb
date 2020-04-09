@@ -18,25 +18,32 @@
               <div class="col-md-5 text-white">
 
                   <div class="form-group">
-                    <%= form.label :metal_item_desc, "Metal Item Description" %>
+                    <%= form.label :metal_item_desc, "Metal Item Description" %><i style=" color:aquamarine;">*</i>
                     <%= form.text_field :metal_item_desc, placeholder: "Please Enter A Short Description", class: 'form-control' %>
                   </div>
 
                   <div class="form-group">
-                    <%= form.label :net_weight, "Net Weight (lbs)" %>
+                    <%= form.label :net_weight, "Net Weight (lbs)" %><i style=" color:aquamarine;">*</i>
                     <%= form.number_field :net_weight, step: :any, placeholder: "Enter Metal Item Net Weight In lbs", class: 'form-control' %>
                   </div>
 
                   <div class="form-group">
-                    <%= form.label :unit_price, "Unit Price" %>
+                    <%= form.label :unit_price, "Unit Price" %><i style=" color:aquamarine;">*</i>
                     <%= form.number_field :unit_price, step: :any, placeholder: "Enter Unit Price", class: 'form-control' %>
                   </div>
 
+
                   <div class="form-group">
-                    <%= form.label :metal_type_id, "Metal Type" %>
+                    <%= form.label :metal_type_id, "Metal Type" %><i style=" color:aquamarine;">*</i>
                     <br>
                     <%= form.collection_select :metal_type_id, MetalType.all, :id, :metal_type, class: 'form-control' %>
                   </div>
+
+                  <div class="form-group">
+                    <%= form.label :invoice_id, "Select Invoice:" %><i style=" color:aquamarine;"> *</i>
+                    <br>
+                    <%= form.collection_select :invoice_id, Invoice.all, :id, :inv_num, class: 'form-control' %>
+                </div>
               
               </div>
 

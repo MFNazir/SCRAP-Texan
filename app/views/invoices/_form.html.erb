@@ -18,17 +18,17 @@
             <div class="col-md-6 text-white">
 
                 <div class="form-group">
-                    <%= form.label :invoice_number, "Invoice Number" %>
+                    <%= form.label :invoice_number, "Invoice Number:" %> <i style=" color:aquamarine;">*</i>
                     <%= form.number_field :invoice_number, placeholder: "Enter 7-Digit Invoice Number", class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :invoice_desc, "Invoice Description:" %>
+                    <%= form.label :invoice_desc, "Invoice Description:" %> <i style=" color:aquamarine;">*</i>
                     <%= form.text_area :invoice_desc, placeholder: "Place The Invoice Description Here",class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :invoice_date_time, "Invoice Date/Time:" %>
+                    <%= form.label :invoice_date_time, "Invoice Date/Time:" %> <i style=" color:aquamarine;">*</i>
                     <br>
                     <%= form.datetime_select :invoice_date_time, class: 'form-control' %>
                 </div>
@@ -44,27 +44,27 @@
             <div class="col-md-6 text-white">
 
                 <div class="form-group">
-                    <%= form.label :customer_id, "Select Customer" %>
+                    <%= form.label :customer_id, "Select Customer:" %><i style=" color:aquamarine;"> *</i>
                     <br>
                     <%= form.collection_select :customer_id, Customer.order('created_at DESC'), :id, :first_and_last, class: 'form-control' %>
-                    <br>
-                    Customer Does Not Exist? <%= link_to 'Add A New Customer', customers_path, class: 'btn btn-outline-success text-white btn-xs' %>
+                    <p></p>
+                    <%= link_to 'Add A New Customer', new_customer_path, class: 'btn btn-outline-success text-white btn-sm' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :employee_id, "Select Employee" %>
+                    <%= form.label :employee_id, "Select Employee:" %><i style=" color:aquamarine;"> *</i>
                     <br>
-                    <%= form.collection_select :employee_id, Employee.all, :id, :employee_first_name, class: 'form-control' %>
+                    <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_and_last_no_id, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :invoice_type_id, "Invoice Type" %>
+                    <%= form.label :invoice_type_id, "Invoice Type: " %><i style=" color:aquamarine;"> *</i>
                     <br>
                     <%= form.collection_select :invoice_type_id, InvoiceType.all, :id, :invoice_type, class: 'form-control' %>
                 </div>
 
                 <div class="form-group">
-                    <%= form.label :invoice_status_id, "Invoice Status" %>
+                    <%= form.label :invoice_status_id, "Invoice Status: " %><i style=" color:aquamarine;"> *</i>
                     <br>
                     <%= form.collection_select :invoice_status_id, InvoiceStatus.all, :id, :invoice_status, class: 'form-control' %>
                 </div>
@@ -77,18 +77,20 @@
         <hr class="new1">
 
 
-        <div class="col-sm-6">
+        <div class="col-sm-12">
             <h2>Add Metal Item:</h2>
             <div id="metal_items">
                 <%= form.fields_for :metal_items do |metalitem| %>
+                
                 <%= render 'metal_item_fields', :f => metalitem %>
+
                 <% end %>
+                
                 <div class="links">
-                    <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-success text-white' %>
+                    <%= link_to_add_association 'Add A Metal Item', form, :metal_items, class: 'btn btn-outline-success text-white' %> | <a href="#" class="btn btn-outline-secondary text-white">Back To Top</a>
                 </div>
             </div>
             <br>
-            <a href="#" class="btn btn-outline-secondary text-white">Back To Top</a>
         </div>
         <hr class="new1">
 
