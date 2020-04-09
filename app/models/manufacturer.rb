@@ -4,4 +4,5 @@ class Manufacturer < ApplicationRecord
 
   validates :manufacturer_name, :presence => true
 
+
 end
