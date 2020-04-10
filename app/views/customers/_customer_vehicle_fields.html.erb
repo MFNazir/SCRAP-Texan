@@ -25,7 +25,7 @@
   <div class="field">
     <%= f.label :make_id, "Vehicle Make:" %><i style=" color:aquamarine;"> *</i>
     <br>
-    <%= f.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %>
+    <%= f.collection_select :make_id, Make.all, :id, :make_name, class: 'form-control' %> <%= link_to 'Add A New Make', makes_path, class: 'btn btn-outline-success text-white btn-sm', style:"font-size:smaller; white-space: pre;" %> 
   </div>
 
   <div class="field">
