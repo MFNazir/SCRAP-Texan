@@ -133,6 +133,7 @@
           <th>Registration State</th>
           <th>Vehicle Make</th>
           <th>Vehicle Manufacturer</th>
+          <th>Vehicle Status</th>
         </tr>
       </thead>
 
@@ -145,6 +146,7 @@
             <td><%= cv.state_province.state_province_name %></td>
             <td><%= cv.make.make_name %></td>
             <td><%= cv.make.manufacturer.manufacturer_name %></td>
+            <td><%= cv.vehicle_status.vehicle_status %></td>
           </tr>
         <% end %>
       </tbody>
