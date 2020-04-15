@@ -45,7 +45,7 @@
                 <% @employees.each do |employee| %>
                 <tr>
                     <td class="text-left"><%= link_to employee.emp_first_and_last_no_id, employee, :style=> 'color:darkturquoise;' %></td>
-                    <td><%= employee.phone_number %></td>
+                    <td><%= number_to_phone(employee.phone_number) %></td>
                     <td class="text-left"><%= employee.email_emp %></td>
                     <td class="text-left"><%= employee.emp_address %></td>
                     <td class="text-left"><%= employee.city %></td>
